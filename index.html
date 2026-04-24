@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#0A0A0F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MND">
+<title>Método Negocio con Dirección</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+--bg:#0A0A0F;--bg2:#12121A;--bg3:#1A1A26;--card:#1E1E2E;
+--accent:#C8F24B;--accent2:#8B5CF6;--accent3:#F59E0B;
+--text:#F0F0FF;--text2:#9090B0;--border:#2A2A3E;
+--r:16px;--r2:12px;--wa:#25D366;
+}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+h1,h2,h3,.syne{font-family:'Syne',sans-serif}
+
+.app{display:flex;flex-direction:column;min-height:100vh;max-width:440px;margin:0 auto;position:relative}
+.screen{display:none;flex-direction:column;flex:1;padding:24px 20px;animation:fadeUp .35s ease}
+.screen.active{display:flex}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 0;background:var(--bg);z-index:10}
+.logo{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--accent)}
+.logo-sub{font-family:'Syne',sans-serif;font-size:10px;color:var(--text2);display:none}
+.nav-dots{display:flex;gap:6px}
+.ndot{width:8px;height:8px;border-radius:50%;background:var(--border);transition:.3s}
+.ndot.active{background:var(--accent);width:22px;border-radius:4px}
+
+/* ONBOARDING */
+.hero-tag{display:inline-block;background:rgba(200,242,75,.12);color:var(--accent);font-size:11px;font-weight:600;letter-spacing:.1em;padding:6px 14px;border-radius:20px;margin-bottom:20px;border:1px solid rgba(200,242,75,.2)}
+.hero-title{font-size:30px;font-weight:800;line-height:1.1;margin-bottom:12px}
+.hero-title span{color:var(--accent)}
+.hero-sub{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:28px}
+.btn-main{background:var(--accent);color:#0A0A0F;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:16px 28px;border-radius:var(--r);border:none;cursor:pointer;width:100%;transition:.2s;letter-spacing:.02em}
+.btn-main:active{transform:scale(.98)}
+.btn-ghost{background:transparent;color:var(--text2);font-family:'DM Sans',sans-serif;font-size:14px;padding:14px;border:1px solid var(--border);border-radius:var(--r);cursor:pointer;width:100%;margin-top:10px;transition:.2s}
+.btn-ghost:active{background:var(--card)}
+.btn-wa{background:var(--wa);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:16px 28px;border-radius:var(--r);border:none;cursor:pointer;width:100%;transition:.2s;display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-wa:active{transform:scale(.98)}
+.wa-icon{width:22px;height:22px;flex-shrink:0}
+
+.hero-visual{position:relative;height:170px;margin-bottom:24px}
+.float-card{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:12px 16px;font-size:12px}
+.fc1{top:10px;left:0;width:155px;border-color:rgba(200,242,75,.3)}
+.fc2{top:45px;right:0;width:145px}
+.fc3{bottom:0;left:25px;width:165px}
+.fc-label{font-size:10px;color:var(--text2);margin-bottom:4px;text-transform:uppercase;letter-spacing:.08em}
+.fc-val{font-family:'Syne',sans-serif;font-weight:700;font-size:16px;color:var(--accent)}
+.fc-bar{height:4px;background:var(--border);border-radius:2px;margin-top:8px;overflow:hidden}
+.fc-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
+
+/* QUIZ */
+.prog-wrap{margin-bottom:22px}
+.prog-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:12px;color:var(--text2)}
+.prog-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s ease}
+.q-label{font-size:11px;color:var(--accent);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.q-text{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;line-height:1.3;margin-bottom:22px}
+.options-list{display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.opt{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;cursor:pointer;transition:.2s;font-size:14px;display:flex;align-items:center;gap:12px}
+.opt:active{transform:scale(.99)}
+.opt.selected{border-color:var(--accent);background:rgba(200,242,75,.08);color:var(--accent)}
+.opt-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;transition:.2s;display:flex;align-items:center;justify-content:center}
+.opt.selected .opt-dot{border-color:var(--accent);background:var(--accent)}
+.opt.selected .opt-dot::after{content:'';width:6px;height:6px;border-radius:50%;background:#0A0A0F}
+.score-badge{font-size:10px;margin-left:auto;background:var(--bg3);color:var(--text2);padding:3px 8px;border-radius:8px;flex-shrink:0}
+
+/* RESULTADO */
+.result-ring{width:140px;height:140px;margin:0 auto 20px;position:relative}
+.ring-svg{width:140px;height:140px;transform:rotate(-90deg)}
+.ring-track{fill:none;stroke:var(--border);stroke-width:8}
+.ring-prog{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.2s ease}
+.ring-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.ring-score{font-family:'Syne',sans-serif;font-size:28px;font-weight:800}
+.ring-max{font-size:11px;color:var(--text2)}
+.nivel-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:20px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin:0 auto 14px;letter-spacing:.05em}
+.nivel-1{background:rgba(239,68,68,.15);color:#FCA5A5;border:1px solid rgba(239,68,68,.3)}
+.nivel-2{background:rgba(245,158,11,.15);color:#FCD34D;border:1px solid rgba(245,158,11,.3)}
+.nivel-3{background:rgba(200,242,75,.15);color:var(--accent);border:1px solid rgba(200,242,75,.3)}
+.diag-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;text-align:center;margin-bottom:10px;line-height:1.2}
+.diag-msg{font-size:13px;color:var(--text2);line-height:1.7;text-align:center;margin-bottom:20px;background:var(--card);padding:16px;border-radius:var(--r2);border:1px solid var(--border)}
+.cuellos-title{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.cuello-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--card);border-radius:10px;margin-bottom:8px;font-size:13px;border-left:3px solid var(--accent3)}
+
+/* CICLOS */
+.ciclo-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px;margin-bottom:14px;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
+.ciclo-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--accent);opacity:0;transition:.2s}
+.ciclo-card.unlocked::before{opacity:1}
+.ciclo-card.locked{opacity:.45;cursor:not-allowed}
+.ciclo-card:active:not(.locked){transform:scale(.99)}
+.ciclo-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.ciclo-num{width:36px;height:36px;border-radius:10px;background:rgba(200,242,75,.1);border:1px solid rgba(200,242,75,.2);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;color:var(--accent);flex-shrink:0}
+.ciclo-locked-icon{width:36px;height:36px;border-radius:10px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ciclo-name{font-family:'Syne',sans-serif;font-weight:700;font-size:15px}
+.ciclo-sub{font-size:12px;color:var(--text2);margin-top:2px}
+.ciclo-progress-bar{height:3px;background:var(--border);border-radius:2px;margin-top:12px;overflow:hidden}
+.ciclo-progress-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s}
+.ciclo-tag{position:absolute;top:14px;right:14px;font-size:10px;padding:4px 10px;border-radius:8px;font-weight:600}
+.tag-done{background:rgba(200,242,75,.15);color:var(--accent)}
+.tag-active{background:rgba(139,92,246,.15);color:#C4B5FD}
+.tag-lock{background:var(--bg3);color:var(--text2)}
+
+/* TAREAS */
+.task-item{display:flex;align-items:flex-start;gap:14px;padding:14px;background:var(--card);border-radius:var(--r2);margin-bottom:10px;border:1px solid var(--border);transition:.2s;cursor:pointer}
+.task-item:active{transform:scale(.99)}
+.task-item.done{opacity:.6}
+.task-check{width:24px;height:24px;border-radius:8px;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;transition:.2s}
+.task-item.done .task-check{background:var(--accent);border-color:var(--accent)}
+.task-check-mark{color:#0A0A0F;font-size:12px;font-weight:700;display:none}
+.task-item.done .task-check-mark{display:block}
+.task-name{font-size:14px;font-weight:500;margin-bottom:3px;line-height:1.3}
+.task-item.done .task-name{text-decoration:line-through;color:var(--text2)}
+.task-desc{font-size:12px;color:var(--text2);line-height:1.5}
+.task-pts{font-size:11px;color:var(--accent);font-weight:600;margin-top:4px}
+
+/* DIPLOMA */
+.diploma-wrap{background:var(--bg2);border:2px solid rgba(200,242,75,.3);border-radius:var(--r);padding:28px 22px;text-align:center;position:relative;overflow:hidden;margin-bottom:14px}
+.diploma-glow{position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(200,242,75,.08),transparent 70%)}
+.diploma-icon{font-size:40px;margin-bottom:10px}
+.diploma-label{font-size:10px;letter-spacing:.15em;color:var(--text2);text-transform:uppercase;margin-bottom:6px}
+.diploma-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:6px;line-height:1.2}
+.diploma-name{font-size:15px;color:var(--accent);font-weight:500;margin-bottom:10px}
+.diploma-divider{width:60px;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));margin:10px auto;border-radius:1px}
+.diploma-meta{font-size:11px;color:var(--text2);line-height:1.8}
+.diploma-seal{display:inline-block;background:rgba(200,242,75,.1);border:1px solid rgba(200,242,75,.3);border-radius:var(--r2);padding:8px 16px;font-size:11px;color:var(--accent);font-weight:600;margin-top:10px;letter-spacing:.05em}
+.diploma-locked{background:var(--card);border:1px dashed var(--border);border-radius:var(--r);padding:24px;text-align:center;margin-bottom:12px;opacity:.4}
+
+/* BOTTOM NAV */
+.bottom-nav{display:flex;background:var(--bg2);border-top:1px solid var(--border);padding:8px 0 env(safe-area-inset-bottom,4px);position:sticky;bottom:0;z-index:10}
+.bn-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;cursor:pointer;transition:.2s;border-radius:var(--r2);margin:0 3px}
+.bn-item:active{background:var(--card)}
+.bn-item.active .bn-icon,.bn-item.active .bn-lbl{color:var(--accent)}
+.bn-icon{font-size:19px;line-height:1;color:var(--text2)}
+.bn-lbl{font-size:10px;color:var(--text2);font-weight:500}
+
+/* MISC */
+.section-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.big-greeting{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin-bottom:18px;line-height:1.2}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:14px}
+.stat-num{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--accent)}
+.stat-label{font-size:11px;color:var(--text2);margin-top:2px}
+.input-field{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;width:100%;outline:none;margin-bottom:12px;transition:.2s}
+.input-field:focus{border-color:var(--accent)}
+.input-field::placeholder{color:var(--text2)}
+.scroll-body{flex:1;overflow-y:auto;padding-bottom:8px}
+.scroll-body::-webkit-scrollbar{width:0}
+.back-btn{background:var(--card);border:1px solid var(--border);border-radius:10px;width:36px;height:36px;color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--accent);color:#0A0A0F;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;padding:12px 22px;border-radius:20px;z-index:200;opacity:0;transition:.4s;pointer-events:none;white-space:nowrap;max-width:90vw}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+.plan-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.plan-n{font-family:'Syne',sans-serif;font-weight:800;color:var(--accent);font-size:11px;min-width:22px}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="topbar">
+  <div class="logo">MND</div>
+  <div style="font-family:'Syne',sans-serif;font-size:10px;color:var(--text2);text-align:center;line-height:1.3">Método<br>Negocio con Dirección</div>
+  <div class="nav-dots">
+    <div class="ndot active" id="nd0"></div>
+    <div class="ndot" id="nd1"></div>
+    <div class="ndot" id="nd2"></div>
+    <div class="ndot" id="nd3"></div>
+  </div>
+</div>
+
+<!-- PANTALLA 0: BIENVENIDA -->
+<div class="screen active" id="s-onboard" style="padding-top:16px">
+  <div class="hero-visual">
+    <div class="float-card fc1">
+      <div class="fc-label">Tu nivel actual</div>
+      <div class="fc-val">— / 100</div>
+      <div class="fc-bar"><div class="fc-fill" style="width:0%"></div></div>
+    </div>
+    <div class="float-card fc2">
+      <div class="fc-label">Ciclo activo</div>
+      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--text)">Diagnóstico</div>
+      <div style="font-size:10px;color:var(--text2);margin-top:4px">4 semanas</div>
+    </div>
+    <div class="float-card fc3">
+      <div class="fc-label">Diplomas</div>
+      <div style="display:flex;gap:6px;margin-top:6px">
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:14px">🏅</div>
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:14px">🔒</div>
+        <div style="width:28px;height:28px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:14px">🔒</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-tag">PALACIOS &amp; LOURIDO</div>
+  <h1 class="hero-title">Tu negocio<br>con <span>dirección</span><br>real</h1>
+  <p class="hero-sub">Diagnóstico inteligente · Ruta personalizada · Acompañamiento real. Avanzas por construir, no por asistir.</p>
+  <label style="font-size:12px;color:var(--text2);margin-bottom:6px;display:block">Tu nombre</label>
+  <input class="input-field" id="inp-name" placeholder="¿Cómo te llamas?" />
+  <label style="font-size:12px;color:var(--text2);margin-bottom:6px;display:block">Tu negocio o idea</label>
+  <input class="input-field" id="inp-biz" placeholder="¿Qué negocio tienes o quieres crear?" />
+  <button class="btn-main" onclick="startApp()">Iniciar mi diagnóstico →</button>
+</div>
+
+<!-- PANTALLA 1: PREGUNTAS -->
+<div class="screen" id="s-quiz" style="padding-top:16px">
+  <div class="prog-wrap">
+    <div class="prog-top">
+      <span id="q-counter">Pregunta 1 de 8</span>
+      <span id="q-pts-live" style="color:var(--accent);font-weight:600">0 pts</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:12.5%"></div></div>
+  </div>
+  <div class="scroll-body">
+    <div class="q-label" id="q-cat">Estado actual</div>
+    <div class="q-text" id="q-text"></div>
+    <div class="options-list" id="q-opts"></div>
+    <button class="btn-main" id="btn-next" onclick="nextQ()" style="display:none">Continuar →</button>
+  </div>
+</div>
+
+<!-- PANTALLA 2: RESULTADO DIAGNÓSTICO -->
+<div class="screen" id="s-result">
+  <div class="scroll-body">
+    <div style="text-align:center;padding:6px 0 14px">
+      <div style="font-size:11px;color:var(--text2);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Tu diagnóstico</div>
+      <div class="result-ring">
+        <svg class="ring-svg" viewBox="0 0 140 140">
+          <circle class="ring-track" cx="70" cy="70" r="58"/>
+          <circle class="ring-prog" id="ring-c" cx="70" cy="70" r="58" stroke="#C8F24B" stroke-dasharray="364" stroke-dashoffset="364"/>
+        </svg>
+        <div class="ring-label">
+          <div class="ring-score" id="res-score">0</div>
+          <div class="ring-max">/ 100</div>
+        </div>
+      </div>
+      <div class="nivel-badge" id="nivel-badge">—</div>
+      <div class="diag-title" id="res-title">—</div>
+      <div class="diag-msg" id="res-msg">—</div>
+    </div>
+    <div style="margin-bottom:18px">
+      <div class="cuellos-title">Cuellos de botella detectados</div>
+      <div id="cuellos-list"></div>
+    </div>
+    <div style="background:var(--card);border:1px solid rgba(200,242,75,.2);border-radius:var(--r);padding:16px;margin-bottom:18px">
+      <div style="font-size:11px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px">Tu plan de acción</div>
+      <div id="plan-list"></div>
+    </div>
+    <!-- BOTÓN WHATSAPP -->
+    <button class="btn-wa" id="btn-wa-result" onclick="abrirWhatsApp('result')">
+      <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Hablar con mi asesora
+    </button>
+    <button class="btn-main" onclick="showScreen('s-ciclos');setNav(1)" style="margin-top:10px">Ver mis ciclos →</button>
+    <div style="height:12px"></div>
+  </div>
+</div>
+
+<!-- PANTALLA 3: CICLOS -->
+<div class="screen" id="s-ciclos">
+  <div class="scroll-body">
+    <div style="font-size:13px;color:var(--text2);margin-bottom:4px" id="greet-name">Hola,</div>
+    <div class="big-greeting" id="greet-biz">Tu ruta de negocio</div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num" id="st-score">—</div>
+        <div class="stat-label">Puntuación diagnóstico</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" id="st-tasks">0/0</div>
+        <div class="stat-label">Tareas completadas</div>
+      </div>
+    </div>
+    <div class="section-title">Tus ciclos</div>
+    <div id="ciclos-list"></div>
+    <!-- BOTÓN WHATSAPP EN CICLOS -->
+    <div style="margin-top:8px;margin-bottom:4px">
+      <button class="btn-wa" onclick="abrirWhatsApp('ciclos')">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Sesión de mentoría con asesora
+      </button>
+    </div>
+    <div style="height:8px"></div>
+  </div>
+</div>
+
+<!-- PANTALLA 4: TAREAS DEL CICLO -->
+<div class="screen" id="s-tasks" style="padding-top:16px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <button class="back-btn" onclick="showScreen('s-ciclos');setNav(1)">‹</button>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700" id="task-title">Ciclo 1</div>
+      <div style="font-size:12px;color:var(--text2)" id="task-sub">Diagnóstico estratégico</div>
+    </div>
+  </div>
+  <div class="scroll-body" id="tasks-body"></div>
+</div>
+
+<!-- PANTALLA 5: DIPLOMAS -->
+<div class="screen" id="s-diplomas">
+  <div class="scroll-body">
+    <div class="big-greeting">Mis diplomas</div>
+    <div id="diplomas-list"></div>
+    <div style="height:8px"></div>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav" id="bottom-nav" style="display:none">
+  <div class="bn-item active" id="bn0" onclick="showScreen('s-ciclos');setNav(0)">
+    <div class="bn-icon">⬡</div><div class="bn-lbl">Inicio</div>
+  </div>
+  <div class="bn-item" id="bn1" onclick="showScreen('s-ciclos');setNav(1)">
+    <div class="bn-icon">◈</div><div class="bn-lbl">Ciclos</div>
+  </div>
+  <div class="bn-item" id="bn2" onclick="showScreen('s-diplomas');setNav(2)">
+    <div class="bn-icon">✦</div><div class="bn-lbl">Diplomas</div>
+  </div>
+  <div class="bn-item" id="bn3" onclick="showScreen('s-result');setNav(3)">
+    <div class="bn-icon">◎</div><div class="bn-lbl">Diagnóstico</div>
+  </div>
+</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const WA_NUMBER = "573113053231";
+
+const PREGUNTAS = [
+  {cat:"Estado actual",txt:"¿En qué etapa se encuentra tu negocio hoy?",opts:[
+    {t:"Ya opero y vendo constantemente",v:3},{t:"Tengo el negocio pero no vendo bien",v:2},{t:"Solo tengo la idea en la cabeza",v:1}]},
+  {cat:"Ingresos",txt:"¿Tu negocio genera ingresos constantes?",opts:[
+    {t:"Sí, recibo dinero de forma constante",v:3},{t:"Mis ingresos son muy inestables",v:2},{t:"Aún no genero ingresos",v:1}]},
+  {cat:"Claridad de oferta",txt:"¿Qué tanta claridad tienes sobre tu modelo de negocio?",opts:[
+    {t:"Tengo total claridad de qué vendo y a quién",v:3},{t:"Tengo algunas dudas sobre mi oferta",v:2},{t:"No tengo rumbo definido",v:1}]},
+  {cat:"Cliente ideal",txt:"¿Tienes identificado y validado a tu cliente ideal?",opts:[
+    {t:"Lo tengo clarísimo y validado",v:3},{t:"Sé quién es pero no sé cómo hablarle",v:2},{t:"No tengo idea de quién es mi cliente",v:1}]},
+  {cat:"Estructura",txt:"¿Cuentas con procesos definidos en tu negocio?",opts:[
+    {t:"Sí, tengo procesos y estructura clara",v:3},{t:"Estoy construyendo mis procesos",v:2},{t:"Actúo por intuición, sin estructura",v:1}]},
+  {cat:"Canal de venta",txt:"¿Cómo llegan tus clientes hoy?",opts:[
+    {t:"Tengo una estrategia de venta definida",v:3},{t:"Llegan solo por referidos o casualidad",v:2},{t:"Honestamente no lo sé",v:1}]},
+  {cat:"Bloqueos",txt:"¿Cuál es tu mayor freno para crecer hoy?",opts:[
+    {t:"Freno mental: miedo, dudas o inseguridad",v:1},{t:"Freno técnico: no sé las herramientas",v:2},{t:"Freno económico: falta de capital",v:2}]},
+  {cat:"Escala",txt:"¿Cuántos clientes reales has atendido en los últimos 3 meses?",opts:[
+    {t:"Muchos clientes activos",v:3},{t:"Algunos clientes esporádicos",v:2},{t:"Ningún cliente todavía",v:1}]}
+];
+
+const CICLOS = [
+  {id:0,num:"01",name:"Diagnóstico y claridad estratégica",sub:"\"Te ayudo a dejar de estar perdido\"",semanas:"4 semanas",
+   tasks:[
+    {n:"Llenar diagnóstico completo",d:"Responde todas las preguntas del diagnóstico inicial con total honestidad",p:15},
+    {n:"Identificar tus 3 errores actuales",d:"Escribe los 3 principales errores que estás cometiendo hoy en tu negocio",p:10},
+    {n:"Definir qué negocio tienes realmente",d:"Redacta en 2 líneas: qué problema resuelves y para quién específicamente",p:15},
+    {n:"Listar tus 5 prioridades clave",d:"Define las 5 acciones más importantes para ejecutar este mes",p:10},
+    {n:"Construir tu ruta de acción",d:"Documento con pasos concretos y fechas para los próximos 30 días",p:20}
+   ],
+   diploma:{icon:"🏅",title:"Diagnóstico Estratégico de Negocio",cond:"Diagnóstico completo + ruta definida"}},
+  {id:1,num:"02",name:"Ruta y estructura del negocio",sub:"\"Te ayudo a organizar tu negocio\"",semanas:"4 semanas",
+   tasks:[
+    {n:"Diseñar tu modelo de negocio",d:"Canvas simplificado: propuesta de valor, segmento, canales, ingresos",p:20},
+    {n:"Definir tu oferta concreta con precio",d:"Producto o servicio con precio definido y justificación de valor",p:20},
+    {n:"Perfilar tu cliente ideal validado",d:"Perfil real con dolores, deseos y objeciones — no idealizado",p:15},
+    {n:"Elegir tu canal de venta principal",d:"Un canal concreto para empezar a vender en los próximos 7 días",p:15},
+    {n:"Ejecutar 3 contactos comerciales reales",d:"Conversaciones reales con posibles clientes — registra resultados",p:25}
+   ],
+   diploma:{icon:"🎖",title:"Estructuración e Implementación de Negocio",cond:"Oferta + precio + canal + primeras ventas"}},
+  {id:2,num:"03",name:"Ejecución acompañada",sub:"\"Te acompaño a ponerlo en marcha\"",semanas:"4 semanas",
+   tasks:[
+    {n:"Resolver tu primer microbloqueo",d:"Identifica y supera el obstáculo concreto que te está frenando hoy",p:20},
+    {n:"Manejar tu primera objeción o rechazo",d:"Documenta cómo respondiste y qué aprendiste de esa conversación",p:15},
+    {n:"Documentar 3 aprendizajes de venta",d:"Qué funcionó, qué no funcionó y por qué — basado en hechos reales",p:15},
+    {n:"Validar tu oferta en el mercado real",d:"Evidencia concreta de aceptación o rechazo del mercado con datos",p:25}
+   ],
+   diploma:{icon:"🥇",title:"Ejecución y Validación Inicial",cond:"Movimiento real + primeras validaciones documentadas"}},
+  {id:3,num:"04",name:"Escalamiento inicial",sub:"\"Ordeno tu crecimiento\"",semanas:"4 semanas",
+   tasks:[
+    {n:"Sistematizar tu proceso de ventas",d:"Crea un proceso repetible para conseguir clientes sin depender del azar",p:25},
+    {n:"Organización financiera básica",d:"Tabla de ingresos, egresos, margen real y proyección a 3 meses",p:20},
+    {n:"Tomar 3 decisiones estratégicas con datos",d:"Decisiones basadas en números y evidencia, no en intuición",p:20},
+    {n:"Plan de crecimiento a 90 días",d:"Metas medibles, acciones concretas, fechas y responsables",p:20}
+   ],
+   diploma:{icon:"🏆",title:"Negocio en Operación y Escalamiento",cond:"Negocio funcionando con dirección y sistema claro"}}
+];
+
+let S = {name:"",biz:"",qIdx:0,answers:[],score:0,nivel:0,tasks:{},diplomas:[]};
+
+function startApp(){
+  S.name = (document.getElementById('inp-name').value.trim())||"Emprendedor";
+  S.biz = (document.getElementById('inp-biz').value.trim())||"Mi negocio";
+  showScreen('s-quiz');
+  setDots(1);
+  renderQ();
+}
+
+function renderQ(){
+  const q = PREGUNTAS[S.qIdx];
+  const pct = ((S.qIdx+1)/PREGUNTAS.length)*100;
+  document.getElementById('q-counter').textContent = `Pregunta ${S.qIdx+1} de ${PREGUNTAS.length}`;
+  document.getElementById('q-cat').textContent = q.cat;
+  document.getElementById('q-text').textContent = q.txt;
+  document.getElementById('prog-fill').style.width = pct+'%';
+  const pts = S.answers.reduce((a,b)=>a+(b||0),0)*4;
+  document.getElementById('q-pts-live').textContent = pts+' pts';
+  const ol = document.getElementById('q-opts');
+  ol.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const d=document.createElement('div');
+    d.className='opt'+(S.answers[S.qIdx]===o.v?' selected':'');
+    d.innerHTML=`<div class="opt-dot"></div><span>${o.t}</span><span class="score-badge">+${o.v*4}pts</span>`;
+    d.onclick=()=>selOpt(o.v,d);
+    ol.appendChild(d);
+  });
+  document.getElementById('btn-next').style.display = S.answers[S.qIdx]!==undefined?'block':'none';
+}
+
+function selOpt(v,el){
+  document.querySelectorAll('.opt').forEach(x=>x.classList.remove('selected'));
+  el.classList.add('selected');
+  S.answers[S.qIdx]=v;
+  document.getElementById('btn-next').style.display='block';
+}
+
+function nextQ(){
+  if(S.answers[S.qIdx]===undefined)return;
+  if(S.qIdx<PREGUNTAS.length-1){S.qIdx++;renderQ();}
+  else finishQuiz();
+}
+
+function finishQuiz(){
+  const total=S.answers.reduce((a,b)=>a+b,0);
+  const max=PREGUNTAS.length*3;
+  S.score=Math.round((total/max)*100);
+  S.nivel=S.score>=66?3:S.score>=40?2:1;
+  renderResult();
+  showScreen('s-result');
+  setDots(2);
+  document.getElementById('bottom-nav').style.display='flex';
+  setTimeout(animRing,300);
+}
+
+function animRing(){
+  const pct=S.score/100;
+  const circ=364;
+  const ring=document.getElementById('ring-c');
+  ring.style.strokeDashoffset=circ-(circ*pct);
+  ring.style.stroke=['','#EF4444','#F59E0B','#C8F24B'][S.nivel];
+  let cur=0;
+  const t=setInterval(()=>{cur+=2;if(cur>S.score)cur=S.score;document.getElementById('res-score').textContent=cur;if(cur===S.score)clearInterval(t);},18);
+}
+
+function renderResult(){
+  const labels=['','Nivel 1 — Desubicado','Nivel 2 — Desordenado','Nivel 3 — En marcha'];
+  const cls=['','nivel-1','nivel-2','nivel-3'];
+  const nb=document.getElementById('nivel-badge');
+  nb.className='nivel-badge '+cls[S.nivel];
+  nb.textContent=labels[S.nivel];
+  const titles=['','Tu negocio necesita base sólida','Tu negocio necesita estructura y orden','Tu negocio está listo para escalar'];
+  document.getElementById('res-title').textContent=titles[S.nivel];
+  const msgs={
+    1:"Tu negocio no tiene base clara. No es falta de capacidad — es falta de método. Antes de vender o crecer, necesitas construir la base correcta. Cuando se trabaja bien, todo empieza a fluir con sentido y dirección.",
+    2:"Ya tienes base y has avanzado más de lo que crees. Pero hay desorden en áreas clave que está frenando tus resultados. El enfoque no es empezar de cero: es organizar, estructurar y alinear para que tu negocio funcione como sistema.",
+    3:"Tu negocio ya está en marcha. Sin embargo, hay puntos que generan fricción y limitan tu crecimiento. Estás en el mejor punto para escalar, pero solo si estructuras ese crecimiento con estrategia real y datos."
+  };
+  document.getElementById('res-msg').textContent=msgs[S.nivel];
+  const cuellos={
+    1:["Sin propuesta de valor definida","Cliente objetivo no identificado","Sin validación de mercado","Sin estructura de negocio"],
+    2:["Falta de procesos documentados","Sin métricas ni indicadores","Improvisación operativa constante","Acciones desconectadas entre sí"],
+    3:["Ventas no sistematizadas","Alta dependencia operativa del dueño","Sin estrategia de crecimiento clara","Decisiones sin base en datos"]
+  };
+  const cl=document.getElementById('cuellos-list');cl.innerHTML='';
+  cuellos[S.nivel].forEach(c=>{
+    const d=document.createElement('div');d.className='cuello-item';
+    d.innerHTML=`<span style="color:var(--accent3);font-size:14px">⚠</span><span>${c}</span>`;
+    cl.appendChild(d);
+  });
+  const planes={
+    1:["Definir el problema real que resuelves","Construir tu propuesta de valor","Identificar tu cliente ideal","Validar el mercado antes de invertir","Diseñar tu modelo de negocio base"],
+    2:["Definir tu proceso de ventas paso a paso","Establecer KPIs básicos medibles","Organizar la operación diaria","Alinear estrategia con ejecución real","Medir resultados cada semana"],
+    3:["Analizar tus datos de venta actuales","Optimizar procesos que ya funcionan","Definir estrategia de crecimiento concreta","Escalar con control y métricas claras","Consolidar equipo o alianzas estratégicas"]
+  };
+  const pl=document.getElementById('plan-list');pl.innerHTML='';
+  planes[S.nivel].forEach((p,i)=>{
+    const d=document.createElement('div');d.className='plan-row';
+    d.innerHTML=`<span class="plan-n">${String(i+1).padStart(2,'0')}</span><span>${p}</span>`;
+    pl.appendChild(d);
+  });
+  document.getElementById('st-score').textContent=S.score+'/100';
+  document.getElementById('greet-name').textContent='Hola, '+S.name;
+  document.getElementById('greet-biz').textContent=S.biz;
+  renderCiclos();
+  renderDiplomas();
+  updateStats();
+}
+
+function renderCiclos(){
+  const cl=document.getElementById('ciclos-list');cl.innerHTML='';
+  CICLOS.forEach((c,i)=>{
+    const unlocked=i<=S.nivel;
+    const done=S.diplomas.includes(i);
+    const td=(S.tasks[i]||[]).filter(Boolean).length;
+    const tt=c.tasks.length;
+    const pct=Math.round((td/tt)*100);
+    const div=document.createElement('div');
+    div.className='ciclo-card'+(unlocked?' unlocked':' locked');
+    let tag=done?`<span class="ciclo-tag tag-done">Completado ✓</span>`:
+             unlocked?`<span class="ciclo-tag tag-active">Activo</span>`:
+             `<span class="ciclo-tag tag-lock">Bloqueado</span>`;
+    div.innerHTML=`${tag}
+      <div class="ciclo-header">
+        ${unlocked?`<div class="ciclo-num">${c.num}</div>`:`<div class="ciclo-locked-icon">🔒</div>`}
+        <div><div class="ciclo-name">${c.name}</div><div class="ciclo-sub">${c.sub}</div></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text2);margin-bottom:6px">
+        <span>${c.semanas}</span><span>${td}/${tt} tareas · ${pct}%</span>
+      </div>
+      <div class="ciclo-progress-bar"><div class="ciclo-progress-fill" style="width:${pct}%"></div></div>`;
+    if(unlocked)div.onclick=()=>openCiclo(i);
+    cl.appendChild(div);
+  });
+}
+
+function openCiclo(idx){
+  const c=CICLOS[idx];
+  document.getElementById('task-title').textContent='Ciclo '+(idx+1);
+  document.getElementById('task-sub').textContent=c.name;
+  if(!S.tasks[idx])S.tasks[idx]=new Array(c.tasks.length).fill(false);
+  renderTareas(idx);
+  showScreen('s-tasks');
+}
+
+function renderTareas(idx){
+  const c=CICLOS[idx];
+  const body=document.getElementById('tasks-body');body.innerHTML='';
+  const totalPts=c.tasks.reduce((a,t)=>a+t.p,0);
+  const earnedPts=c.tasks.reduce((a,t,i)=>a+(S.tasks[idx][i]?t.p:0),0);
+  const pct=Math.round((earnedPts/totalPts)*100);
+  body.innerHTML+=`<div style="background:var(--card);border-radius:var(--r2);padding:14px;margin-bottom:16px;border:1px solid var(--border)">
+    <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:12px">
+      <span style="color:var(--text2)">Progreso del ciclo</span>
+      <span style="color:var(--accent);font-weight:600">${pct}%</span>
+    </div>
+    <div style="height:4px;background:var(--border);border-radius:2px;overflow:hidden">
+      <div style="height:100%;width:${pct}%;background:var(--accent);border-radius:2px;transition:.5s"></div>
+    </div>
+    <div style="font-size:11px;color:var(--text2);margin-top:8px">${earnedPts} / ${totalPts} puntos acumulados</div>
+  </div>`;
+  c.tasks.forEach((t,i)=>{
+    const done=S.tasks[idx][i];
+    const div=document.createElement('div');
+    div.className='task-item'+(done?' done':'');
+    div.innerHTML=`<div class="task-check"><span class="task-check-mark">✓</span></div>
+      <div><div class="task-name">${t.n}</div><div class="task-desc">${t.d}</div><div class="task-pts">+${t.p} puntos</div></div>`;
+    div.onclick=()=>toggleTask(idx,i);
+    body.appendChild(div);
+  });
+  const allDone=S.tasks[idx]&&S.tasks[idx].every(Boolean);
+  if(allDone&&!S.diplomas.includes(idx)){
+    const btn=document.createElement('button');
+    btn.className='btn-main';btn.style.marginTop='16px';
+    btn.textContent='Recibir mi diploma 🏅';
+    btn.onclick=()=>claimDiploma(idx);
+    body.appendChild(btn);
+  }
+  // Botón WhatsApp en tareas
+  const bwa=document.createElement('button');
+  bwa.className='btn-wa';bwa.style.marginTop='14px';
+  bwa.innerHTML=`<svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Consultar tarea con asesora`;
+  bwa.onclick=()=>abrirWhatsApp('tarea',idx);
+  body.appendChild(bwa);
+  body.innerHTML+=`<div style="height:16px"></div>`;
+}
+
+function toggleTask(cidx,tidx){
+  if(!S.tasks[cidx])S.tasks[cidx]=new Array(CICLOS[cidx].tasks.length).fill(false);
+  S.tasks[cidx][tidx]=!S.tasks[cidx][tidx];
+  const pts=CICLOS[cidx].tasks[tidx].p;
+  if(S.tasks[cidx][tidx])showToast('+'+pts+' puntos desbloqueados!');
+  renderTareas(cidx);
+  renderCiclos();
+  updateStats();
+}
+
+function claimDiploma(idx){
+  if(!S.diplomas.includes(idx)){
+    S.diplomas.push(idx);
+    renderDiplomas();
+    renderCiclos();
+    showToast('Diploma obtenido! Revisa tu colección ✦');
+    setTimeout(()=>{showScreen('s-diplomas');setNav(2);},1400);
+  }
+}
+
+function renderDiplomas(){
+  const dl=document.getElementById('diplomas-list');dl.innerHTML='';
+  CICLOS.forEach((c,i)=>{
+    const earned=S.diplomas.includes(i);
+    const div=document.createElement('div');
+    if(earned){
+      const hoy=new Date().toLocaleDateString('es-CO',{year:'numeric',month:'long',day:'numeric'});
+      div.innerHTML=`<div class="diploma-wrap">
+        <div class="diploma-glow"></div>
+        <div class="diploma-icon">${c.diploma.icon}</div>
+        <div class="diploma-label">Palacios &amp; Lourido · Método Negocio con Dirección</div>
+        <div class="diploma-title">${c.diploma.title}</div>
+        <div class="diploma-name">${S.name}</div>
+        <div class="diploma-divider"></div>
+        <div class="diploma-meta">Negocio: ${S.biz}<br>Ciclo ${i+1} completado · ${hoy}<br>Todas las tareas ejecutadas y entregadas</div>
+        <div class="diploma-seal">Certificado de Implementación — NIT: En trámite</div>
+      </div>`;
+    } else {
+      div.innerHTML=`<div class="diploma-locked">
+        <div style="font-size:28px;margin-bottom:8px">🔒</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:var(--text2)">Ciclo ${i+1} — ${c.diploma.title}</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:6px">${c.diploma.cond}</div>
+      </div>`;
+    }
+    dl.appendChild(div);
+  });
+}
+
+function updateStats(){
+  let done=0,total=0;
+  CICLOS.forEach((c,i)=>{total+=c.tasks.length;done+=(S.tasks[i]||[]).filter(Boolean).length;});
+  document.getElementById('st-tasks').textContent=done+'/'+total;
+}
+
+function abrirWhatsApp(origen,cicloIdx){
+  const niveles=['','Nivel 1 – Desubicado','Nivel 2 – Desordenado','Nivel 3 – En marcha'];
+  let msg='';
+  if(origen==='result'){
+    msg=`Hola, acabo de completar mi diagnóstico en Método Negocio con Dirección.\n\nMi nombre es: ${S.name}\nMi negocio: ${S.biz}\nResultado: ${niveles[S.nivel]} (${S.score}/100)\n\n¿Cuándo podemos tener nuestra primera sesión de mentoría?`;
+  } else if(origen==='ciclos'){
+    const td=Object.values(S.tasks).flat().filter(Boolean).length;
+    msg=`Hola, soy ${S.name} y quiero agendar mi sesión de mentoría.\n\nNegocio: ${S.biz}\nNivel: ${niveles[S.nivel] || 'Pendiente diagnóstico'}\nTareas completadas: ${td}\n\n¿Cuándo tienes disponibilidad?`;
+  } else if(origen==='tarea'&&cicloIdx!==undefined){
+    const c=CICLOS[cicloIdx];
+    const td=(S.tasks[cicloIdx]||[]).filter(Boolean).length;
+    msg=`Hola, soy ${S.name}. Tengo una consulta sobre el ${c.name}.\n\nNegocio: ${S.biz}\nTareas completadas en este ciclo: ${td}/${c.tasks.length}\n\n¿Me puedes ayudar con una tarea de este ciclo?`;
+  }
+  const url='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
+  window.open(url,'_blank');
+}
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function setNav(i){
+  document.querySelectorAll('.bn-item').forEach(b=>b.classList.remove('active'));
+  document.getElementById('bn'+i)&&document.getElementById('bn'+i).classList.add('active');
+}
+function setDots(i){
+  document.querySelectorAll('.ndot').forEach((d,j)=>d.classList.toggle('active',j===i));
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2600);
+}
+</script>
+</body>
+</html>
