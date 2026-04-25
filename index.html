@@ -189,6 +189,17 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .info-box{background:#F3EAF9;border:1px solid rgba(123,63,160,.15);border-radius:var(--r2);padding:12px 14px;font-size:12px;color:#5A2D80;line-height:1.65;margin-top:10px}
 .info-box strong{color:var(--accent)}
 
+
+.adm-filter{background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:var(--text2);cursor:pointer;white-space:nowrap;transition:.2s}
+.adm-filter.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.usuario-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:14px;margin-bottom:10px;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
+.usuario-card:active{transform:scale(.99)}
+.usuario-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.usuario-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;flex-shrink:0}
+.usuario-meta{font-size:10px;color:var(--text2);line-height:1.6}
+.usuario-prog{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:8px}
+.usuario-prog-fill{height:100%;border-radius:2px;background:var(--accent);transition:width .5s}
+
 /* TOAST */
 .toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;padding:10px 20px;border-radius:20px;z-index:300;opacity:0;transition:.35s;pointer-events:none;white-space:nowrap;max-width:88vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -202,6 +213,8 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .modal-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:4px}
 .modal-sub{font-size:12px;color:var(--text2);margin-bottom:16px}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
@@ -502,6 +515,54 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
   <div class="bn" id="bn2" onclick="goTo('s-diplomas',2)"><div class="bn-ic">✦</div><div class="bn-lb">Diplomas</div></div>
   <div class="bn" id="bn3" onclick="goTo('s-mentoria',3)"><div class="bn-ic">💬</div><div class="bn-lb">Mentoría</div></div>
   <div class="bn" id="bn4" onclick="goTo('s-result1',4)"><div class="bn-ic">◎</div><div class="bn-lb">Diagnóstico</div></div>
+  <div class="bn" id="bn5" onclick="abrirAdmin()"><div class="bn-ic">⚙</div><div class="bn-lb">Admin</div></div>
+
+<!-- PANTALLA ADMIN: PANEL DE USUARIOS -->
+<div class="screen" id="s-admin" style="padding-top:14px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <button class="back-btn" onclick="goTo('s-ciclos',0)">‹</button>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800">Panel de Administración</div>
+      <div style="font-size:11px;color:var(--text2)">Datos de todos tus emprendedores</div>
+    </div>
+    <button onclick="cargarUsuarios()" style="margin-left:auto;background:var(--accent-lt);border:1px solid rgba(123,63,160,.2);border-radius:var(--r2);padding:7px 14px;font-size:12px;color:var(--accent);font-weight:600;cursor:pointer">↻ Actualizar</button>
+  </div>
+
+  <!-- STATS GENERALES -->
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:18px" id="admin-stats">
+    <div class="stat-box"><div class="stat-num" id="adm-total">—</div><div class="stat-lbl">Usuarios totales</div></div>
+    <div class="stat-box"><div class="stat-num" id="adm-hoy">—</div><div class="stat-lbl">Hoy</div></div>
+    <div class="stat-box"><div class="stat-num" id="adm-diplomas">—</div><div class="stat-lbl">Diplomas</div></div>
+  </div>
+
+  <!-- FILTROS -->
+  <div style="display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding-bottom:4px">
+    <button class="adm-filter on" data-f="todos" onclick="filtrarUsuarios('todos',this)">Todos</button>
+    <button class="adm-filter" data-f="0" onclick="filtrarUsuarios('0',this)">Nivel 0</button>
+    <button class="adm-filter" data-f="1" onclick="filtrarUsuarios('1',this)">Nivel 1</button>
+    <button class="adm-filter" data-f="2" onclick="filtrarUsuarios('2',this)">Nivel 2</button>
+    <button class="adm-filter" data-f="3" onclick="filtrarUsuarios('3',this)">Nivel 3</button>
+  </div>
+
+  <div class="scroll" id="admin-list">
+    <div style="text-align:center;padding:40px 20px;color:var(--text2);font-size:13px">
+      Cargando usuarios...
+    </div>
+  </div>
+</div>
+
+<!-- PANTALLA ADMIN: DETALLE USUARIO -->
+<div class="screen" id="s-admin-detalle" style="padding-top:14px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <button class="back-btn" onclick="go('s-admin')">‹</button>
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800" id="det-nombre">—</div>
+      <div style="font-size:11px;color:var(--text2)" id="det-negocio">—</div>
+    </div>
+  </div>
+  <div class="scroll" id="detalle-body"></div>
+</div>
+
 </div>
 
 <div class="toast" id="toast"></div>
@@ -732,6 +793,7 @@ function finishQ1(){
   const nivelPorScore = S.score1>=75?3:S.score1>=50?2:S.score1>=25?1:0;
   S.nivelFinal = S.nivelInicial!==null ? Math.round((S.nivelInicial+nivelPorScore)/2) : nivelPorScore;
   marcarDiagnosticoRealizado();
+  guardarEnFirebase('Diagnóstico inicial completado');
   notificarEmail('Diagnóstico inicial completado', {
     nombre: S.name, negocio: S.biz,
     detalle: 'Puntuación: ' + S.score1 + '/100 · ' + NIVELES_LABEL[S.nivelFinal]
@@ -1014,6 +1076,7 @@ function confirmarEvidencia(){
   const pts=CICLOS_POR_NIVEL[S.nivelFinal][modalCiclo].tasks[modalTask].p;
   const tname=CICLOS_POR_NIVEL[S.nivelFinal][modalCiclo].tasks[modalTask].n;
   const cname=CICLOS_POR_NIVEL[S.nivelFinal][modalCiclo].name;
+  actualizarEnFirebase('Tarea completada: ' + tname);
   notificarEmail('Tarea completada con evidencia', {
     detalle: 'Ciclo: ' + cname + ' · Tarea: ' + tname + ' · Evidencia: ' + nota
   });
@@ -1145,6 +1208,197 @@ function adminTap(){
     document.getElementById('already-done-banner').style.display='none';
     toast('🔓 Modo admin: diagnóstico desbloqueado');
   }
+}
+
+
+// ==========================================
+// FIREBASE CONFIGURATION
+// ==========================================
+const firebaseConfig = {
+  apiKey: "AIzaSyCmBm0dDyKKzq-a5X4iMA489biXqUu4YGU",
+  authDomain: "metodo-negocio-con-direccion.firebaseapp.com",
+  projectId: "metodo-negocio-con-direccion",
+  storageBucket: "metodo-negocio-con-direccion.firebasestorage.app",
+  messagingSenderId: "749150921266",
+  appId: "1:749150921266:web:4ca3ed43c04527b546d22b"
+};
+
+let db = null;
+try {
+  firebase.initializeApp(firebaseConfig);
+  db = firebase.firestore();
+  console.log('Firebase conectado ✓');
+} catch(e) { console.log('Firebase error:', e); }
+
+// ==========================================
+// GUARDAR USUARIO EN FIREBASE
+// ==========================================
+function guardarEnFirebase(evento){
+  if(!db) return;
+  try {
+    const docId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2,6);
+    const data = {
+      nombre: S.name,
+      negocio: S.biz,
+      nivel: S.nivelFinal,
+      nivelLabel: NIVELES_LABEL[S.nivelFinal] || '—',
+      score1: S.score1,
+      score2: S.score2 || 0,
+      nivelInicial: S.nivelInicial,
+      tareasCompletadas: Object.values(S.tasks).flat().filter(Boolean).length,
+      diplomasObtenidos: S.diplomas.length,
+      evento: evento,
+      fecha: firebase.firestore.FieldValue.serverTimestamp(),
+      fechaStr: new Date().toLocaleString('es-CO'),
+      dispositivo: navigator.userAgent.substring(0,80)
+    };
+    db.collection('usuarios').doc(docId).set(data);
+    console.log('Guardado en Firebase:', docId);
+  } catch(e){ console.log('Error guardando:', e); }
+}
+
+function actualizarEnFirebase(evento){
+  if(!db || !S.firebaseId) return;
+  try {
+    db.collection('usuarios').doc(S.firebaseId).update({
+      tareasCompletadas: Object.values(S.tasks).flat().filter(Boolean).length,
+      diplomasObtenidos: S.diplomas.length,
+      ultimaActividad: firebase.firestore.FieldValue.serverTimestamp(),
+      ultimaActividadStr: new Date().toLocaleString('es-CO'),
+      ultimoEvento: evento
+    });
+  } catch(e){ console.log('Error actualizando:', e); }
+}
+
+// ==========================================
+// PANEL DE ADMINISTRACIÓN
+// ==========================================
+const ADMIN_PASSWORD = 'MND2024admin';
+let todosLosUsuarios = [];
+
+function abrirAdmin(){
+  const pass = prompt('Contraseña de administración:');
+  if(pass !== ADMIN_PASSWORD){
+    toast('Contraseña incorrecta');
+    return;
+  }
+  go('s-admin');
+  cargarUsuarios();
+}
+
+async function cargarUsuarios(){
+  if(!db){ 
+    document.getElementById('admin-list').innerHTML = '<div style="text-align:center;padding:40px;color:var(--text2);font-size:13px">Firebase no conectado. Verifica la configuración.</div>';
+    return;
+  }
+  document.getElementById('admin-list').innerHTML = '<div style="text-align:center;padding:40px;color:var(--text2);font-size:13px">⏳ Cargando usuarios...</div>';
+  try {
+    const snap = await db.collection('usuarios').orderBy('fecha','desc').limit(200).get();
+    todosLosUsuarios = [];
+    snap.forEach(doc => todosLosUsuarios.push({id: doc.id, ...doc.data()}));
+    renderUsuarios(todosLosUsuarios);
+    actualizarStatsAdmin(todosLosUsuarios);
+  } catch(e){
+    document.getElementById('admin-list').innerHTML = '<div style="text-align:center;padding:40px;color:var(--red);font-size:13px">Error al cargar: ' + e.message + '</div>';
+  }
+}
+
+function actualizarStatsAdmin(usuarios){
+  document.getElementById('adm-total').textContent = usuarios.length;
+  const hoy = new Date().toLocaleDateString('es-CO');
+  const hoyCount = usuarios.filter(u => u.fechaStr && u.fechaStr.startsWith(hoy.split('/').reverse().join('/'))).length;
+  document.getElementById('adm-hoy').textContent = hoyCount;
+  const diplomas = usuarios.reduce((a,u) => a + (u.diplomasObtenidos||0), 0);
+  document.getElementById('adm-diplomas').textContent = diplomas;
+}
+
+function filtrarUsuarios(filtro, btn){
+  document.querySelectorAll('.adm-filter').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  if(filtro === 'todos'){
+    renderUsuarios(todosLosUsuarios);
+  } else {
+    renderUsuarios(todosLosUsuarios.filter(u => String(u.nivel) === filtro));
+  }
+}
+
+function renderUsuarios(lista){
+  const el = document.getElementById('admin-list');
+  if(lista.length === 0){
+    el.innerHTML = '<div style="text-align:center;padding:40px;color:var(--text2);font-size:13px">No hay usuarios en este filtro</div>';
+    return;
+  }
+  const colores = ['#7B3FA0','#C0392B','#B8860B','#27AE60'];
+  const emojis = ['💡','🧭','🔧','🚀'];
+  el.innerHTML = '';
+  lista.forEach(u => {
+    const n = u.nivel || 0;
+    const iniciales = (u.nombre||'?').split(' ').map(x=>x[0]).join('').substring(0,2).toUpperCase();
+    const pct = Math.round(((u.tareasCompletadas||0) / 10) * 100);
+    const div = document.createElement('div');
+    div.className = 'usuario-card';
+    div.innerHTML = `
+      <div class="usuario-header">
+        <div class="usuario-avatar" style="background:${colores[n]}20;color:${colores[n]}">${iniciales}</div>
+        <div style="flex:1">
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px">${u.nombre||'Sin nombre'}</div>
+          <div style="font-size:11px;color:var(--text2)">${u.negocio||'Sin negocio'}</div>
+        </div>
+        <div class="tag" style="background:${colores[n]}15;color:${colores[n]};border:1px solid ${colores[n]}30;font-size:9px">${emojis[n]} ${u.nivelLabel||'N'+n}</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:11px;color:var(--text2)">
+        <div>📊 <strong style="color:var(--text)">${u.score1||0}/100</strong><br>Diagnóstico</div>
+        <div>✅ <strong style="color:var(--text)">${u.tareasCompletadas||0}</strong><br>Tareas</div>
+        <div>🏅 <strong style="color:var(--text)">${u.diplomasObtenidos||0}</strong><br>Diplomas</div>
+      </div>
+      <div class="usuario-prog"><div class="usuario-prog-fill" style="width:${Math.min(pct,100)}%"></div></div>
+      <div style="font-size:10px;color:var(--text2);margin-top:5px">${u.fechaStr||'—'}</div>`;
+    div.onclick = () => verDetalleUsuario(u);
+    el.appendChild(div);
+  });
+  el.innerHTML += '<div style="height:16px"></div>';
+}
+
+function verDetalleUsuario(u){
+  document.getElementById('det-nombre').textContent = u.nombre || '—';
+  document.getElementById('det-negocio').textContent = u.negocio || '—';
+  const colores = ['#7B3FA0','#C0392B','#B8860B','#27AE60'];
+  const n = u.nivel || 0;
+  const body = document.getElementById('detalle-body');
+  body.innerHTML = `
+    <div class="card" style="margin-bottom:12px">
+      <div class="section-lbl">Resultado del diagnóstico</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="stat-box"><div class="stat-num" style="color:${colores[n]}">${u.score1||0}/100</div><div class="stat-lbl">Puntuación</div></div>
+        <div class="stat-box"><div class="stat-num" style="font-size:14px;color:${colores[n]}">${u.nivelLabel||'—'}</div><div class="stat-lbl">Nivel</div></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:12px">
+      <div class="section-lbl">Progreso en ciclos</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div class="stat-box"><div class="stat-num">${u.tareasCompletadas||0}</div><div class="stat-lbl">Tareas completadas</div></div>
+        <div class="stat-box"><div class="stat-num">${u.diplomasObtenidos||0}</div><div class="stat-lbl">Diplomas obtenidos</div></div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:12px">
+      <div class="section-lbl">Datos del registro</div>
+      <div style="font-size:12px;color:var(--text2);line-height:2">
+        📅 Fecha de ingreso: <strong style="color:var(--text)">${u.fechaStr||'—'}</strong><br>
+        📱 Último evento: <strong style="color:var(--text)">${u.ultimoEvento||u.evento||'—'}</strong><br>
+        🕐 Última actividad: <strong style="color:var(--text)">${u.ultimaActividadStr||'—'}</strong>
+      </div>
+    </div>
+    <button class="btn btn-wa" onclick="abrirWAusuario('${u.nombre}','${u.negocio}','${u.nivelLabel}')">
+      <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Contactar por WhatsApp
+    </button>
+    <div style="height:16px"></div>`;
+  go('s-admin-detalle');
+}
+
+function abrirWAusuario(nombre, negocio, nivel){
+  const msg = `Hola ${nombre}! Soy Angela de Método Negocio con Dirección. Revisé tu perfil en la plataforma y quería hacer seguimiento de tu avance en ${negocio}. ¿Cómo vas con tu ruta?`;
+  window.open('https://wa.me/573113053231?text=' + encodeURIComponent(msg), '_blank');
 }
 
 // ==========================================
