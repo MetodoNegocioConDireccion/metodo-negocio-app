@@ -1151,9 +1151,9 @@ function adminTap(){
 // DIAGNÓSTICO ÚNICO + CONSENTIMIENTO + EMAIL
 // ==========================================
 const STORAGE_KEY = 'mnd_diagnostico_realizado';
-const EMAILJS_SERVICE = 'service_mnd';
-const EMAILJS_TEMPLATE = 'template_mnd';
-const EMAILJS_PUBLIC = 'TU_EMAILJS_PUBLIC_KEY'; // reemplazar tras registro
+const EMAILJS_SERVICE = 'service_wwj4x6p';
+const EMAILJS_TEMPLATE = 'template_h200z46';
+const EMAILJS_PUBLIC = '4lPsy8oj23MSLCsPB'; // reemplazar tras registro
 
 // Habilitar botón cuando checkbox marcado
 document.getElementById('consent-btn').style.opacity = '0.5';
@@ -1190,7 +1190,7 @@ function abrirWAdirecto(){
 
 function notificarEmail(evento, datos){
   try {
-    emailjs.init(EMAILJS_PUBLIC);
+    emailjs.init({publicKey: EMAILJS_PUBLIC});
     emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
       to_email: 'contacto.palacioslourido@gmail.com',
       evento: evento,
