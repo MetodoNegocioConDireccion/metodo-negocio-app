@@ -13,12 +13,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
---bg:#0A0A0F;--bg2:#12121A;--bg3:#1A1A26;--card:#1E1E2E;
---accent:#C8F24B;--accent2:#8B5CF6;--accent3:#F59E0B;--red:#EF4444;
---text:#F0F0FF;--text2:#9090B0;--border:#2A2A3E;
+--bg:#F4F6F9;--bg2:#FFFFFF;--bg3:#EBF0F5;--card:#FFFFFF;
+--accent:#1A5C3A;--accent-lt:#E6F4EE;--accent2:#1E3A6E;--accent3:#B45309;
+--red:#B91C1C;--text:#111827;--text2:#6B7280;--border:#DDE3EA;--border2:#C4CBD6;
 --wa:#25D366;--r:16px;--r2:12px;
+--shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);
 }
-html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 .syne{font-family:'Syne',sans-serif}
 
 /* LAYOUT */
@@ -28,15 +29,15 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
 /* TOPBAR */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 0;background:var(--bg);position:sticky;top:0;z-index:20}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 0;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
 .logo{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--accent)}
 .topbar-right{display:flex;align-items:center;gap:10px}
-.notif-btn{width:32px;height:32px;border-radius:50%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px}
+.notif-btn{width:32px;height:32px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px}
 
 /* BUTTONS */
 .btn{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;padding:15px 20px;border-radius:var(--r);border:none;cursor:pointer;width:100%;transition:.15s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.02em}
 .btn:active{transform:scale(.98)}
-.btn-accent{background:var(--accent);color:#0A0A0F}
+.btn-accent{background:var(--accent);color:#fff}
 .btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border)}
 .btn-ghost:active{background:var(--card)}
 .btn-wa{background:var(--wa);color:#fff}
@@ -46,27 +47,27 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 
 /* INPUTS */
 .label{font-size:12px;color:var(--text2);margin-bottom:5px;display:block}
-.input{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:13px 15px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;width:100%;outline:none;transition:.2s;margin-bottom:10px}
+.input{background:var(--bg2);border:1.5px solid var(--border2);border-radius:var(--r2);padding:13px 15px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;width:100%;outline:none;transition:.2s;margin-bottom:10px;box-shadow:inset 0 1px 3px rgba(0,0,0,.04)}
 .input:focus{border-color:var(--accent)}
 .input::placeholder{color:var(--text2)}
 textarea.input{resize:none;min-height:80px;font-size:13px}
 
 /* TAGS */
 .tag{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.05em}
-.tag-n0{background:rgba(139,92,246,.15);color:#C4B5FD;border:1px solid rgba(139,92,246,.25)}
-.tag-n1{background:rgba(239,68,68,.15);color:#FCA5A5;border:1px solid rgba(239,68,68,.25)}
-.tag-n2{background:rgba(245,158,11,.15);color:#FCD34D;border:1px solid rgba(245,158,11,.25)}
-.tag-n3{background:rgba(200,242,75,.15);color:var(--accent);border:1px solid rgba(200,242,75,.25)}
-.tag-done{background:rgba(200,242,75,.12);color:var(--accent)}
-.tag-active{background:rgba(139,92,246,.12);color:#C4B5FD}
-.tag-lock{background:var(--bg3);color:var(--text2)}
+.tag-n0{background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,.2)}
+.tag-n1{background:#FEE2E2;color:#991B1B;border:1px solid rgba(153,27,27,.2)}
+.tag-n2{background:#FEF3C7;color:#92400E;border:1px solid rgba(146,64,14,.2)}
+.tag-n3{background:#D1FAE5;color:#065F46;border:1px solid rgba(6,95,70,.2)}
+.tag-done{background:#D1FAE5;color:#065F46;font-weight:600}
+.tag-active{background:#EDE9FE;color:#5B21B6;font-weight:600}
+.tag-lock{background:var(--bg3);color:var(--text2);font-weight:500}
 
 /* CARDS */
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px}
-.card-accent{background:var(--card);border:1px solid rgba(200,242,75,.2);border-radius:var(--r);padding:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;box-shadow:var(--shadow)}
+.card-accent{background:var(--accent-lt, #E6F4EE);border:1px solid rgba(26,92,58,.15);border-radius:var(--r);padding:16px}
 
 /* HERO */
-.hero-tag{display:inline-block;background:rgba(200,242,75,.1);color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:20px;margin-bottom:16px;border:1px solid rgba(200,242,75,.2)}
+.hero-tag{display:inline-block;background:var(--accent-lt, #E6F4EE);color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:20px;margin-bottom:16px;border:1px solid rgba(26,92,58,.2)}
 .hero-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1.1;margin-bottom:10px}
 .hero-title span{color:var(--accent)}
 .hero-sub{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:24px}
@@ -75,7 +76,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .nivel-selector{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
 .nivel-opt{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r2);padding:14px 12px;cursor:pointer;transition:.2s;text-align:center}
 .nivel-opt:active{transform:scale(.98)}
-.nivel-opt.selected{border-color:var(--accent);background:rgba(200,242,75,.05)}
+.nivel-opt.selected{border-color:var(--accent);background:var(--accent-lt,#E6F4EE)}
 .nivel-opt-icon{font-size:22px;margin-bottom:6px}
 .nivel-opt-name{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-bottom:2px}
 .nivel-opt-desc{font-size:10px;color:var(--text2);line-height:1.4}
@@ -115,7 +116,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .ciclo-card:active:not(.locked){transform:scale(.99)}
 .ciclo-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .ciclo-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:13px;flex-shrink:0}
-.ciclo-icon-on{background:rgba(200,242,75,.1);border:1px solid rgba(200,242,75,.2);color:var(--accent)}
+.ciclo-icon-on{background:var(--accent-lt,#E6F4EE);border:1px solid rgba(26,92,58,.2);color:var(--accent)}
 .ciclo-icon-off{background:var(--bg3);font-size:15px}
 .ciclo-name{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;line-height:1.2}
 .ciclo-sub{font-size:11px;color:var(--text2);margin-top:2px}
@@ -147,7 +148,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .file-input{display:none}
 
 /* DIPLOMA */
-.diploma-card{background:linear-gradient(135deg,#1A1A26,#12121A);border:1.5px solid rgba(200,242,75,.25);border-radius:var(--r);padding:24px 20px;text-align:center;position:relative;overflow:hidden;margin-bottom:12px}
+.diploma-card{background:linear-gradient(135deg,#F0F7F3,#E8F5EE);border:1.5px solid rgba(26,92,58,.2);border-radius:var(--r);padding:24px 20px;text-align:center;position:relative;overflow:hidden;margin-bottom:12px}
 .diploma-glow{position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(200,242,75,.1),transparent 70%)}
 .diploma-locked{background:var(--card);border:1px dashed var(--border);border-radius:var(--r);padding:20px;text-align:center;margin-bottom:10px;opacity:.4}
 
@@ -167,7 +168,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .stat-lbl{font-size:10px;color:var(--text2);margin-top:2px;line-height:1.4}
 
 /* BOTTOM NAV */
-.bnav{display:flex;background:var(--bg2);border-top:1px solid var(--border);padding:6px 0 env(safe-area-inset-bottom,4px);position:sticky;bottom:0;z-index:20}
+.bnav{display:flex;background:var(--bg2);border-top:1px solid var(--border);box-shadow:0 -2px 8px rgba(0,0,0,.06);padding:6px 0 env(safe-area-inset-bottom,4px);position:sticky;bottom:0;z-index:20}
 .bn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 2px;cursor:pointer;transition:.15s;border-radius:10px;margin:0 2px}
 .bn:active{background:var(--card)}
 .bn.on .bn-ic,.bn.on .bn-lb{color:var(--accent)}
@@ -181,29 +182,69 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .big-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;line-height:1.2;margin-bottom:4px}
 .back-btn{background:var(--card);border:1px solid var(--border);border-radius:9px;width:34px;height:34px;color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .divider{height:1px;background:var(--border);margin:12px 0}
-.cuello{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--card);border-radius:10px;margin-bottom:7px;font-size:12px;border-left:3px solid var(--accent3)}
+.cuello{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg3);border-radius:10px;margin-bottom:7px;font-size:12px;border-left:3px solid var(--accent3)}
 .plan-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px}
 .plan-n{font-family:'Syne',sans-serif;font-weight:800;color:var(--accent);font-size:10px;min-width:20px}
 .wa-svg{width:20px;height:20px;flex-shrink:0}
-.info-box{background:rgba(200,242,75,.05);border:1px solid rgba(200,242,75,.15);border-radius:var(--r2);padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.65;margin-top:10px}
-.info-box strong{color:var(--accent)}
+.info-box{background:#EBF5FF;border:1px solid rgba(30,58,110,.15);border-radius:var(--r2);padding:12px 14px;font-size:12px;color:#1E3A6E;line-height:1.65;margin-top:10px}
+.info-box strong{color:var(--accent2)}
 
 /* TOAST */
-.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--accent);color:#0A0A0F;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;padding:10px 20px;border-radius:20px;z-index:300;opacity:0;transition:.35s;pointer-events:none;white-space:nowrap;max-width:88vw;text-align:center}
+.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;padding:10px 20px;border-radius:20px;z-index:300;opacity:0;transition:.35s;pointer-events:none;white-space:nowrap;max-width:88vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* MODAL */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;display:none;align-items:flex-end}
 .modal-bg.open{display:flex}
-.modal{background:var(--bg2);border-radius:20px 20px 0 0;padding:20px 18px 32px;width:100%;max-width:440px;margin:0 auto;animation:slideUp .3s ease}
+.modal{background:var(--bg2);border-radius:20px 20px 0 0;padding:20px 18px 32px;width:100%;max-width:440px;margin:0 auto;animation:slideUp .3s ease;border-top:1px solid var(--border)}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .modal-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 16px}
 .modal-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;margin-bottom:4px}
 .modal-sub{font-size:12px;color:var(--text2);margin-bottom:16px}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-<div class="app">
+
+
+<!-- PANTALLA YA USADO -->
+<div id="used-screen" style="position:fixed;inset:0;background:var(--bg2);z-index:400;display:none;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;text-align:center">
+  <div style="font-size:48px;margin-bottom:16px">🔒</div>
+  <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:10px;color:var(--text)">Diagnóstico completado</div>
+  <div style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:28px;max-width:320px">Este diagnóstico ya fue realizado en este dispositivo. Cada persona puede hacer un solo diagnóstico por dispositivo.<br><br>Si crees que esto es un error, contacta a tu asesora.</div>
+  <button onclick="abrirWAdirecto()" style="background:var(--wa);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:15px 24px;border-radius:var(--r);border:none;cursor:pointer;width:100%;max-width:320px;display:flex;align-items:center;justify-content:center;gap:8px">
+    <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Contactar a mi asesora
+  </button>
+</div>
+
+<!-- PANTALLA CONSENTIMIENTO -->
+<div id="consent-screen" style="position:fixed;inset:0;background:var(--bg2);z-index:500;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0">
+  <div style="width:100%;max-width:440px;padding:28px 24px 40px;background:var(--bg2);border-radius:28px 28px 0 0;border-top:1px solid var(--border)">
+    <div style="width:40px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 20px"></div>
+    <div style="font-size:28px;text-align:center;margin-bottom:10px">🔐</div>
+    <div style="font-family:'Syne',sans-serif;font-size:19px;font-weight:800;text-align:center;margin-bottom:6px;color:var(--text)">Antes de comenzar</div>
+    <div style="font-size:13px;color:var(--text2);text-align:center;line-height:1.65;margin-bottom:20px">Para usar esta plataforma necesitamos tu autorización para tratar tus datos de acuerdo con la <strong style="color:var(--accent2)">Ley 1581 de 2012 (Habeas Data)</strong> de Colombia.</div>
+    <div style="background:var(--bg3);border-radius:var(--r2);padding:14px 16px;margin-bottom:20px;font-size:12px;color:var(--text2);line-height:1.7">
+      <strong style="color:var(--text);display:block;margin-bottom:6px">¿Qué datos recopilamos?</strong>
+      Tu nombre, nombre de tu negocio y las respuestas al diagnóstico.<br><br>
+      <strong style="color:var(--text);display:block;margin-bottom:6px">¿Para qué los usamos?</strong>
+      Exclusivamente para personalizar tu ruta de acompañamiento dentro de Método Negocio con Dirección.<br><br>
+      <strong style="color:var(--text);display:block;margin-bottom:6px">¿Los compartimos?</strong>
+      No. Tus datos son privados y no se comparten con terceros.<br><br>
+      Responsable: Palacios &amp; Lourido SAS · NIT: En trámite<br>
+      Contacto: contacto.palacioslourido@gmail.com
+    </div>
+    <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:20px">
+      <input type="checkbox" id="consent-check" style="width:20px;height:20px;accent-color:var(--accent);flex-shrink:0;margin-top:1px" onchange="document.getElementById('consent-btn').disabled=!this.checked">
+      <span style="font-size:13px;color:var(--text);line-height:1.6">Acepto el tratamiento de mis datos personales según las condiciones descritas anteriormente.</span>
+    </label>
+    <button id="consent-btn" disabled onclick="aceptarConsentimiento()" style="background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:15px;border-radius:var(--r);border:none;cursor:pointer;width:100%;transition:.2s;opacity:.5" onmouseover="" onfocus="">Aceptar y continuar →</button>
+    <div style="text-align:center;margin-top:12px;font-size:11px;color:var(--text2)">Palacios &amp; Lourido · Método Negocio con Dirección</div>
+  </div>
+</div>
+
+<div class="app" id="main-app" style="display:none">
 
 <!-- TOPBAR -->
 <div class="topbar">
@@ -427,9 +468,9 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 
     <div class="divider"></div>
     <div class="section-lbl">Horarios de atención</div>
-    <div class="horario-item"><div><div class="horario-dia">Lunes y Miércoles</div><div class="horario-tipo">Mentorías individuales</div></div><div class="horario-hora">9am – 12pm</div></div>
-    <div class="horario-item"><div><div class="horario-dia">Martes y Jueves</div><div class="horario-tipo">Mentorías individuales</div></div><div class="horario-hora">2pm – 5pm</div></div>
-    <div class="horario-item"><div><div class="horario-dia">Viernes</div><div class="horario-tipo">Chat de soporte</div></div><div class="horario-hora">9am – 1pm</div></div>
+    <div class="horario-item"><div><div class="horario-dia">Lunes y Miércoles</div><div class="horario-tipo">Mentorías individuales</div></div><div class="horario-hora">10am – 12pm</div></div>
+    <div class="horario-item"><div><div class="horario-dia">Martes y Jueves</div><div class="horario-tipo">Mentorías individuales</div></div><div class="horario-hora">3pm – 5pm</div></div>
+    <div class="horario-item"><div><div class="horario-dia">Viernes</div><div class="horario-tipo">Chat de soporte</div></div><div class="horario-hora">10am – 1pm</div></div>
     <div class="horario-item"><div><div class="horario-dia">Sábado</div><div class="horario-tipo">Solo urgencias</div></div><div class="horario-hora">10am – 12pm</div></div>
 
     <div class="info-box" style="margin-bottom:14px">
@@ -459,7 +500,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 <div class="toast" id="toast"></div>
 
 <!-- MODAL EVIDENCIA -->
-<div class="modal-bg" id="modal-ev" onclick="cerrarModal()">
+<div class="modal-bg" id="modal-bg" onclick="cerrarModal()">
   <div class="modal" onclick="e=>e.stopPropagation()">
     <div class="modal-handle"></div>
     <div class="modal-title" id="modal-title">Subir evidencia</div>
@@ -550,19 +591,28 @@ const CICLOS_POR_NIVEL = {
     {num:"01",name:"Validación e investigación",sub:"\"Confirma que tu idea tiene mercado\"",sem:"3 semanas",
      tasks:[
        {n:"Definir el problema real que resuelves",d:"Describe en máximo 3 líneas el problema concreto que resuelve tu idea. Debe ser un dolor real, no una suposición.",p:15,ev:true},
-       {n:"Entrevistar a 5 posibles clientes",d:"Habla con 5 personas que podrían ser tu cliente. Pregúntales sobre sus dolores, no sobre tu idea. Documenta las respuestas.",p:20,ev:true},
-       {n:"Validar la disposición de pago",d:"Pregunta a tus entrevistados si pagarían por una solución. Documenta cuánto estarían dispuestos a pagar.",p:15,ev:true},
+       {n:"Entrevistar a 5 posibles clientes",d:"Habla con 5 personas que podrían ser tu cliente. Pregúntales sobre sus dolores, no sobre tu idea. Documenta las respuestas con nombre y fecha.",p:20,ev:true},
+       {n:"Validar la disposición de pago",d:"Pregunta a tus entrevistados si pagarían por una solución. Documenta cuánto estarían dispuestos a pagar y por qué.",p:15,ev:true},
        {n:"Construir tu propuesta de valor",d:"Con lo que aprendiste de las entrevistas, construye tu propuesta: qué haces, para quién, qué problema resuelves y qué te diferencia.",p:20,ev:true},
        {n:"Crear tu Producto Mínimo Viable (PMV)",d:"La versión más simple de tu idea que puedas mostrar o probar. Puede ser una descripción, un prototipo básico o un servicio manual.",p:20,ev:true}
      ],diploma:{icon:"💡",title:"Validación de Idea",cond:"Entrevistas + PMV + propuesta de valor"}},
-    {num:"02",name:"Creación del negocio",sub:"\"Construye la base legal y operativa\"",sem:"3 semanas",
+    {num:"02",name:"Formalización y constitución empresarial",sub:"\"Constituye tu empresa legalmente en Colombia\"",sem:"3 semanas",info:"Este ciclo te guía paso a paso para constituir tu empresa como SAS en Colombia. Puedes hacerlo gratis o con costo mínimo.",
      tasks:[
-       {n:"Definir el nombre y marca de tu negocio",d:"Elige el nombre, verifica que no esté registrado y define cómo quieres que te conozcan.",p:10,ev:true},
+       {n:"Definir nombre y verificar disponibilidad",d:"Elige mínimo 3 opciones de nombre para tu empresa. Verifica que no estén registrados en la RUES (rues.confecamaras.co). El nombre no puede ser igual ni similar a uno existente.\n\n🔗 Verifica en: rues.confecamaras.co → Búsqueda de empresas",p:10,ev:true},
+       {n:"Redactar el Acta de Constitución SAS",d:"Documento que da vida legal a tu empresa. Debe incluir:\n• Nombre de la empresa\n• Domicilio (ciudad)\n• Objeto social (qué hace tu empresa)\n• Capital autorizado, suscrito y pagado\n• Nombre del representante legal (tú)\n• Duración (puede ser indefinida)\n\n💡 Tu asesora te entrega una plantilla lista para diligenciar con tus datos.",p:20,ev:true},
+       {n:"Registrar la empresa en Cámara de Comercio",d:"Lleva el Acta de Constitución a la Cámara de Comercio de tu ciudad o hazlo en línea.\n\n📋 Documentos que necesitas:\n• Acta de Constitución firmada\n• Fotocopia de tu cédula\n• Formulario RUES (te lo dan en Cámara)\n• Pago del registro (varía según capital — aprox $200.000 a $400.000 COP)\n\n🔗 En línea: ccb.org.co (Bogotá) o la de tu ciudad\n\nEvidencia: foto del certificado de existencia.",p:25,ev:true},
+       {n:"Obtener el RUT en la DIAN",d:"Registro Único Tributario — identifica tu empresa ante el Estado para facturar.\n\n📋 Pasos:\n1. Ve a dian.gov.co → Tramites y servicios → RUT\n2. Selecciona 'Inscripción RUT' como persona jurídica\n3. Adjunta el certificado de existencia de Cámara de Comercio\n4. Selecciona actividades CIIU: 8559 (Educación) y 7020 (Consultoría)\n5. Descarga y guarda tu RUT\n\nEvidencia: foto o PDF de tu RUT.",p:20,ev:true},
+       {n:"Abrir cuenta bancaria empresarial",d:"Con el RUT y el certificado de existencia puedes abrir tu cuenta empresarial.\n\n🏦 Opciones gratuitas o de bajo costo:\n• Bancolombia Pyme (sin cuota de manejo el primer año)\n• Nequi Empresas (100% digital, sin cuota)\n• Daviplata Negocios\n• Nu (Nubank) cuenta empresarial\n\n📋 Documentos: cédula, RUT, certificado de existencia de Cámara.\n\nEvidencia: foto de la tarjeta o pantalla de la cuenta abierta.",p:15,ev:true},
+       {n:"Configurar facturación electrónica",d:"En Colombia toda empresa debe facturar electrónicamente. Opciones gratuitas:\n\n• Siigo Pyme (plan gratuito hasta 50 facturas/mes)\n• Alegra (plan gratis limitado)\n• Facturación gratuita DIAN (operador habilitado)\n\n📋 Pasos:\n1. Regístrate en el operador que elijas\n2. Ingresa tu RUT y datos de la empresa\n3. Habilita tu empresa ante la DIAN\n4. Genera tu primera factura de prueba\n\nEvidencia: captura de pantalla de tu primera factura electrónica.",p:10,ev:true}
+     ],diploma:{icon:"📜",title:"Empresa Constituida y Formalizada",cond:"Cámara de Comercio + RUT + cuenta bancaria + facturación"}},
+    {num:"03",name:"Creación y activación del negocio",sub:"\"Construye la base comercial\"",sem:"3 semanas",
+     tasks:[
        {n:"Diseñar tu modelo de negocio inicial",d:"Define cómo vas a generar dinero: qué vendes, a quién, cuánto cobras y cómo entregas tu producto o servicio.",p:20,ev:true},
-       {n:"Crear tu primera oferta concreta",d:"Una oferta específica con precio, descripción clara y forma de entrega. Debe ser algo que puedas vender esta semana.",p:20,ev:true},
-       {n:"Conseguir tu primer cliente o venta",d:"Intenta vender tu PMV. Puede ser gratis o con descuento. El objetivo es la validación real, no el dinero.",p:25,ev:true},
-       {n:"Documentar aprendizajes del primer cliente",d:"¿Qué funcionó? ¿Qué no? ¿Qué cambiarías? Estos aprendizajes guían todo lo que sigue.",p:15,ev:true}
-     ],diploma:{icon:"🏗️",title:"Negocio Creado",cond:"Modelo + oferta + primer cliente"}}
+       {n:"Crear tu primera oferta concreta con precio",d:"Una oferta específica con precio definido, descripción clara y forma de entrega. Debe ser algo que puedas vender esta semana.",p:20,ev:true},
+       {n:"Activar tu presencia en 1 canal de venta",d:"Elige un solo canal: WhatsApp Business, Instagram, LinkedIn o referidos. Configúralo completamente y publica tu primera oferta.",p:15,ev:true},
+       {n:"Conseguir tu primer cliente o venta real",d:"Consigue alguien que pague por tu servicio o producto. Documenta cómo lo conseguiste. Si es gratis, debe ser formal y con compromiso de testimonio.",p:25,ev:true},
+       {n:"Emitir tu primera factura electrónica",d:"Factura tu primera venta con tu sistema de facturación electrónica. Esto valida que tu empresa opera legalmente.",p:10,ev:true}
+     ],diploma:{icon:"🚀",title:"Negocio Activo y Operando",cond:"Modelo + oferta + primera venta + primera factura"}}
   ],
   1: [
     {num:"01",name:"Estructuración del negocio",sub:"\"Organiza lo que ya tienes\"",sem:"4 semanas",
@@ -672,9 +722,13 @@ function finishQ1(){
   const tot=S.q1Ans.reduce((a,b)=>a+b,0);
   const max=Q1.length*3;
   S.score1=Math.round((tot/max)*100);
-  // Nivel final: si eligió nivel inicial, ponderar ambos
   const nivelPorScore = S.score1>=75?3:S.score1>=50?2:S.score1>=25?1:0;
   S.nivelFinal = S.nivelInicial!==null ? Math.round((S.nivelInicial+nivelPorScore)/2) : nivelPorScore;
+  marcarDiagnosticoRealizado();
+  notificarEmail('Diagnóstico inicial completado', {
+    nombre: S.name, negocio: S.biz,
+    detalle: 'Puntuación: ' + S.score1 + '/100 · ' + NIVELES_LABEL[S.nivelFinal]
+  });
   renderResult1(); go('s-result1');
   document.getElementById('bnav').style.display='flex';
   setTimeout(animRing1,300);
@@ -869,7 +923,7 @@ function renderTareas(idx){
     const div=document.createElement('div');
     div.className='task-card'+(done?' task-done':'');
     div.innerHTML=`
-      <div class="task-head" onclick="toggleTaskBody(this)">
+      <div class="task-head" onclick="toggleTaskBody(event,this)">
         <div class="task-check"><span class="task-check-mark">✓</span></div>
         <div class="task-info">
           <div class="task-name">${t.n}</div>
@@ -884,7 +938,7 @@ function renderTareas(idx){
           <div style="font-size:12px;color:var(--text2)">${ev.nota}</div>
           ${ev.file?`<div style="font-size:10px;color:var(--accent);margin-top:4px">📎 ${ev.file}</div>`:''}
         </div>`:''}
-        ${!done?`<button class="btn btn-accent btn-sm mt8" onclick="abrirModal(${idx},${i})">Subir evidencia y completar ↑</button>`:''}
+        ${!done?`<button class="btn btn-accent btn-sm mt8" onclick="event.stopPropagation();abrirModal(${idx},${i})">Subir evidencia y completar ↑</button>`:''}
         <button class="btn btn-wa btn-sm mt8" onclick="abrirWA('tarea',${idx},${i});event.stopPropagation()">
           <svg class="wa-svg" style="width:16px;height:16px" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Consultar con asesora
@@ -903,7 +957,8 @@ function renderTareas(idx){
   body.innerHTML+=`<div style="height:16px"></div>`;
 }
 
-function toggleTaskBody(head){
+function toggleTaskBody(e,head){
+  e.stopPropagation();
   const body=head.nextElementSibling;
   body.classList.toggle('open');
 }
@@ -936,6 +991,11 @@ function confirmarEvidencia(){
   S.tasks[modalCiclo][modalTask]=true;
   cerrarModal();
   const pts=CICLOS_POR_NIVEL[S.nivelFinal][modalCiclo].tasks[modalTask].p;
+  const tname=CICLOS_POR_NIVEL[S.nivelFinal][modalCiclo].tasks[modalTask].n;
+  const cname=CICLOS_POR_NIVEL[S.nivelFinal][modalCiclo].name;
+  notificarEmail('Tarea completada con evidencia', {
+    detalle: 'Ciclo: ' + cname + ' · Tarea: ' + tname + ' · Evidencia: ' + nota
+  });
   toast('¡Tarea completada! +'+pts+' puntos 🎉');
   renderTareas(modalCiclo); renderCiclos(); actualizarStats();
 }
@@ -944,6 +1004,10 @@ function confirmarEvidencia(){
 function claimDiploma(idx){
   if(!S.diplomas.includes(idx)){
     S.diplomas.push(idx);
+    const c=CICLOS_POR_NIVEL[S.nivelFinal][idx];
+    notificarEmail('Diploma obtenido', {
+      detalle: 'Ciclo ' + (idx+1) + ': ' + c.diploma.title
+    });
     renderDiplomas(); renderCiclos(); actualizarStats();
     toast('¡Diploma obtenido! Ve a tu colección ✦');
     setTimeout(()=>{go('s-diplomas');setNav(2);},1500);
@@ -1044,6 +1108,64 @@ function toast(msg){
   t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2800);
 }
+
+// ==========================================
+// DIAGNÓSTICO ÚNICO + CONSENTIMIENTO + EMAIL
+// ==========================================
+const STORAGE_KEY = 'mnd_diagnostico_realizado';
+const EMAILJS_SERVICE = 'service_mnd';
+const EMAILJS_TEMPLATE = 'template_mnd';
+const EMAILJS_PUBLIC = 'TU_EMAILJS_PUBLIC_KEY'; // reemplazar tras registro
+
+// Habilitar botón cuando checkbox marcado
+document.getElementById('consent-btn').style.opacity = '0.5';
+document.getElementById('consent-check').addEventListener('change', function(){
+  const btn = document.getElementById('consent-btn');
+  btn.style.opacity = this.checked ? '1' : '0.5';
+  btn.style.cursor = this.checked ? 'pointer' : 'default';
+});
+
+function aceptarConsentimiento(){
+  if(!document.getElementById('consent-check').checked) return;
+  // Verificar si ya hizo diagnóstico
+  if(localStorage.getItem(STORAGE_KEY)){
+    document.getElementById('consent-screen').style.display = 'none';
+    document.getElementById('used-screen').style.display = 'flex';
+    return;
+  }
+  document.getElementById('consent-screen').style.display = 'none';
+  document.getElementById('main-app').style.display = 'flex';
+  document.getElementById('main-app').style.flexDirection = 'column';
+}
+
+function marcarDiagnosticoRealizado(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    fecha: new Date().toISOString(),
+    nivel: S.nivelFinal,
+    score: S.score1
+  }));
+}
+
+function abrirWAdirecto(){
+  window.open('https://wa.me/573113053231?text=' + encodeURIComponent('Hola, intenté acceder a mi diagnóstico pero me dice que ya fue realizado. Necesito ayuda.'),'_blank');
+}
+
+function notificarEmail(evento, datos){
+  try {
+    emailjs.init(EMAILJS_PUBLIC);
+    emailjs.send(EMAILJS_SERVICE, EMAILJS_TEMPLATE, {
+      to_email: 'contacto.palacioslourido@gmail.com',
+      evento: evento,
+      nombre: datos.nombre || S.name,
+      negocio: datos.negocio || S.biz,
+      nivel: NIVELES_LABEL[S.nivelFinal] || '—',
+      score: S.score1 || 0,
+      detalle: datos.detalle || '',
+      fecha: new Date().toLocaleString('es-CO')
+    });
+  } catch(e){ console.log('Email no configurado aún:', e); }
+}
+
 </script>
 </body>
 </html>
