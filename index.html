@@ -13,11 +13,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
---bg:#F4F6F9;--bg2:#FFFFFF;--bg3:#EBF0F5;--card:#FFFFFF;
---accent:#1A5C3A;--accent-lt:#E6F4EE;--accent2:#1E3A6E;--accent3:#B45309;
---red:#B91C1C;--text:#111827;--text2:#6B7280;--border:#DDE3EA;--border2:#C4CBD6;
+--bg:#F8F7FA;--bg2:#FFFFFF;--bg3:#F0EDF5;--card:#FFFFFF;
+--accent:#7B3FA0;--accent-lt:#F3EAF9;--accent2:#1A1A2E;--accent3:#8A6A00;
+--red:#B91C1C;--text:#1A1A2E;--text2:#6B6880;--border:#E2DCF0;--border2:#C9C0DE;
 --wa:#25D366;--r:16px;--r2:12px;
---shadow:0 1px 3px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.04);
+--shadow:0 1px 3px rgba(123,63,160,.06),0 4px 12px rgba(123,63,160,.04);
 }
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 .syne{font-family:'Syne',sans-serif}
@@ -54,20 +54,20 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 
 /* TAGS */
 .tag{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.05em}
-.tag-n0{background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,.2)}
-.tag-n1{background:#FEE2E2;color:#991B1B;border:1px solid rgba(153,27,27,.2)}
-.tag-n2{background:#FEF3C7;color:#92400E;border:1px solid rgba(146,64,14,.2)}
-.tag-n3{background:#D1FAE5;color:#065F46;border:1px solid rgba(6,95,70,.2)}
-.tag-done{background:#D1FAE5;color:#065F46;font-weight:600}
-.tag-active{background:#EDE9FE;color:#5B21B6;font-weight:600}
+.tag-n0{background:#F3EAF9;color:#7B3FA0;border:1px solid rgba(123,63,160,.2)}
+.tag-n1{background:#FDECEA;color:#A33030;border:1px solid rgba(163,48,48,.2)}
+.tag-n2{background:#FDF6DC;color:#7A5500;border:1px solid rgba(122,85,0,.2)}
+.tag-n3{background:#EAF9F0;color:#1A6E47;border:1px solid rgba(26,110,71,.2)}
+.tag-done{background:#EAF9F0;color:#1A6E47;font-weight:600}
+.tag-active{background:#F3EAF9;color:#7B3FA0;font-weight:600}
 .tag-lock{background:var(--bg3);color:var(--text2);font-weight:500}
 
 /* CARDS */
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;box-shadow:var(--shadow)}
-.card-accent{background:var(--accent-lt, #E6F4EE);border:1px solid rgba(26,92,58,.15);border-radius:var(--r);padding:16px}
+.card-accent{background:var(--accent-lt);border:1px solid rgba(26,92,58,.15);border-radius:var(--r);padding:16px}
 
 /* HERO */
-.hero-tag{display:inline-block;background:var(--accent-lt, #E6F4EE);color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:20px;margin-bottom:16px;border:1px solid rgba(26,92,58,.2)}
+.hero-tag{display:inline-block;background:var(--accent-lt);color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:20px;margin-bottom:16px;border:1px solid rgba(123,63,160,.2)}
 .hero-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1.1;margin-bottom:10px}
 .hero-title span{color:var(--accent)}
 .hero-sub{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:24px}
@@ -76,7 +76,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .nivel-selector{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
 .nivel-opt{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r2);padding:14px 12px;cursor:pointer;transition:.2s;text-align:center}
 .nivel-opt:active{transform:scale(.98)}
-.nivel-opt.selected{border-color:var(--accent);background:var(--accent-lt,#E6F4EE)}
+.nivel-opt.selected{border-color:var(--accent);background:var(--accent-lt)}
 .nivel-opt-icon{font-size:22px;margin-bottom:6px}
 .nivel-opt-name{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;margin-bottom:2px}
 .nivel-opt-desc{font-size:10px;color:var(--text2);line-height:1.4}
@@ -116,7 +116,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .ciclo-card:active:not(.locked){transform:scale(.99)}
 .ciclo-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .ciclo-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:13px;flex-shrink:0}
-.ciclo-icon-on{background:var(--accent-lt,#E6F4EE);border:1px solid rgba(26,92,58,.2);color:var(--accent)}
+.ciclo-icon-on{background:var(--accent-lt);border:1px solid rgba(26,92,58,.2);color:var(--accent)}
 .ciclo-icon-off{background:var(--bg3);font-size:15px}
 .ciclo-name{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;line-height:1.2}
 .ciclo-sub{font-size:11px;color:var(--text2);margin-top:2px}
@@ -148,7 +148,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .file-input{display:none}
 
 /* DIPLOMA */
-.diploma-card{background:linear-gradient(135deg,#F0F7F3,#E8F5EE);border:1.5px solid rgba(26,92,58,.2);border-radius:var(--r);padding:24px 20px;text-align:center;position:relative;overflow:hidden;margin-bottom:12px}
+.diploma-card{background:linear-gradient(135deg,#FAF5FF,#F3EAF9);border:1.5px solid rgba(123,63,160,.2);border-radius:var(--r);padding:24px 20px;text-align:center;position:relative;overflow:hidden;margin-bottom:12px}
 .diploma-glow{position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,rgba(200,242,75,.1),transparent 70%)}
 .diploma-locked{background:var(--card);border:1px dashed var(--border);border-radius:var(--r);padding:20px;text-align:center;margin-bottom:10px;opacity:.4}
 
@@ -182,12 +182,12 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .big-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;line-height:1.2;margin-bottom:4px}
 .back-btn{background:var(--card);border:1px solid var(--border);border-radius:9px;width:34px;height:34px;color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .divider{height:1px;background:var(--border);margin:12px 0}
-.cuello{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg3);border-radius:10px;margin-bottom:7px;font-size:12px;border-left:3px solid var(--accent3)}
+.cuello{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg3);border-radius:10px;margin-bottom:7px;font-size:12px;border-left:3px solid var(--accent)}
 .plan-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px}
 .plan-n{font-family:'Syne',sans-serif;font-weight:800;color:var(--accent);font-size:10px;min-width:20px}
 .wa-svg{width:20px;height:20px;flex-shrink:0}
-.info-box{background:#EBF5FF;border:1px solid rgba(30,58,110,.15);border-radius:var(--r2);padding:12px 14px;font-size:12px;color:#1E3A6E;line-height:1.65;margin-top:10px}
-.info-box strong{color:var(--accent2)}
+.info-box{background:#F3EAF9;border:1px solid rgba(123,63,160,.15);border-radius:var(--r2);padding:12px 14px;font-size:12px;color:#5A2D80;line-height:1.65;margin-top:10px}
+.info-box strong{color:var(--accent)}
 
 /* TOAST */
 .toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;padding:10px 20px;border-radius:20px;z-index:300;opacity:0;transition:.35s;pointer-events:none;white-space:nowrap;max-width:88vw;text-align:center}
@@ -248,8 +248,8 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="logo">MND</div>
-  <div style="font-family:'Syne',sans-serif;font-size:9px;color:var(--text2);text-align:center;line-height:1.4">Método<br>Negocio con Dirección</div>
+  <div class="logo" style="color:var(--accent);letter-spacing:.1em">MND</div>
+  <div style="font-family:'Syne',sans-serif;font-size:9px;color:var(--text2);text-align:center;line-height:1.4;letter-spacing:.04em">PALACIOS &amp; LOURIDO<br><span style="color:var(--accent);font-weight:700">MÉTODO NCD</span></div>
   <div class="topbar-right">
     <div class="notif-btn" onclick="abrirWA('soporte')" title="Soporte">
       <svg class="wa-svg" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -500,8 +500,8 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 <div class="toast" id="toast"></div>
 
 <!-- MODAL EVIDENCIA -->
-<div class="modal-bg" id="modal-bg" onclick="cerrarModal()">
-  <div class="modal" onclick="e=>e.stopPropagation()">
+<div class="modal-bg" id="modal-bg" onclick="handleModalBgClick(event)">
+  <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-handle"></div>
     <div class="modal-title" id="modal-title">Subir evidencia</div>
     <div class="modal-sub" id="modal-sub">Documenta tu avance para completar esta tarea</div>
@@ -965,27 +965,41 @@ function toggleTaskBody(e,head){
 
 // MODAL EVIDENCIA
 function abrirModal(cidx,tidx){
+  event.stopPropagation();
   modalCiclo=cidx; modalTask=tidx;
+  archivoActual=null;
   const c=CICLOS_POR_NIVEL[S.nivelFinal][cidx];
   document.getElementById('modal-title').textContent=c.tasks[tidx].n;
   document.getElementById('modal-sub').textContent='Documenta cómo completaste esta tarea';
   document.getElementById('modal-nota').value='';
-  document.getElementById('modal-file-lbl').textContent='Toca para adjuntar foto o archivo (opcional)';
+  const lbl=document.getElementById('modal-file-lbl');
+  lbl.textContent='Toca para adjuntar foto o archivo (opcional)';
+  lbl.style.color='';
+  document.getElementById('modal-file').value='';
   document.getElementById('modal-preview').style.display='none';
   document.getElementById('modal-bg').classList.add('open');
-  event.stopPropagation();
+  // Small delay so keyboard doesn't auto-open
+  setTimeout(()=>document.getElementById('modal-nota').focus(),300);
 }
-function cerrarModal(){document.getElementById('modal-bg').classList.remove('open');}
+function cerrarModal(){
+  document.getElementById('modal-bg').classList.remove('open');
+  document.activeElement && document.activeElement.blur();
+}
+function handleModalBgClick(e){
+  if(e.target.id==='modal-bg') cerrarModal();
+}
+let archivoActual = null;
 function archivoSeleccionado(input){
   if(input.files&&input.files[0]){
-    document.getElementById('modal-file-lbl').textContent='📎 '+input.files[0].name;
+    archivoActual = input.files[0];
+    document.getElementById('modal-file-lbl').textContent='✅ '+input.files[0].name+' (cargado)';
+    document.getElementById('modal-file-lbl').style.color='var(--accent)';
   }
 }
 function confirmarEvidencia(){
   const nota=document.getElementById('modal-nota').value.trim();
   if(!nota){toast('Escribe qué hiciste para completar esta tarea');return;}
-  const fi=document.getElementById('modal-file');
-  const fname=fi.files&&fi.files[0]?fi.files[0].name:null;
+  const fname=archivoActual?archivoActual.name:null;
   S.evidencias[modalCiclo+'-'+modalTask]={nota,file:fname};
   if(!S.tasks[modalCiclo])S.tasks[modalCiclo]=new Array(CICLOS_POR_NIVEL[S.nivelFinal][modalCiclo].tasks.length).fill(false);
   S.tasks[modalCiclo][modalTask]=true;
