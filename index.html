@@ -307,6 +307,10 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
   <input class="input" id="inp-name" placeholder="¿Cómo te llamas?">
   <label class="label">Tu negocio o idea</label>
   <input class="input" id="inp-biz" placeholder="¿Qué negocio tienes o quieres crear?">
+  <label class="label">Tu número de WhatsApp</label>
+  <input class="input" id="inp-cel" placeholder="Ej: 3001234567" type="tel">
+  <label class="label">Tu correo electrónico</label>
+  <input class="input" id="inp-email" placeholder="Tu correo para enviarte información" type="email">
   <label class="label" style="margin-bottom:8px">¿En qué etapa estás? (elige la que más te describe)</label>
   <div class="nivel-selector" id="nivel-selector">
     <div class="nivel-opt" data-v="0" onclick="selNivelInicial(0,this)">
@@ -1270,6 +1274,8 @@ function guardarEnFirebase(evento){
     const data = {
       nombre: S.name,
       negocio: S.biz,
+      celular: S.cel,
+      email: S.email,
       nivel: S.nivelFinal,
       nivelLabel: NIVELES_LABEL[S.nivelFinal] || '—',
       score1: S.score1,
