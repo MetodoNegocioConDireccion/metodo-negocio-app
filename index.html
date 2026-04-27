@@ -1010,7 +1010,7 @@ function renderTareas(idx){
         ${ev?`<div style="background:rgba(200,242,75,.07);border:1px solid rgba(200,242,75,.2);border-radius:var(--r2);padding:10px 12px;margin-top:10px">
           <div style="font-size:10px;color:var(--accent);font-weight:700;margin-bottom:4px">EVIDENCIA SUBIDA ✓</div>
           <div style="font-size:12px;color:var(--text2)">${ev.nota}</div>
-          ${ev.file?`<div style="font-size:10px;color:var(--accent);margin-top:4px">📎 ${ev.file}</div>`:''}
+          ${ev.file?`<div style="font-size:10px;color:var(--accent);margin-top:4px">${ev.url?`<a href="${ev.url}" target="_blank" style="color:var(--accent);text-decoration:none">📎 Ver evidencia: ${ev.file}</a>`:`📎 ${ev.file}`}</div>`:''}
         </div>`:''}
         ${!done?`<button class="btn btn-accent btn-sm mt8" onclick="event.stopPropagation();abrirModal(${idx},${i})">Subir evidencia y completar ↑</button>`:''}
         <button class="btn btn-wa btn-sm mt8" onclick="abrirWA('tarea',${idx},${i});event.stopPropagation()">
@@ -1081,11 +1081,25 @@ function archivoSeleccionado(input){
     document.getElementById('modal-file-lbl').style.color='var(--accent)';
   }
 }
-function confirmarEvidencia(){
+async function confirmarEvidencia(){
   const nota=document.getElementById('modal-nota').value.trim();
   if(!nota){toast('Escribe qué hiciste para completar esta tarea');return;}
-  const fname=archivoActual?archivoActual.name:null;
-  S.evidencias[modalCiclo+'-'+modalTask]={nota,file:fname};
+  let fileUrl=null, fname=null;
+  if(archivoActual){
+    fname=archivoActual.name;
+    toast('Subiendo archivo...');
+    try{
+      const fd=new FormData();
+      fd.append('file',archivoActual);
+      fd.append('upload_preset','mnd_evidencias');
+      fd.append('cloud_name','djw2v7ywp');
+      const res=await fetch('https://api.cloudinary.com/v1_1/djw2v7ywp/auto/upload',{method:'POST',body:fd});
+      const data=await res.json();
+      fileUrl=data.secure_url;
+      fname=data.original_filename||fname;
+    }catch(e){console.log('Upload error:',e);}
+  }
+  S.evidencias[modalCiclo+'-'+modalTask]={nota,file:fname,url:fileUrl};
   if(!S.tasks[modalCiclo])S.tasks[modalCiclo]=new Array(CICLOS_POR_NIVEL[S.nivelFinal][modalCiclo].tasks.length).fill(false);
   S.tasks[modalCiclo][modalTask]=true;
   cerrarModal();
@@ -1263,11 +1277,13 @@ function guardarEnFirebase(evento){
       nivelInicial: S.nivelInicial,
       tareasCompletadas: Object.values(S.tasks).flat().filter(Boolean).length,
       diplomasObtenidos: S.diplomas.length,
+      evidencias: S.evidencias,
       evento: evento,
       fecha: firebase.firestore.FieldValue.serverTimestamp(),
       fechaStr: new Date().toLocaleString('es-CO'),
       dispositivo: navigator.userAgent.substring(0,80)
     };
+    S.firebaseId = docId;
     db.collection('usuarios').doc(docId).set(data);
     console.log('Guardado en Firebase:', docId);
   } catch(e){ console.log('Error guardando:', e); }
