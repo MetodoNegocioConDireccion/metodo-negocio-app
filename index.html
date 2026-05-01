@@ -3,25 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#0A0A0F">
+<meta name="theme-color" content="#FDFDFD">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="MND">
-<title>Método Negocio con Dirección</title>
+<meta name="apple-mobile-web-app-title" content="SKALERA">
+<title>Método SKALERA™ — Palacios & Lourido</title>
 <link rel="manifest" href="manifest.json">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;500;700;900&family=DM+Sans:wght@300;400;500&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 :root{
---bg:#0E0C14;--bg2:#151220;--bg3:#1C1828;--card:#201C2E;
---accent:#B388D6;--accent-lt:rgba(179,136,214,.1);--accent2:#BDBDBD;--accent3:#D4A847;
---red:#E05555;--text:#EDE9F5;--text2:#8A879E;
---border:rgba(179,136,214,.1);--border2:rgba(179,136,214,.2);
---wa:#25D366;--r:16px;--r2:12px;
---shadow:0 2px 16px rgba(0,0,0,.4);
+--bg:#FDFDFD;--bg2:#F8F9FA;--bg3:#EEF1F4;--card:#FFFFFF;
+--accent:#10B981;--accent-lt:#E8F8F3;--accent2:#0D1B2A;--accent3:#E2C08D;
+--red:#DC2626;--text:#0D1B2A;--text2:#778DA9;
+--border:rgba(13,27,42,.08);--border2:rgba(13,27,42,.15);
+--wa:#25D366;--r:14px;--r2:10px;
+--shadow:0 1px 4px rgba(13,27,42,.06),0 4px 16px rgba(13,27,42,.04);
 }
-html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-size:16px}
-.syne{font-family:'Syne',sans-serif}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+.syne{font-family:'Montserrat',sans-serif}
 
 /* LAYOUT */
 .app{display:flex;flex-direction:column;min-height:100vh;max-width:440px;margin:0 auto}
@@ -30,15 +30,15 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
 /* TOPBAR */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 0;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20}
-.logo{font-family:'Syne',sans-serif;font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--accent)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px 0;background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:20;box-shadow:0 1px 0 var(--border)}
+.logo{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;letter-spacing:.08em;color:var(--accent)}
 .topbar-right{display:flex;align-items:center;gap:10px}
 .notif-btn{width:32px;height:32px;border-radius:50%;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px}
 
 /* BUTTONS */
-.btn{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:16px 20px;border-radius:var(--r);border:none;cursor:pointer;width:100%;transition:.15s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.02em}
+.btn{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:16px 20px;border-radius:var(--r);border:none;cursor:pointer;width:100%;transition:.15s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.02em}
 .btn:active{transform:scale(.98)}
-.btn-accent{background:var(--accent);color:#0E0C14}
+.btn-accent{background:var(--accent);color:#fff}
 .btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border)}
 .btn-ghost:active{background:var(--card)}
 .btn-wa{background:var(--wa);color:#fff}
@@ -48,20 +48,20 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM San
 
 /* INPUTS */
 .label{font-size:14px;color:var(--text2);margin-bottom:6px;display:block;font-weight:500}
-.input{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:var(--r2);padding:13px 15px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;width:100%;outline:none;transition:.2s;margin-bottom:10px;box-shadow:inset 0 1px 3px rgba(0,0,0,.04)}
+.input{background:var(--card);border:1.5px solid var(--border2);border-radius:var(--r2);padding:13px 15px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;width:100%;outline:none;transition:.2s;margin-bottom:10px;box-shadow:inset 0 1px 3px rgba(0,0,0,.04)}
 .input:focus{border-color:var(--accent)}
 .input::placeholder{color:var(--text2)}
 textarea.input{resize:none;min-height:80px;font-size:13px}
 
 /* TAGS */
 .tag{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.05em}
-.tag-n0{background:rgba(179,136,214,.15);color:#D4AAEE;border:1px solid rgba(179,136,214,.25)}
-.tag-n1{background:rgba(224,85,85,.12);color:#F0A0A0;border:1px solid rgba(224,85,85,.25)}
-.tag-n2{background:rgba(212,168,71,.12);color:#F0CB80;border:1px solid rgba(212,168,71,.25)}
+.tag-n0{background:#E8F8F3;color:#065F46;border:1px solid rgba(16,185,129,.2)}
+.tag-n1{background:#FEF9EC;color:#92400E;border:1px solid rgba(226,192,141,.3)}
+.tag-n2{background:#EFF6FF;color:#1E40AF;border:1px solid rgba(120,141,169,.25)}
 .tag-n3{background:rgba(39,174,96,.12);color:#80DBA8;border:1px solid rgba(39,174,96,.25)}
-.tag-done{background:rgba(39,174,96,.12);color:#80DBA8;font-weight:600}
-.tag-active{background:rgba(179,136,214,.12);color:#D4AAEE;font-weight:600}
-.tag-lock{background:rgba(189,189,189,.06);color:var(--text2);font-weight:500}
+.tag-done{background:#E8F8F3;color:#065F46;font-weight:600}
+.tag-active{background:#E8F8F3;color:#10B981;font-weight:600}
+.tag-lock{background:var(--bg3);color:var(--text2);font-weight:500}
 
 /* CARDS */
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px}
@@ -69,7 +69,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 
 /* HERO */
 .hero-tag{display:inline-block;background:var(--accent-lt);color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.12em;padding:5px 12px;border-radius:20px;margin-bottom:16px;border:1px solid rgba(179,136,214,.18)}
-.hero-title{font-family:'Syne',sans-serif;font-size:30px;font-weight:800;line-height:1.1;margin-bottom:12px}
+.hero-title{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;line-height:1.15;margin-bottom:12px}
 .hero-title span{color:var(--accent)}
 .hero-sub{font-size:15px;color:var(--text2);line-height:1.65;margin-bottom:24px}
 
@@ -77,20 +77,20 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .nivel-selector{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
 .nivel-opt{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r2);padding:14px 12px;cursor:pointer;transition:.2s;text-align:center}
 .nivel-opt:hover{border-color:rgba(179,136,214,.3);background:rgba(179,136,214,.04)}.nivel-opt:active{transform:scale(.98)}
-.nivel-opt.selected{border-color:var(--accent);background:var(--accent-lt)}
+.nivel-opt.selected{border-color:var(--accent);background:var(--accent-lt);box-shadow:0 0 0 3px rgba(16,185,129,.1)}
 .nivel-opt-icon{font-size:22px;margin-bottom:6px}
-.nivel-opt-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:3px}
+.nivel-opt-name{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;margin-bottom:3px}
 .nivel-opt-desc{font-size:12px;color:var(--text2);line-height:1.4}
 
 /* PROGRESS */
 .prog-wrap{margin-bottom:18px}
 .prog-top{display:flex;justify-content:space-between;font-size:12px;color:var(--text2);margin-bottom:6px}
 .prog-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden}
-.prog-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .5s}
+.prog-fill{height:100%;background:var(--accent);border-radius:2px;transition:width .6s ease}
 
 /* QUIZ */
 .q-cat{font-size:10px;color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
-.q-text{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;line-height:1.3;margin-bottom:20px}
+.q-text{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;line-height:1.3;margin-bottom:20px}
 .opts{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
 .opt{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:14px 15px;cursor:pointer;transition:.2s;font-size:15px;display:flex;align-items:center;gap:10px}
 .opt:active{transform:scale(.99)}
@@ -106,20 +106,20 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .ring-track{fill:none;stroke:var(--border);stroke-width:8}
 .ring-prog{fill:none;stroke-width:8;stroke-linecap:round;transition:stroke-dashoffset 1.2s ease}
 .ring-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
-.ring-score{font-family:'Syne',sans-serif;font-size:28px;font-weight:800}
+.ring-score{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800}
 .ring-max{font-size:10px;color:var(--text2)}
 
 /* CICLOS */
 .ciclo-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:12px;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
 .ciclo-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;opacity:0;transition:.2s}
-.ciclo-card.unlocked::before{opacity:1;background:linear-gradient(180deg,var(--accent),rgba(179,136,214,.3))}
+.ciclo-card.unlocked::before{opacity:1;background:linear-gradient(180deg,var(--accent),rgba(16,185,129,.2))}
 .ciclo-card.locked{opacity:.4;cursor:not-allowed}
 .ciclo-card:active:not(.locked){transform:scale(.99)}
 .ciclo-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.ciclo-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:13px;flex-shrink:0}
+.ciclo-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;flex-shrink:0}
 .ciclo-icon-on{background:var(--accent-lt);border:1px solid rgba(26,92,58,.2);color:var(--accent)}
 .ciclo-icon-off{background:var(--bg3);font-size:15px}
-.ciclo-name{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;line-height:1.2}
+.ciclo-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;line-height:1.2}
 .ciclo-sub{font-size:13px;color:var(--text2);margin-top:3px}
 .ciclo-ctag{position:absolute;top:12px;right:12px;font-size:10px;padding:3px 9px;border-radius:8px;font-weight:600}
 
@@ -134,7 +134,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 .task-info{flex:1}
 .task-name{font-size:15px;font-weight:600;line-height:1.3;margin-bottom:3px}
 .task-done .task-name{text-decoration:line-through;color:var(--text2)}
-.task-desc{font-size:13px;color:var(--text2);line-height:1.6}
+.task-desc{font-size:13px;color:var(--text2);line-height:1.7;white-space:pre-line}
 .task-pts{font-size:12px;color:var(--accent);font-weight:700;margin-top:4px}
 .task-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border)}
 .task-body.open{display:block}
@@ -156,20 +156,20 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 /* MENTORIA */
 .horario-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg3);border-radius:var(--r2);margin-bottom:8px;font-size:13px}
 .horario-dia{font-weight:600;color:var(--text);font-size:15px}
-.horario-hora{color:var(--accent);font-family:'Syne',sans-serif;font-weight:700;font-size:14px}
+.horario-hora{color:var(--accent);font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px}
 .horario-tipo{font-size:12px;color:var(--text2);margin-top:3px}
 .mentoria-tipo{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:10px}
-.mentoria-titulo{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.mentoria-titulo{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;margin-bottom:4px;display:flex;align-items:center;gap:8px}
 .mentoria-desc{font-size:14px;color:var(--text2);line-height:1.7}
 
 /* STATS */
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
 .stat-box{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:12px}
-.stat-num{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--accent)}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--accent)}
 .stat-lbl{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.4}
 
 /* BOTTOM NAV */
-.bnav{display:flex;background:var(--bg2);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(0,0,0,.4);padding:6px 0 env(safe-area-inset-bottom,4px);position:sticky;bottom:0;z-index:20}
+.bnav{display:flex;background:var(--bg2);border-top:1px solid var(--border);box-shadow:0 -1px 0 var(--border);padding:6px 0 env(safe-area-inset-bottom,4px);position:sticky;bottom:0;z-index:20}
 .bn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 2px;cursor:pointer;transition:.15s;border-radius:10px;margin:0 2px}
 .bn:active{background:var(--card)}
 .bn.on .bn-ic,.bn.on .bn-lb{color:var(--accent)}
@@ -179,39 +179,39 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 /* MISC */
 .scroll{flex:1;overflow-y:auto;padding-bottom:4px}
 .scroll::-webkit-scrollbar{width:0}
-.section-lbl{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
-.big-title{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;line-height:1.2;margin-bottom:4px}
+.section-lbl{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
+.big-title{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;line-height:1.2;margin-bottom:4px}
 .back-btn{background:var(--card);border:1px solid var(--border);border-radius:9px;width:34px;height:34px;color:var(--text);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .divider{height:1px;background:var(--border);margin:12px 0}
-.cuello{display:flex;align-items:center;gap:10px;padding:11px 13px;background:var(--bg3);border-radius:10px;margin-bottom:8px;font-size:14px;border-left:3px solid rgba(212,168,71,.6)}
+.cuello{display:flex;align-items:center;gap:10px;padding:11px 13px;background:var(--bg3);border-radius:10px;margin-bottom:8px;font-size:14px;border-left:3px solid var(--accent2)}
 .plan-row{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px}
-.plan-n{font-family:'Syne',sans-serif;font-weight:800;color:var(--accent);font-size:10px;min-width:20px}
+.plan-n{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--accent);font-size:10px;min-width:20px}
 .wa-svg{width:20px;height:20px;flex-shrink:0}
-.info-box{background:rgba(179,136,214,.07);border:1px solid rgba(179,136,214,.15);border-radius:var(--r2);padding:12px 14px;font-size:12px;color:var(--text2);line-height:1.65;margin-top:10px}
-.info-box strong{color:var(--accent)}
+.info-box{background:#E8F8F3;border:1px solid rgba(16,185,129,.2);border-radius:var(--r2);padding:12px 14px;font-size:13px;color:#065F46;line-height:1.7;margin-top:10px}
+.info-box strong{color:#0D1B2A}
 
 
 .adm-filter{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-size:11px;font-weight:600;color:var(--text2);cursor:pointer;white-space:nowrap;transition:.2s}
-.adm-filter.on{background:var(--accent);color:#0E0C14;border-color:var(--accent)}
+.adm-filter.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 .usuario-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:14px;margin-bottom:10px;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
 .usuario-card:active{transform:scale(.99)}
 .usuario-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.usuario-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:14px;flex-shrink:0}
+.usuario-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;flex-shrink:0}
 .usuario-meta{font-size:10px;color:var(--text2);line-height:1.6}
 .usuario-prog{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:8px}
 .usuario-prog-fill{height:100%;border-radius:2px;background:var(--accent);transition:width .5s}
 
 /* TOAST */
-.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;padding:10px 20px;border-radius:20px;z-index:300;opacity:0;transition:.35s;pointer-events:none;white-space:nowrap;max-width:88vw;text-align:center}
+.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--accent);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;padding:10px 20px;border-radius:20px;z-index:300;opacity:0;transition:.35s;pointer-events:none;white-space:nowrap;max-width:88vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* MODAL */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;display:none;align-items:flex-end}
 .modal-bg.open{display:flex}
-.modal{background:var(--bg3);border-radius:20px 20px 0 0;padding:20px 18px 32px;width:100%;max-width:440px;margin:0 auto;animation:slideUp .3s ease;border-top:1px solid var(--border2)}
+.modal{background:var(--bg2);border-radius:20px 20px 0 0;padding:20px 18px 32px;width:100%;max-width:440px;margin:0 auto;animation:slideUp .3s ease;border-top:2px solid var(--accent)}
 @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .modal-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 16px}
-.modal-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px}
+.modal-title{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px}
 .modal-sub{font-size:14px;color:var(--text2);margin-bottom:16px}
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
@@ -224,9 +224,9 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 <!-- PANTALLA YA USADO -->
 <div id="used-screen" style="position:fixed;inset:0;background:var(--bg2);z-index:400;display:none;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;text-align:center">
   <div style="font-size:48px;margin-bottom:16px">🔒</div>
-  <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:10px;color:var(--text)">Diagnóstico completado</div>
+  <div style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;margin-bottom:10px;color:var(--text)">Diagnóstico completado</div>
   <div style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:28px;max-width:320px">Este diagnóstico ya fue realizado en este dispositivo. Cada persona puede hacer un solo diagnóstico por dispositivo.<br><br>Si crees que esto es un error, contacta a tu asesora.</div>
-  <button onclick="abrirWAdirecto()" style="background:var(--wa);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:15px 24px;border-radius:var(--r);border:none;cursor:pointer;width:100%;max-width:320px;display:flex;align-items:center;justify-content:center;gap:8px">
+  <button onclick="abrirWAdirecto()" style="background:var(--wa);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:15px 24px;border-radius:var(--r);border:none;cursor:pointer;width:100%;max-width:320px;display:flex;align-items:center;justify-content:center;gap:8px">
     <svg style="width:20px;height:20px" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     Contactar a mi asesora
   </button>
@@ -237,24 +237,24 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
   <div style="width:100%;max-width:440px;padding:28px 24px 40px;background:var(--bg2);border-radius:28px 28px 0 0;border-top:1px solid var(--border)">
     <div style="width:40px;height:4px;background:var(--border2);border-radius:2px;margin:0 auto 20px"></div>
     <div style="font-size:28px;text-align:center;margin-bottom:10px">🔐</div>
-    <div style="font-family:'Syne',sans-serif;font-size:19px;font-weight:800;text-align:center;margin-bottom:6px;color:var(--text)">Antes de comenzar</div>
+    <div style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:800;text-align:center;margin-bottom:6px;color:var(--text)">Antes de comenzar</div>
     <div style="font-size:13px;color:var(--text2);text-align:center;line-height:1.65;margin-bottom:20px">Para usar esta plataforma necesitamos tu autorización para tratar tus datos de acuerdo con la <strong style="color:var(--accent2)">Ley 1581 de 2012 (Habeas Data)</strong> de Colombia.</div>
     <div style="background:var(--bg3);border-radius:var(--r2);padding:14px 16px;margin-bottom:20px;font-size:12px;color:var(--text2);line-height:1.7">
       <strong style="color:var(--text);display:block;margin-bottom:6px">¿Qué datos recopilamos?</strong>
       Tu nombre, nombre de tu negocio y las respuestas al diagnóstico.<br><br>
       <strong style="color:var(--text);display:block;margin-bottom:6px">¿Para qué los usamos?</strong>
-      Exclusivamente para personalizar tu ruta de acompañamiento dentro de Método Negocio con Dirección.<br><br>
+      Exclusivamente para personalizar tu ruta de acompañamiento dentro de Método SKALERA™.<br><br>
       <strong style="color:var(--text);display:block;margin-bottom:6px">¿Los compartimos?</strong>
       No. Tus datos son privados y no se comparten con terceros.<br><br>
-      Responsable: Palacios &amp; Lourido SAS<br>
+      Responsable: Palacios &amp; Lourido SAS · Método SKALERA™<br>
       Contacto: contacto.palacioslourido@gmail.com
     </div>
     <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:20px">
       <input type="checkbox" id="consent-check" style="width:20px;height:20px;accent-color:var(--accent);flex-shrink:0;margin-top:1px" onchange="document.getElementById('consent-btn').disabled=!this.checked">
       <span style="font-size:13px;color:var(--text);line-height:1.6">Acepto el tratamiento de mis datos personales según las condiciones descritas anteriormente.</span>
     </label>
-    <button id="consent-btn" disabled onclick="aceptarConsentimiento()" style="background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:15px;border-radius:var(--r);border:none;cursor:pointer;width:100%;transition:.2s;opacity:.5" onmouseover="" onfocus="">Aceptar y continuar →</button>
-    <div style="text-align:center;margin-top:12px;font-size:11px;color:var(--text2)">Palacios &amp; Lourido · Método Negocio con Dirección</div>
+    <button id="consent-btn" disabled onclick="aceptarConsentimiento()" style="background:var(--accent);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;padding:15px;border-radius:var(--r);border:none;cursor:pointer;width:100%;transition:.2s;opacity:.5" onmouseover="" onfocus="">Aceptar y continuar →</button>
+    <div style="text-align:center;margin-top:12px;font-size:11px;color:var(--text2)">Palacios &amp; Lourido · SKALERA™</div>
   </div>
 </div>
 
@@ -262,8 +262,8 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <div class="logo" style="color:var(--accent);letter-spacing:.1em;cursor:pointer" onclick="adminTap()" id="logo-btn">MND</div>
-  <div style="font-family:'Syne',sans-serif;font-size:9px;color:var(--text2);text-align:center;line-height:1.4;letter-spacing:.04em">PALACIOS &amp; LOURIDO<br><span style="color:var(--accent);font-weight:700">MÉTODO NCD</span></div>
+  <div style="cursor:pointer" onclick="adminTap()" id="logo-btn"><div style="font-family:'Montserrat',sans-serif;font-weight:300;font-size:8px;letter-spacing:.3em;color:var(--text2);text-transform:uppercase">Palacios &amp; Lourido</div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--accent);line-height:1">Método <span style="font-style:normal;font-family:'Montserrat',sans-serif;font-weight:900;font-size:13px;color:var(--accent2)">SKALERA™</span></div></div>
+  <div style="font-size:10px;color:var(--text2);text-align:center;line-height:1.4;font-family:'Montserrat',sans-serif;font-weight:500">Avanza ejecutando</div>
   <div class="topbar-right">
     <div class="notif-btn" onclick="abrirWA('soporte')" title="Soporte">
       <svg class="wa-svg" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -283,12 +283,12 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
   <div style="position:relative;height:160px;margin-bottom:20px">
     <div style="position:absolute;top:8px;left:0;width:148px;background:var(--card);border:1px solid rgba(200,242,75,.3);border-radius:var(--r2);padding:11px 14px">
       <div style="font-size:9px;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px">Tu nivel</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:var(--accent)">— / 100</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:var(--accent)">— / 100</div>
       <div style="height:3px;background:var(--border);border-radius:2px;margin-top:7px;overflow:hidden"><div style="height:100%;width:0%;background:var(--accent);border-radius:2px"></div></div>
     </div>
     <div style="position:absolute;top:42px;right:0;width:140px;background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:11px 14px">
       <div style="font-size:9px;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px">Ciclo activo</div>
-      <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:12px;color:var(--text)">Diagnóstico</div>
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;color:var(--text)">Diagnóstico</div>
       <div style="font-size:9px;color:var(--text2);margin-top:3px">4 semanas</div>
     </div>
     <div style="position:absolute;bottom:0;left:20px;width:160px;background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:11px 14px">
@@ -300,8 +300,8 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
       </div>
     </div>
   </div>
-  <div class="hero-tag">PALACIOS &amp; LOURIDO</div>
-  <h1 class="hero-title">Tu negocio<br>con <span>dirección</span> real</h1>
+  <div class="hero-tag">PALACIOS &amp; LOURIDO · MÉTODO SKALERA™</div>
+  <h1 class="hero-title">Avanza ejecutando<br>lo que impulsa<br><em style="color:var(--accent);font-style:italic">tu crecimiento</em></h1>
   <p class="hero-sub">Diagnóstico inteligente · Ruta personalizada · Acompañamiento real. Avanzas por construir, no por asistir.</p>
   <label class="label">Tu nombre completo</label>
   <input class="input" id="inp-name" placeholder="¿Cómo te llamas?">
@@ -334,7 +334,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
       <div class="nivel-opt-desc">Vendo y opero pero quiero crecer y escalar</div>
     </div>
   </div>
-  <button class="btn btn-accent" onclick="startApp()">Iniciar mi diagnóstico →</button>
+  <button class="btn btn-accent" onclick="startApp()" style="background:var(--accent2);color:#fff;font-size:15px">Empezar ahora →</button>
 </div>
 
 <!-- S1: DIAGNÓSTICO GENERAL -->
@@ -364,7 +364,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
         <div class="ring-center"><div class="ring-score" id="r1-score">0</div><div class="ring-max">/ 100</div></div>
       </div>
       <div id="r1-badge" class="tag" style="margin:0 auto 12px;display:inline-flex">—</div>
-      <div style="font-family:'Syne',sans-serif;font-size:19px;font-weight:800;margin-bottom:8px;line-height:1.2" id="r1-title">—</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:800;margin-bottom:8px;line-height:1.2" id="r1-title">—</div>
       <div style="font-size:14px;color:var(--text2);line-height:1.8;background:var(--card);padding:16px;border-radius:var(--r2);border:1px solid var(--border);margin-bottom:16px;text-align:left" id="r1-msg">—</div>
     </div>
     <div style="margin-bottom:14px">
@@ -391,7 +391,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 <div class="screen" id="s-quiz2">
   <div style="margin-bottom:12px">
     <div style="font-size:10px;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Diagnóstico profundo</div>
-    <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800" id="q2-titulo">Validación de idea</div>
+    <div style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800" id="q2-titulo">Validación de idea</div>
   </div>
   <div class="prog-wrap">
     <div class="prog-top"><span id="q2-counter">Pregunta 1 de 6</span><span id="q2-pts" style="color:var(--accent);font-weight:600">0 pts</span></div>
@@ -409,7 +409,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 <div class="screen" id="s-result2">
   <div class="scroll">
     <div style="font-size:10px;color:var(--accent);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Diagnóstico profundo completado</div>
-    <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:12px;line-height:1.2" id="r2-title">—</div>
+    <div style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;margin-bottom:12px;line-height:1.2" id="r2-title">—</div>
     <div class="card" style="margin-bottom:14px">
       <div style="font-size:12px;color:var(--text2);line-height:1.7" id="r2-msg">—</div>
     </div>
@@ -442,7 +442,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
       <div class="stat-box"><div class="stat-num" id="st-diplomas">0/4</div><div class="stat-lbl">Diplomas obtenidos</div></div>
       <div class="stat-box"><div class="stat-num" id="st-pct">0%</div><div class="stat-lbl">Progreso general</div></div>
     </div>
-    <div class="section-lbl">Tus ciclos</div>
+    <div style="font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px">Tus ciclos de trabajo</div>
     <div id="ciclos-list"></div>
     <button class="btn btn-wa mt8" onclick="abrirWA('ciclos')">
       <svg class="wa-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -456,7 +456,7 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
 <div class="screen" id="s-tasks" style="padding-top:14px">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
     <button class="back-btn" onclick="goBack('s-ciclos',1)">‹</button>
-    <div><div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800" id="t-title">Ciclo</div><div style="font-size:11px;color:var(--text2)" id="t-sub">Tareas</div></div>
+    <div><div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800" id="t-title">Ciclo</div><div style="font-size:11px;color:var(--text2)" id="t-sub">Tareas</div></div>
   </div>
   <div class="scroll" id="tasks-body"></div>
 </div>
@@ -488,18 +488,18 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
     </div>
     <div class="mentoria-tipo">
       <div class="mentoria-titulo">💬 Chat de soporte<span class="tag tag-done" style="font-size:9px">Incluido</span></div>
-      <div class="mentoria-desc">Respuesta a microbloqueos y dudas puntuales por WhatsApp. No reemplaza las sesiones — complementa la ejecución diaria.</div>
+      <div class="mentoria-desc">Respuesta a problemas puntuales y dudas puntuales por WhatsApp. No reemplaza las sesiones — complementa la ejecución diaria.</div>
     </div>
 
     <div class="divider"></div>
     <div class="section-lbl">Horarios de atención</div>
-    <div class="horario-item"><div><div class="horario-dia">Lunes y Miércoles</div><div class="horario-tipo">Mentorías individuales</div></div><div class="horario-hora">10am – 12pm</div></div>
-    <div class="horario-item"><div><div class="horario-dia">Martes y Jueves</div><div class="horario-tipo">Mentorías individuales</div></div><div class="horario-hora">3pm – 5pm</div></div>
+    <div class="horario-item"><div><div class="horario-dia">Lunes y Miércoles</div><div class="horario-tipo">Sesiones de acompañamiento</div></div><div class="horario-hora">10am – 12pm</div></div>
+    <div class="horario-item"><div><div class="horario-dia">Martes y Jueves</div><div class="horario-tipo">Sesiones de acompañamiento</div></div><div class="horario-hora">3pm – 5pm</div></div>
     <div class="horario-item"><div><div class="horario-dia">Viernes</div><div class="horario-tipo">Chat de soporte</div></div><div class="horario-hora">10am – 1pm</div></div>
     <div class="horario-item"><div><div class="horario-dia">Sábado</div><div class="horario-tipo">Solo urgencias</div></div><div class="horario-hora">10am – 12pm</div></div>
 
     <div class="info-box" style="margin-bottom:14px">
-      <strong>Regla de oro:</strong> El chat de soporte es para microbloqueos puntuales. Las decisiones estratégicas y revisión de tareas van en las sesiones de mentoría agendadas.
+      <strong>Regla de oro:</strong> El chat de soporte es para problemas puntuales puntuales. Las decisiones estratégicas y revisión de tareas van en las sesiones de mentoría agendadas.
     </div>
 
     <div class="section-lbl">Agendar sesión</div>
@@ -518,16 +518,17 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
   <div class="bn on" id="bn0" onclick="goTo('s-ciclos',0)"><div class="bn-ic">⬡</div><div class="bn-lb">Inicio</div></div>
   <div class="bn" id="bn1" onclick="goTo('s-ciclos',1)"><div class="bn-ic">◈</div><div class="bn-lb">Ciclos</div></div>
   <div class="bn" id="bn2" onclick="goTo('s-diplomas',2)"><div class="bn-ic">✦</div><div class="bn-lb">Diplomas</div></div>
-  <div class="bn" id="bn3" onclick="goTo('s-mentoria',3)"><div class="bn-ic">💬</div><div class="bn-lb">Mentoría</div></div>
-  <div class="bn" id="bn4" onclick="goTo('s-result1',4)"><div class="bn-ic">◎</div><div class="bn-lb">Diagnóstico</div></div>
-  <div class="bn" id="bn5" onclick="abrirAdmin()"><div class="bn-ic">⚙</div><div class="bn-lb">Admin</div></div>
+  <div class="bn" id="bn3" onclick="goTo('s-instructivo',3)"><div class="bn-ic">📖</div><div class="bn-lb">Guía</div></div>
+  <div class="bn" id="bn4" onclick="goTo('s-malla',4);renderMalla()"><div class="bn-ic">◎</div><div class="bn-lb">Programa</div></div>
+  <div class="bn" id="bn5" onclick="goTo('s-mentoria',5)"><div class="bn-ic">💬</div><div class="bn-lb">Mentoría</div></div>
+  <div class="bn" id="bn6" onclick="abrirAdmin()"><div class="bn-ic">⚙</div><div class="bn-lb">Admin</div></div>
 
 <!-- PANTALLA ADMIN: PANEL DE USUARIOS -->
 <div class="screen" id="s-admin" style="padding-top:14px">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
     <button class="back-btn" onclick="goTo('s-ciclos',0)">‹</button>
     <div>
-      <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800">Panel de Administración</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800">Panel de Administración</div>
       <div style="font-size:11px;color:var(--text2)">Datos de todos tus emprendedores</div>
     </div>
     <button onclick="cargarUsuarios()" style="margin-left:auto;background:var(--accent-lt);border:1px solid rgba(123,63,160,.2);border-radius:var(--r2);padding:7px 14px;font-size:12px;color:var(--accent);font-weight:600;cursor:pointer">↻ Actualizar</button>
@@ -561,11 +562,115 @@ textarea.input{resize:none;min-height:80px;font-size:13px}
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
     <button class="back-btn" onclick="go('s-admin')">‹</button>
     <div>
-      <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800" id="det-nombre">—</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800" id="det-nombre">—</div>
       <div style="font-size:11px;color:var(--text2)" id="det-negocio">—</div>
     </div>
   </div>
   <div class="scroll" id="detalle-body"></div>
+</div>
+
+<!-- PANTALLA: INSTRUCTIVO -->
+<div class="screen" id="s-instructivo">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <button class="back-btn" onclick="history.go(-1)||goTo('s-ciclos',1)">‹</button>
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700">Cómo usar SKALERA™</div>
+      <div style="font-size:11px;color:var(--text2)">Guía completa paso a paso</div>
+    </div>
+  </div>
+  <div class="scroll">
+    <div style="background:var(--accent-lt);border-radius:var(--r2);padding:14px 16px;margin-bottom:20px;border:1px solid rgba(16,185,129,.2)">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--accent2);margin-bottom:6px">Antes de empezar</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.7">Antes de acceder, debes aceptar el tratamiento de datos para poder guardar tu información y darte un resultado personalizado.</div>
+    </div>
+
+    ${[
+      ['1️⃣','Identifica tu punto de partida','Selecciona la opción que mejor describe el estado actual de tu negocio.','No respondas por lo que quisieras, sino por tu realidad actual.'],
+      ['2️⃣','Responde el diagnóstico inicial','Contesta las preguntas con sinceridad. Este diagnóstico nos permite entender cómo estás operando hoy.','Sé honesto — no hay respuestas buenas ni malas.'],
+      ['3️⃣','Revisa tu resultado','Recibirás tu nivel actual, los principales bloqueos y un primer plan de acción. Léelo con atención. Aquí empieza la claridad.',''],
+      ['4️⃣','Avanza al diagnóstico profundo','Toca el botón "Ir a mi diagnóstico profundo". Este segundo diagnóstico identifica con mayor precisión qué necesitas.',''],
+      ['5️⃣','Accede a tus ciclos','Toca "Ver mis ciclos activados" para empezar a ejecutar tu ruta personalizada.',''],
+    ].map(([n,t,d,tip])=>`
+    <div style="display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--border)">
+      <div style="font-size:22px;flex-shrink:0">${n}</div>
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:var(--text);margin-bottom:4px">${t}</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.6">${d}</div>
+        ${tip?`<div style="font-size:12px;color:var(--accent2);margin-top:4px;font-style:italic">👉 ${tip}</div>`:''}
+      </div>
+    </div>`).join('')}
+
+    <div style="background:var(--bg3);border-radius:var(--r2);padding:16px;margin:18px 0">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--accent2);margin-bottom:10px">¿Qué son los ciclos?</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:10px">Los ciclos son bloques de trabajo organizados que te permiten avanzar paso a paso en tu negocio. Cada ciclo tiene un objetivo específico y está diseñado para resolver una parte clave.</div>
+      <div style="font-size:13px;color:var(--accent2);font-weight:500;margin-bottom:4px">👉 No están hechos para ver contenido — son para ejecutar y avanzar.</div>
+    </div>
+
+    <div style="background:var(--bg3);border-radius:var(--r2);padding:16px;margin-bottom:18px">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--accent2);margin-bottom:10px">En cada actividad encontrarás:</div>
+      ${[
+        ['✔','Qué debes hacer','La acción concreta que debes ejecutar en tu negocio'],
+        ['✔','Por qué hacerlo','La razón detrás de esa actividad'],
+        ['✔','Para qué te sirve','El resultado que vas a obtener'],
+        ['✔','Qué evidencia subir','La prueba de que lo ejecutaste'],
+      ].map(([ic,t,d])=>`<div style="display:flex;gap:8px;padding:6px 0;font-size:13px"><span style="color:var(--accent);font-weight:700">${ic}</span><div><strong style="color:var(--text)">${t}:</strong> <span style="color:var(--text2)">${d}</span></div></div>`).join('')}
+    </div>
+
+    <div style="background:var(--accent-lt);border-radius:var(--r2);padding:14px 16px;margin-bottom:18px;border-left:3px solid var(--accent)">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--accent2);margin-bottom:6px">⚠️ Importante</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.7">No avances por avanzar. Avanza solo cuando hayas ejecutado. Este sistema funciona si haces, no si solo lees.</div>
+    </div>
+
+    <div style="background:var(--bg3);border-radius:var(--r2);padding:14px 16px;margin-bottom:18px">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--accent2);margin-bottom:8px">Al completar cada ciclo:</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.7">Toca "Recibir mi diploma" — tu certificado queda en proceso. Continúa con el siguiente ciclo mientras se genera. Al terminar todos los ciclos recibirás tu Diploma de Implementación.</div>
+    </div>
+
+    <div style="background:var(--bg3);border-radius:var(--r2);padding:14px 16px;margin-bottom:20px">
+      <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--accent2);margin-bottom:6px">¿Necesitas ayuda en algún punto?</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.7">En cualquier momento puedes usar el botón de WhatsApp para resolver dudas o bloqueos con tu asesora.</div>
+    </div>
+
+    <button class="btn btn-accent mt8" onclick="goTo('s-ciclos',1)">Ir a mis ciclos →</button>
+    <div style="height:16px"></div>
+  </div>
+</div>
+
+
+<!-- PANTALLA: ACCESO BLOQUEADO — REQUIERE PAGO -->
+<div class="screen" id="s-pago">
+  <div style="text-align:center;padding:20px 0">
+    <div style="font-size:48px;margin-bottom:16px">🔐</div>
+    <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--accent2);margin-bottom:10px">Activa tu programa</div>
+    <div style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:24px">Tu diagnóstico está listo. Para acceder a tu ruta de ciclos y actividades personalizadas, necesitas activar el programa que corresponde a tu nivel.<br><br>Tu asesora revisará tu diagnóstico y te confirmará el acceso.</div>
+    <div style="background:var(--accent-lt);border-radius:var(--r2);padding:16px;margin-bottom:20px;border:1px solid rgba(16,185,129,.2);text-align:left">
+      <div style="font-weight:700;font-size:13px;color:var(--accent2);margin-bottom:10px">Tu nivel asignado:</div>
+      <div id="pago-nivel" style="font-size:15px;font-weight:600;color:var(--accent)">—</div>
+      <div style="height:1px;background:var(--border);margin:10px 0"></div>
+      <div style="font-size:12px;color:var(--text2);line-height:1.7">Escríbele a tu asesora para activar tu acceso. Ella revisará tu diagnóstico y te indicará el programa indicado para ti.</div>
+    </div>
+    <button class="btn btn-wa" onclick="abrirWA('activar')" style="margin-bottom:10px">
+      <svg class="wa-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Escribir a mi asesora para activar
+    </button>
+    <button class="btn btn-ghost" onclick="go('s-result2')">Ver mi diagnóstico →</button>
+  </div>
+</div>
+
+<!-- PANTALLA: MALLA CURRICULAR -->
+<div class="screen" id="s-malla">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+    <button class="back-btn" onclick="goTo('s-ciclos',1)">‹</button>
+    <div>
+      <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:700">Programa SKALERA™</div>
+      <div style="font-size:11px;color:var(--text2)">Escalones, ciclos, actividades y diplomas</div>
+    </div>
+  </div>
+  <div class="scroll" id="malla-body">
+    <div style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:18px">Este es el mapa completo de tu proceso. Cada escalón corresponde a una etapa de tu negocio. Dentro de cada escalón hay ciclos con actividades concretas para ejecutar.</div>
+    <div id="malla-content"></div>
+    <div style="height:16px"></div>
+  </div>
 </div>
 
 </div>
@@ -621,16 +726,16 @@ const Q2 = {
     preguntas:[
       {cat:"El problema",txt:"¿Qué tan claro tienes el problema que quieres resolver?",opts:[{t:"Lo tengo muy claro y documentado",v:3},{t:"Lo intuyo pero no lo he validado",v:2},{t:"No estoy seguro del problema real",v:1}]},
       {cat:"El cliente",txt:"¿Has hablado con personas que podrían ser tu cliente?",opts:[{t:"Sí, he hecho entrevistas o pruebas",v:3},{t:"He hablado con 1 o 2 personas",v:2},{t:"No he hablado con nadie todavía",v:1}]},
-      {cat:"La solución",txt:"¿Tienes definida una propuesta de valor para tu idea?",opts:[{t:"Sí, clara y diferenciada",v:3},{t:"Tengo algo pero no es claro aún",v:2},{t:"No tengo propuesta definida",v:1}]},
+      {cat:"La solución",txt:"¿Tienes definida una tu mensaje de venta para tu idea?",opts:[{t:"Sí, clara y diferenciada",v:3},{t:"Tengo algo pero no es claro aún",v:2},{t:"No tengo propuesta definida",v:1}]},
       {cat:"Primer producto",txt:"¿Has creado algún prototipo o versión mínima de tu idea?",opts:[{t:"Sí, tengo algo que mostrar o probar",v:3},{t:"Estoy trabajando en ello",v:2},{t:"No he creado nada todavía",v:1}]},
       {cat:"Recursos",txt:"¿Qué recursos tienes disponibles para arrancar?",opts:[{t:"Tiempo, conocimiento y algo de dinero",v:3},{t:"Solo tiempo y conocimiento",v:2},{t:"Muy pocos recursos disponibles",v:1}]},
       {cat:"Compromiso",txt:"¿Qué tan comprometido estás con esta idea específica?",opts:[{t:"100% — es lo que quiero hacer",v:3},{t:"Bastante — pero aún tengo dudas",v:2},{t:"No estoy seguro si es la idea correcta",v:1}]}
     ]
   },
   1: { // Nivel 1 — Claridad de modelo
-    titulo:"Claridad de tu modelo de negocio",
+    titulo:"Claridad de tu cómo funciona tu negocio",
     preguntas:[
-      {cat:"Modelo de negocio",txt:"¿Tienes un modelo de negocio definido?",opts:[{t:"Sí, claro: qué vendo, a quién y cómo cobro",v:3},{t:"Tengo algo pero no está estructurado",v:2},{t:"No tengo modelo definido",v:1}]},
+      {cat:"Modelo de negocio",txt:"¿Tienes un cómo funciona tu negocio definido?",opts:[{t:"Sí, claro: qué vendo, a quién y cómo cobro",v:3},{t:"Tengo algo pero no está estructurado",v:2},{t:"No tengo modelo definido",v:1}]},
       {cat:"Oferta",txt:"¿Tu oferta actual está clara y tiene precio definido?",opts:[{t:"Sí, oferta y precio claros",v:3},{t:"Tengo oferta pero no sé qué cobrar",v:2},{t:"No tengo oferta definida",v:1}]},
       {cat:"Canales",txt:"¿Sabes por qué canal debes vender tu oferta?",opts:[{t:"Sí, tengo canal definido y lo uso",v:3},{t:"Sé cuál podría ser pero no lo uso bien",v:2},{t:"No sé por dónde vender",v:1}]},
       {cat:"Primeras ventas",txt:"¿Has tenido ventas reales aunque sea pequeñas?",opts:[{t:"Sí, he vendido varias veces",v:3},{t:"Una o dos ventas aisladas",v:2},{t:"No he tenido ninguna venta",v:1}]},
@@ -644,7 +749,7 @@ const Q2 = {
       {cat:"Procesos",txt:"¿Tu negocio tiene procesos documentados y repetibles?",opts:[{t:"Sí, todo está documentado",v:3},{t:"Algunos procesos, otros no",v:2},{t:"No tengo nada documentado",v:1}]},
       {cat:"Organización",txt:"¿Cómo está organizada la operación diaria de tu negocio?",opts:[{t:"Bien organizada con rutinas claras",v:3},{t:"Algo organizada pero con improvisación",v:2},{t:"Desorganizada — resuelvo el día a día",v:1}]},
       {cat:"Flujo de clientes",txt:"¿Tienes un proceso claro para atraer y cerrar clientes?",opts:[{t:"Sí, proceso definido y funciona",v:3},{t:"Tengo algo pero no es consistente",v:2},{t:"No tengo proceso de ventas",v:1}]},
-      {cat:"Métricas",txt:"¿Mides resultados en tu negocio?",opts:[{t:"Sí, tengo KPIs y los reviso",v:3},{t:"Mido algo pero no sistemáticamente",v:2},{t:"No mido nada actualmente",v:1}]},
+      {cat:"Métricas",txt:"¿Mides resultados en tu negocio?",opts:[{t:"Sí, tengo los números que mides y los reviso",v:3},{t:"Mido algo pero no sistemáticamente",v:2},{t:"No mido nada actualmente",v:1}]},
       {cat:"Finanzas",txt:"¿Tienes control de tus ingresos y gastos?",opts:[{t:"Sí, control claro de finanzas",v:3},{t:"Control básico pero impreciso",v:2},{t:"No tengo control financiero",v:1}]},
       {cat:"Cuellos de botella",txt:"¿Sabes cuál es el proceso que más te está frenando?",opts:[{t:"Sí, lo identifiqué y estoy trabajando en él",v:3},{t:"Lo intuyo pero no lo he atacado",v:2},{t:"No sé cuál es el cuello de botella",v:1}]}
     ]
@@ -653,8 +758,8 @@ const Q2 = {
     titulo:"Diagnóstico de escalamiento",
     preguntas:[
       {cat:"Automatización",txt:"¿Has automatizado algún proceso de tu negocio?",opts:[{t:"Sí, varios procesos automatizados",v:3},{t:"Algo automatizado, poco todavía",v:2},{t:"Todo es manual aún",v:1}]},
-      {cat:"Escalamiento",txt:"¿Tu modelo de negocio puede crecer sin depender solo de ti?",opts:[{t:"Sí, ya funciona sin mí en algunas áreas",v:3},{t:"Parcialmente — dependo mucho de mí",v:2},{t:"Todo depende de mí actualmente",v:1}]},
-      {cat:"Métricas de crecimiento",txt:"¿Tienes métricas claras de crecimiento y las revisas?",opts:[{t:"Sí, dashboard y revisión semanal",v:3},{t:"Algunas métricas básicas",v:2},{t:"No tengo métricas de crecimiento",v:1}]},
+      {cat:"Escalamiento",txt:"¿Tu cómo funciona tu negocio puede crecer sin depender solo de ti?",opts:[{t:"Sí, ya funciona sin mí en algunas áreas",v:3},{t:"Parcialmente — dependo mucho de mí",v:2},{t:"Todo depende de mí actualmente",v:1}]},
+      {cat:"Métricas de crecimiento",txt:"¿Tienes tus números clave claras de crecimiento y las revisas?",opts:[{t:"Sí, dashboard y revisión semanal",v:3},{t:"Algunas tus números clave básicas",v:2},{t:"No tengo tus números clave de crecimiento",v:1}]},
       {cat:"Estrategia",txt:"¿Tienes una estrategia de crecimiento para los próximos 6 meses?",opts:[{t:"Sí, estrategia clara con metas",v:3},{t:"Tengo ideas pero sin plan estructurado",v:2},{t:"No tengo estrategia definida",v:1}]},
       {cat:"Equipo",txt:"¿Tienes equipo o aliados que te ayuden a operar?",opts:[{t:"Sí, equipo o red de apoyo sólida",v:3},{t:"Una o dos personas de apoyo",v:2},{t:"Todo lo hago solo actualmente",v:1}]},
       {cat:"Rentabilidad",txt:"¿Tu negocio es rentable y sabes exactamente cuánto ganas?",opts:[{t:"Sí, rentable y con cifras claras",v:3},{t:"Gano pero no sé exactamente cuánto",v:2},{t:"No estoy seguro si soy rentable",v:1}]}
@@ -665,81 +770,299 @@ const Q2 = {
 // CICLOS POR NIVEL
 const CICLOS_POR_NIVEL = {
   0: [
-    {num:"01",name:"Validación e investigación",sub:"\"Confirma que tu idea tiene mercado\"",sem:"3 semanas",
+    {num:"01",name:"Validación e investigación",sub:"Primero verificamos que tu idea puede convertirse en negocio real",sem:"3 semanas",
      tasks:[
-       {n:"Definir el problema real que resuelves",d:"Describe en máximo 3 líneas el problema concreto que resuelve tu idea. Debe ser un dolor real, no una suposición.",p:15,ev:true},
-       {n:"Entrevistar a 5 posibles clientes",d:"Habla con 5 personas que podrían ser tu cliente. Pregúntales sobre sus dolores, no sobre tu idea. Documenta las respuestas con nombre y fecha.",p:20,ev:true},
-       {n:"Validar la disposición de pago",d:"Pregunta a tus entrevistados si pagarían por una solución. Documenta cuánto estarían dispuestos a pagar y por qué.",p:15,ev:true},
-       {n:"Construir tu propuesta de valor",d:"Con lo que aprendiste de las entrevistas, construye tu propuesta: qué haces, para quién, qué problema resuelves y qué te diferencia.",p:20,ev:true},
-       {n:"Crear tu Producto Mínimo Viable (PMV)",d:"La versión más simple de tu idea que puedas mostrar o probar. Puede ser una descripción, un prototipo básico o un servicio manual.",p:20,ev:true}
-     ],diploma:{icon:"💡",title:"Validación de Idea",cond:"Entrevistas + PMV + propuesta de valor"}},
-    {num:"02",name:"Formalización y constitución empresarial",sub:"\"Constituye tu empresa legalmente en Colombia\"",sem:"3 semanas",info:"Este ciclo te guía paso a paso para constituir tu empresa como SAS en Colombia. Puedes hacerlo gratis o con costo mínimo.",
+       {n:"Definir el problema real que resuelves",d:`${td(
+         "Escribe en máximo 3 líneas cuál es el problema específico que quieres resolver con tu negocio o idea.",
+         "Si no hay un problema claro, no hay negocio. Muchas ideas fracasan porque el emprendedor nunca verificó si alguien tenía ese problema.",
+         "Tener el punto de partida claro para no gastar tiempo ni dinero en algo que nadie necesita.",
+         "Foto o captura del texto que escribiste con el problema definido."
+       )}`,p:15,ev:true},
+       {n:"Hablar con 5 posibles clientes",d:`${td(
+         "Contacta a 5 personas que podrían ser tus clientes y hazles preguntas sobre sus problemas — no sobre tu idea. Pregunta: ¿Qué te complica más en este tema? ¿Cómo lo resuelves hoy? ¿Cuánto pagas por resolverlo?",
+         "Tu idea no importa si el cliente no la necesita. La mayoría de emprendedores supone lo que el cliente quiere sin preguntarlo.",
+         "Entender la realidad del cliente para que tu negocio resuelva algo que de verdad le duele.",
+         "Lista con nombre de cada persona, fecha de la conversación y las respuestas principales que te dieron."
+       )}`,p:20,ev:true},
+       {n:"Verificar si pagarían por tu solución",d:`${td(
+         "Pregúntales directamente a las personas con quienes hablaste: ¿Pagarías por una solución a este problema? ¿Cuánto pagarías?",
+         "Que alguien diga que le interesa no significa que vaya a pagar. Necesitas saber si hay dinero real detrás del interés.",
+         "Confirmar que tu idea puede generar ingresos reales antes de invertir tiempo y dinero.",
+         "Resumen escrito con las respuestas: cuántos dijeron que sí, cuánto estarían dispuestos a pagar."
+       )}`,p:15,ev:true},
+       {n:"Construir tu tu mensaje de venta",d:`${td(
+         "Escribe en máximo 4 líneas: qué haces, para quién lo haces, qué problema resuelves y en qué eres diferente a otros.",
+         "Sin un mensaje claro, nadie entiende tu negocio. Si tú no puedes explicarlo en pocas palabras, el cliente tampoco lo va a entender.",
+         "Tener la base de comunicación de tu negocio para poder vender, publicar y explicar lo que haces.",
+         "Foto o documento con tu tu mensaje de venta escrita."
+       )}`,p:20,ev:true},
+       {n:"Crear la versión más simple de tu producto o servicio",d:`${td(
+         "Crea la versión más básica de tu idea que puedas mostrar o probar hoy. Puede ser una descripción detallada, un prototipo simple, una muestra o un servicio manual.",
+         "No necesitas nada perfecto para empezar. Esperar a tener todo listo es la razón por la que muchas ideas nunca arrancan.",
+         "Pasar de la idea a algo concreto que puedas mostrarle a un cliente real.",
+         "Foto, descripción escrita, link o captura de tu versión inicial."
+       )}`,p:20,ev:true}
+     ],diploma:{icon:"💡",title:"Validación de Idea Completada",cond:"Entrevistas + tu mensaje de venta + versión inicial"}},
+
+    {num:"02",name:"Formalización y constitución empresarial",sub:"Hacemos todo lo legal para que tu empresa quede registrada oficialmente",sem:"3 semanas",info:"Este ciclo te guía para constituir tu empresa como SAS en Colombia.",
      tasks:[
-       {n:"Definir nombre y verificar disponibilidad",d:"Elige mínimo 3 opciones de nombre para tu empresa. Verifica que no estén registrados en la RUES (rues.confecamaras.co). El nombre no puede ser igual ni similar a uno existente.\n\n🔗 Verifica en: rues.confecamaras.co → Búsqueda de empresas",p:10,ev:true},
-       {n:"Redactar el Acta de Constitución SAS",d:"Documento que da vida legal a tu empresa. Debe incluir:\n• Nombre de la empresa\n• Domicilio (ciudad)\n• Objeto social (qué hace tu empresa)\n• Capital autorizado, suscrito y pagado\n• Nombre del representante legal (tú)\n• Duración (puede ser indefinida)\n\n💡 Tu asesora te entrega una plantilla lista para diligenciar con tus datos.",p:20,ev:true},
-       {n:"Registrar la empresa en Cámara de Comercio",d:"Lleva el Acta de Constitución a la Cámara de Comercio de tu ciudad o hazlo en línea.\n\n📋 Documentos que necesitas:\n• Acta de Constitución firmada\n• Fotocopia de tu cédula\n• Formulario RUES (te lo dan en Cámara)\n• Pago del registro (varía según capital — aprox $200.000 a $400.000 COP)\n\n🔗 En línea: ccb.org.co (Bogotá) o la de tu ciudad\n\nEvidencia: foto del certificado de existencia.",p:25,ev:true},
-       {n:"Obtener el RUT en la DIAN",d:"Registro Único Tributario — identifica tu empresa ante el Estado para facturar.\n\n📋 Pasos:\n1. Ve a dian.gov.co → Tramites y servicios → RUT\n2. Selecciona 'Inscripción RUT' como persona jurídica\n3. Adjunta el certificado de existencia de Cámara de Comercio\n4. Selecciona actividades CIIU: 8559 (Educación) y 7020 (Consultoría)\n5. Descarga y guarda tu RUT\n\nEvidencia: foto o PDF de tu RUT.",p:20,ev:true},
-       {n:"Abrir cuenta bancaria empresarial",d:"Con el RUT y el certificado de existencia puedes abrir tu cuenta empresarial.\n\n🏦 Opciones gratuitas o de bajo costo:\n• Bancolombia Pyme (sin cuota de manejo el primer año)\n• Nequi Empresas (100% digital, sin cuota)\n• Daviplata Negocios\n• Nu (Nubank) cuenta empresarial\n\n📋 Documentos: cédula, RUT, certificado de existencia de Cámara.\n\nEvidencia: foto de la tarjeta o pantalla de la cuenta abierta.",p:15,ev:true},
-       {n:"Configurar facturación electrónica",d:"En Colombia toda empresa debe facturar electrónicamente. Opciones gratuitas:\n\n• Siigo Pyme (plan gratuito hasta 50 facturas/mes)\n• Alegra (plan gratis limitado)\n• Facturación gratuita DIAN (operador habilitado)\n\n📋 Pasos:\n1. Regístrate en el operador que elijas\n2. Ingresa tu RUT y datos de la empresa\n3. Habilita tu empresa ante la DIAN\n4. Genera tu primera factura de prueba\n\nEvidencia: captura de pantalla de tu primera factura electrónica.",p:10,ev:true}
+       {n:"Elegir y verificar el nombre de tu empresa",d:`${td(
+         "Elige 3 opciones de nombre para tu empresa y verifica que no estén registradas en la RUES. Entra a rues.confecamaras.co, busca cada nombre y confirma su disponibilidad.",
+         "No puedes registrar legalmente un nombre que ya existe. Esto puede generar problemas legales costosos más adelante.",
+         "Asegurar que tu empresa tenga un nombre propio, disponible y listo para registrar.",
+         "Captura de pantalla de la búsqueda en RUES que muestre que el nombre está disponible."
+       )}`,p:10,ev:true},
+       {n:"Redactar el Acta de Constitución SAS",d:`${td(
+         "Redacta el documento legal que da vida a tu empresa. Debe incluir: nombre, ciudad, qué hace tu empresa, cuánto capital tienes, quién es el representante legal (tú) y por cuánto tiempo existirá (puede ser indefinida). Tu asesora te entrega una plantilla lista para completar con tus datos.",
+         "Sin este documento no existe tu empresa legalmente. Es el primer paso para operar de forma formal.",
+         "Tener el documento base para registrar tu empresa en Cámara de Comercio.",
+         "Foto o PDF del acta redactada y firmada."
+       )}`,p:20,ev:true},
+       {n:"Registrar tu empresa en Cámara de Comercio",d:`${td(
+         "Lleva el Acta de Constitución a la Cámara de Comercio de tu ciudad o hazlo en línea (ccb.org.co si estás en Bogotá). Necesitas: acta firmada, fotocopia de tu cédula y pago del registro (entre $200.000 y $400.000 COP según el capital).",
+         "Sin registro en Cámara de Comercio tu empresa no existe ante el Estado ni ante tus clientes.",
+         "Obtener el certificado de existencia — el documento que prueba que tu empresa es legal.",
+         "Foto del certificado de existencia y representación legal que te entrega Cámara de Comercio."
+       )}`,p:25,ev:true},
+       {n:"Obtener el RUT en la DIAN",d:`${td(
+         "Entra a dian.gov.co, busca 'Inscripción RUT' como persona jurídica y adjunta tu certificado de Cámara de Comercio. Selecciona las actividades: 8559 (Educación) y 7020 (Consultoría). Descarga y guarda tu RUT.",
+         "Sin RUT no puedes facturar legalmente. Es obligatorio para cualquier empresa en Colombia.",
+         "Poder emitir facturas, hacer compras a nombre de tu empresa y operar formalmente.",
+         "Foto o PDF de tu RUT descargado de la DIAN."
+       )}`,p:20,ev:true},
+       {n:"Abrir tu cuenta bancaria empresarial",d:`${td(
+         "Con tu RUT y certificado de Cámara de Comercio, abre una cuenta a nombre de tu empresa. Opciones gratuitas o de bajo costo: Nequi Empresas (100% digital), Bancolombia Pyme o Nubank empresarial.",
+         "Mezclar el dinero personal con el del negocio genera confusión, problemas contables y pérdida de control sobre tus finanzas.",
+         "Tener un lugar separado para los ingresos y gastos de tu empresa desde el primer día.",
+         "Foto de la tarjeta empresarial o captura de pantalla de la cuenta abierta a nombre de tu empresa."
+       )}`,p:15,ev:true},
+       {n:"Activar tu facturación electrónica",d:`${td(
+         "Regístrate en un sistema de facturación gratuito como Siigo Pyme o Alegra. Ingresa tu RUT y datos de la empresa, habilítate ante la DIAN y genera tu primera factura de prueba.",
+         "En Colombia toda empresa está obligada a facturar electrónicamente. Sin esto no puedes cobrar legalmente.",
+         "Poder emitir facturas reales a tus clientes desde el primer día que vendas.",
+         "Captura de pantalla de tu primera factura electrónica generada."
+       )}`,p:10,ev:true}
      ],diploma:{icon:"📜",title:"Empresa Constituida y Formalizada",cond:"Cámara de Comercio + RUT + cuenta bancaria + facturación"}},
-    {num:"03",name:"Creación y activación del negocio",sub:"\"Construye la base comercial\"",sem:"3 semanas",
+
+    {num:"03",name:"Creación y activación del negocio",sub:"Empezamos a vender y a conseguir tus primeros clientes reales",sem:"3 semanas",
      tasks:[
-       {n:"Diseñar tu modelo de negocio inicial",d:"Define cómo vas a generar dinero: qué vendes, a quién, cuánto cobras y cómo entregas tu producto o servicio.",p:20,ev:true},
-       {n:"Crear tu primera oferta concreta con precio",d:"Una oferta específica con precio definido, descripción clara y forma de entrega. Debe ser algo que puedas vender esta semana.",p:20,ev:true},
-       {n:"Activar tu presencia en 1 canal de venta",d:"Elige un solo canal: WhatsApp Business, Instagram, LinkedIn o referidos. Configúralo completamente y publica tu primera oferta.",p:15,ev:true},
-       {n:"Conseguir tu primer cliente o venta real",d:"Consigue alguien que pague por tu servicio o producto. Documenta cómo lo conseguiste. Si es gratis, debe ser formal y con compromiso de testimonio.",p:25,ev:true},
-       {n:"Emitir tu primera factura electrónica",d:"Factura tu primera venta con tu sistema de facturación electrónica. Esto valida que tu empresa opera legalmente.",p:10,ev:true}
-     ],diploma:{icon:"🚀",title:"Negocio Activo y Operando",cond:"Modelo + oferta + primera venta + primera factura"}}
+       {n:"Diseñar cómo va a funcionar tu negocio",d:`${td(
+         "Responde estas preguntas por escrito: ¿Qué exactamente vendes? ¿A quién le vendes? ¿Cómo le cobras? ¿Cómo lo entregas o lo das? ¿Por qué te van a comprar a ti?",
+         "Sin tener claro cómo funciona tu negocio, trabajas sin dirección y tomas decisiones sin base.",
+         "Tener un mapa claro de cómo generas dinero para no improvisar cada vez que alguien te contacte.",
+         "Foto o documento con tus respuestas escritas."
+       )}`,p:20,ev:true},
+       {n:"Crear tu primera oferta con precio definido",d:`${td(
+         "Escribe una oferta específica con precio claro: qué incluye, para quién es, cuánto cuesta y cómo se paga. Debe ser algo que puedas vender esta semana.",
+         "Sin precio no hay venta. Sin oferta clara el cliente no sabe qué está comprando.",
+         "Tener algo concreto para salir a ofrecer y empezar a generar ingresos reales.",
+         "Foto o texto con tu oferta completa tal como se la mostrarías a un cliente."
+       )}`,p:20,ev:true},
+       {n:"Activar tu canal de venta principal",d:`${td(
+         "Elige UN solo canal donde están tus clientes (WhatsApp Business, Instagram, LinkedIn, referidos) y configúralo completamente. Publica tu primera oferta ahí.",
+         "Si no te ven, no existen. Necesitas estar presente donde está tu cliente, no donde tú prefieras.",
+         "Empezar a generar visibilidad y oportunidades de venta desde el primer día.",
+         "Captura de pantalla del canal activo con tu primera publicación o perfil completo."
+       )}`,p:15,ev:true},
+       {n:"Conseguir tu primer cliente o venta real",d:`${td(
+         "Logra que alguien te pague por tu producto o servicio. Puede ser con descuento para el primer cliente. Documenta cómo lo conseguiste: qué dijiste, qué pasó, cómo cerró.",
+         "Una venta real confirma que tu negocio funciona. Sin esto solo tienes una idea con precio.",
+         "Convertir tu propuesta en dinero real y aprender el proceso de venta desde la práctica.",
+         "Foto de la transferencia, recibo, captura del pago o de la conversación donde se cerró la venta."
+       )}`,p:25,ev:true},
+       {n:"Emitir tu primera factura electrónica",d:`${td(
+         "Genera una factura electrónica real a tu primer cliente usando el sistema que activaste en el ciclo anterior.",
+         "Formaliza tu primera operación comercial y demuestra que tu empresa opera legalmente.",
+         "Documentar tu primera venta de forma legal y profesional desde el inicio.",
+         "Foto o PDF de la factura electrónica generada y enviada al cliente."
+       )}`,p:10,ev:true}
+     ],diploma:{icon:"🚀",title:"Negocio Activo y Operando",cond:"Primera oferta + primer cliente + primera factura"}}
   ],
+
   1: [
-    {num:"01",name:"Estructuración del negocio",sub:"\"Organiza lo que ya tienes\"",sem:"4 semanas",
+    {num:"01",name:"Estructura y claridad de tu negocio",sub:"Ordenamos qué vendes, a quién y cómo para que tengas dirección clara",sem:"4 semanas",
      tasks:[
-       {n:"Construir tu modelo de negocio formal",d:"Canvas simplificado: propuesta de valor, segmento de clientes, canales, relación con clientes, fuentes de ingreso.",p:20,ev:true},
-       {n:"Definir tu oferta con precio justificado",d:"Oferta específica, precio con base en valor entregado (no en lo que cobra la competencia), y forma clara de pago.",p:20,ev:true},
-       {n:"Perfilar tu cliente ideal real",d:"Perfil basado en clientes reales o entrevistas: dolores, deseos, objeciones comunes, dónde está y cómo hablarle.",p:15,ev:true},
-       {n:"Elegir y activar tu canal de venta principal",d:"Un solo canal donde está tu cliente. Actívalo esta semana con una publicación, mensaje o acción concreta.",p:15,ev:true},
-       {n:"Ejecutar 3 conversaciones comerciales reales",d:"Habla con 3 posibles clientes sobre tu oferta. Documenta qué pasó: interés, objeciones, resultado.",p:20,ev:true}
-     ],diploma:{icon:"🏅",title:"Estructuración de Negocio",cond:"Modelo + oferta + canal activado + conversaciones"}},
-    {num:"02",name:"Primeras ventas reales",sub:"\"Valida que el mercado te paga\"",sem:"3 semanas",
+       {n:"Definir cómo funciona tu negocio",d:`${td(
+         "Responde por escrito estas 5 preguntas: ¿Qué vendes exactamente? ¿A quién le vendes? ¿Cómo cobras? ¿Cómo entregas lo que vendes? ¿Por qué te compran a ti y no a otro?",
+         "Sin tener esto claro improvisas cada vez. Eso genera resultados inconsistentes y desgaste.",
+         "Tener un punto de partida sólido para tomar decisiones y no ir cambiando de dirección cada semana.",
+         "Foto o documento con tus 5 respuestas escritas."
+       )}`,p:20,ev:true},
+       {n:"Crear tu oferta con precio justificado",d:`${td(
+         "Define una oferta específica: qué incluye, para quién es, cuánto cuesta y por qué ese precio tiene sentido. El precio debe cubrir tus costos y dejarte ganancia.",
+         "Sin oferta clara y precio definido no puedes vender de forma consistente. Cada conversación empieza desde cero.",
+         "Tener algo concreto para ofrecer sin dudar del precio ni de lo que incluye.",
+         "Foto o texto de tu oferta completa con precio."
+       )}`,p:20,ev:true},
+       {n:"Describir a tu cliente ideal",d:`${td(
+         "Escribe cómo es la persona a quien le vendes: edad aproximada, qué problema tiene, qué le preocupa, dónde pasa el tiempo, por qué dudaría en comprarte y qué lo convencería.",
+         "Si intentas venderle a todos no le vendes a nadie. Conocer a tu cliente hace que tu mensaje llegue mejor.",
+         "Saber exactamente a quién buscar y cómo hablarle para que tu oferta conecte.",
+         "Foto o documento con la descripción de tu cliente escrita."
+       )}`,p:15,ev:true},
+       {n:"Elegir y activar tu canal de venta principal",d:`${td(
+         "Elige UN solo canal donde está tu cliente (WhatsApp, Instagram, referidos, LinkedIn) y úsalo esta semana con al menos una acción concreta: publicación, mensaje o contacto directo.",
+         "Intentar estar en todos lados al mismo tiempo dispersa la energía y no genera resultados.",
+         "Concentrar el esfuerzo en un canal para generar resultados más rápido.",
+         "Captura de tu acción en el canal: publicación, mensaje enviado o perfil completo."
+       )}`,p:15,ev:true},
+       {n:"Tener 3 conversaciones reales con posibles clientes",d:`${td(
+         "Habla con 3 personas que podrían ser tus clientes. Preséntate, explica lo que haces y escucha. No es necesario cerrar ventas — es para practicar y aprender. Anota qué pasó en cada conversación.",
+         "El negocio se construye hablando con clientes. Sin conversaciones reales no hay ventas ni aprendizaje.",
+         "Validar si tu oferta genera interés real y aprender qué preguntas o dudas tiene tu cliente.",
+         "Resumen escrito de cada conversación: con quién fue, qué dijiste, qué respondió y cuál fue el resultado."
+       )}`,p:20,ev:true}
+     ],diploma:{icon:"🏅",title:"Negocio Estructurado",cond:"Oferta + cliente definido + canal activo + conversaciones"}},
+
+    {num:"02",name:"Primeras ventas reales",sub:"Pasamos de hablar con clientes a recibir dinero de verdad",sem:"3 semanas",
      tasks:[
-       {n:"Crear tu mensaje de venta principal",d:"Un texto de máximo 5 líneas que explica qué vendes, para quién y por qué comprarte. Claro y sin tecnicismos.",p:15,ev:true},
-       {n:"Hacer tu primera venta pagada",d:"Consigue un cliente que pague por tu oferta. Documenta cómo lo conseguiste y qué funcionó.",p:30,ev:true},
-       {n:"Documentar el proceso de venta que usaste",d:"Escribe los pasos que seguiste para conseguir ese cliente. Esto es el inicio de tu proceso de ventas.",p:20,ev:true},
-       {n:"Manejar tu primera objeción real",d:"Documenta una objeción que recibiste y cómo la respondiste. ¿Compraron o no? ¿Por qué?",p:15,ev:true}
+       {n:"Crear tu mensaje de venta principal",d:`${td(
+         "Escribe en máximo 5 líneas el texto que usarás para presentar tu negocio: qué haces, para quién, qué problema resuelves y por qué comprarte. Debe ser claro sin tecnicismos.",
+         "Si no sabes cómo presentarte en pocas palabras, el cliente tampoco entiende y no compra.",
+         "Tener un texto listo para usar en WhatsApp, redes o en cualquier conversación sin improvisar.",
+         "Foto o captura de tu mensaje escrito y listo para usar."
+       )}`,p:15,ev:true},
+       {n:"Cerrar tu primera venta pagada",d:`${td(
+         "Consigue que alguien te pague por tu oferta. Puede ser con descuento para el primer cliente. Lo importante es el proceso: cómo lo contactaste, qué le dijiste y cómo cerró. Documenta cada paso.",
+         "Una venta real confirma que tu negocio funciona. Todo lo anterior era preparación — esto es la prueba.",
+         "Convertir tu trabajo en ingresos reales y entender qué funciona en tu proceso de venta.",
+         "Foto del pago recibido (transferencia, recibo) o captura de la conversación donde cerró la venta."
+       )}`,p:30,ev:true},
+       {n:"Escribir cómo conseguiste ese cliente",d:`${td(
+         "Escribe paso a paso qué hiciste para conseguir tu primera venta: cómo contactaste al cliente, qué le dijiste, qué dudas tuvo, cómo las resolviste y cómo cerraste. Eso es tu proceso de venta.",
+         "Lo que no está escrito desaparece. Si no documentas cómo vendiste, no puedes repetirlo ni mejorarlo.",
+         "Tener un proceso básico de venta que puedas repetir para conseguir más clientes.",
+         "Foto o documento con los pasos escritos de cómo conseguiste tu primera venta."
+       )}`,p:20,ev:true},
+       {n:"Responder a una objeción de un cliente",d:`${td(
+         "Cuando alguien te diga 'está muy caro', 'lo pienso' o 'no tengo plata' — no te rindas. Escribe qué te dijeron exactamente y qué les respondiste. ¿Compraron o no? ¿Por qué crees que pasó eso?",
+         "Las objeciones son normales en cualquier venta. Aprender a manejarlas es lo que separa a quien vende de quien no.",
+         "Aprender a responder las dudas más comunes de tus clientes para cerrar más ventas.",
+         "Texto escrito con la objeción que recibiste y la respuesta que diste."
+       )}`,p:15,ev:true}
      ],diploma:{icon:"🎖️",title:"Primeras Ventas Validadas",cond:"Primera venta + proceso documentado"}}
   ],
+
   2: [
-    {num:"01",name:"Organización y procesos",sub:"\"Convierte tu negocio en sistema\"",sem:"4 semanas",
+    {num:"01",name:"Cómo funciona tu negocio hoy",sub:"Ordenamos cómo operas para que no todo dependa del azar",sem:"4 semanas",
      tasks:[
-       {n:"Mapear tu proceso actual de ventas",d:"Documenta paso a paso cómo consigues un cliente hoy: desde el primer contacto hasta el pago.",p:20,ev:true},
-       {n:"Identificar y eliminar un cuello de botella",d:"El proceso que más te frena. Documenta cuál es, por qué ocurre y qué acción tomaste para reducirlo.",p:20,ev:true},
-       {n:"Establecer métricas básicas de seguimiento",d:"Define 3 KPIs que medirás cada semana: puede ser ventas, contactos nuevos, tasa de cierre o ingresos.",p:15,ev:true},
-       {n:"Crear tu rutina semanal de negocio",d:"Un calendario semanal con los bloques de tiempo para ventas, operación y administración de tu negocio.",p:15,ev:true},
-       {n:"Organizar tus finanzas básicas",d:"Tabla de ingresos y gastos del último mes. ¿Eres rentable? ¿Cuánto ganas realmente?",p:20,ev:true}
-     ],diploma:{icon:"🥇",title:"Negocio Organizado",cond:"Procesos + métricas + finanzas organizadas"}},
-    {num:"02",name:"Flujo de clientes constante",sub:"\"Que los clientes lleguen con sistema\"",sem:"3 semanas",
+       {n:"Escribir cómo consigues un cliente hoy",d:`${td(
+         "Escribe paso a paso qué pasa desde que alguien se entera de tu negocio hasta que te paga. ¿Cómo te contactan? ¿Qué les dices? ¿Cómo cierras? ¿Cómo cobras? Escríbelo como si le explicaras a alguien que nunca ha visto tu negocio.",
+         "No puedes mejorar lo que no tienes claro. Si no sabes cómo vendes, no puedes hacerlo mejor ni enseñarle a alguien más.",
+         "Tener visible todo el proceso para encontrar dónde se pierden clientes o dónde se complica más.",
+         "Foto o documento con el proceso escrito paso a paso."
+       )}`,p:20,ev:true},
+       {n:"Encontrar qué es lo que más te frena",d:`${td(
+         "Con el proceso escrito, identifica el paso donde más se complica: ¿La gente no te contacta? ¿Te contactan pero no compran? ¿Compran pero no vuelven? Escribe cuál es ese punto y qué crees que lo causa.",
+         "Ahí está tu problema real. Atacar eso específico tiene más impacto que mejorar todo a la vez.",
+         "Saber exactamente qué arreglar primero para ver resultados más rápido.",
+         "Texto con el punto identificado y la causa que crees que lo genera."
+       )}`,p:20,ev:true},
+       {n:"Definir 3 números que vas a seguir cada semana",d:`${td(
+         "Elige 3 cosas que vas a medir cada semana. Ejemplos: cuántas personas me contactaron, cuántas compraron, cuánto dinero entró. Escríbelos y empieza a anotarlos desde esta semana.",
+         "Sin números no sabes si tu negocio va bien o mal. Muchos emprendedores trabajan mucho pero no saben si están avanzando.",
+         "Tener información real para tomar decisiones y saber qué funciona y qué no.",
+         "Foto de tu tabla o cuaderno con los 3 números y los primeros datos anotados."
+       )}`,p:15,ev:true},
+       {n:"Organizar cómo van tus días de trabajo",d:`${td(
+         "Crea un horario semanal simple con bloques de tiempo para: buscar clientes, atender clientes, administrar el negocio. No tiene que ser perfecto — tiene que ser real y cumplible.",
+         "Sin organización del tiempo, lo urgente siempre gana sobre lo importante y el negocio nunca avanza.",
+         "Tener claridad de cuándo haces qué para que no se mezcle todo y termines el día sin haber avanzado.",
+         "Foto de tu horario escrito o captura del calendario que creaste."
+       )}`,p:15,ev:true},
+       {n:"Saber cuánto dinero entra y cuánto sale",d:`${td(
+         "Anota todo lo que entró de dinero este mes y todo lo que gastaste para el negocio. Réstale los gastos a los ingresos. Ese número es lo que realmente ganaste.",
+         "Sin este control no sabes si tu negocio es rentable o si estás perdiendo dinero sin darte cuenta.",
+         "Tener claridad financiera básica para tomar decisiones con información real.",
+         "Foto de tu tabla o cuaderno con ingresos, gastos y el resultado del mes."
+       )}`,p:20,ev:true}
+     ],diploma:{icon:"🥇",title:"Negocio Organizado",cond:"Proceso claro + números definidos + organización financiera"}},
+
+    {num:"02",name:"Clientes constantes",sub:"Creamos una forma de conseguir clientes que no dependa de la suerte",sem:"3 semanas",
      tasks:[
-       {n:"Diseñar tu embudo de clientes",d:"El camino que sigue un desconocido hasta convertirse en tu cliente. Cada paso con acciones concretas.",p:20,ev:true},
-       {n:"Implementar una acción de captación semanal",d:"Una acción repetible cada semana para conseguir nuevos contactos: publicación, mensaje, referido, etc.",p:20,ev:true},
-       {n:"Medir resultados de captación en 3 semanas",d:"Registra cuántos contactos, cuántos interesados y cuántos clientes obtuviste. Analiza qué funcionó.",p:25,ev:true},
-       {n:"Ajustar el embudo con los datos",d:"Con base en los resultados, haz 1 cambio concreto para mejorar el flujo. Documenta el ajuste y el resultado.",p:15,ev:true}
-     ],diploma:{icon:"🏆",title:"Flujo de Clientes Activo",cond:"Embudo + captación semanal + métricas"}}
+       {n:"Planear el camino de un cliente desde que te descubre hasta que paga",d:`${td(
+         "Escribe qué pasa en cada etapa: ¿cómo te descubre alguien nuevo? ¿Qué hace después? ¿Cuándo y cómo le presentas tu oferta? ¿Qué lo convence de pagar? Cada paso debe tener una acción concreta de tu parte.",
+         "Si no tienes un camino claro para llevar a alguien desde 'no te conoce' hasta 'te paga', dependes de la suerte.",
+         "Tener un proceso repetible para conseguir clientes sin que cada uno sea un esfuerzo desde cero.",
+         "Foto o documento con el camino del cliente escrito paso a paso."
+       )}`,p:20,ev:true},
+       {n:"Hacer UNA acción cada semana para que nuevas personas te conozcan",d:`${td(
+         "Define qué vas a hacer cada semana sin falta para que nuevas personas sepan que existes. Puede ser: publicar en redes, enviar mensajes directos, pedir referidos, asistir a un evento. Elige UNA sola y hazla.",
+         "Sin acciones constantes para darte a conocer, los clientes llegan solos y eso no es negocio — es suerte.",
+         "Generar una fuente constante de nuevos contactos para que tu negocio no dependa solo de quienes ya te conocen.",
+         "Captura de la acción que hiciste: publicación, mensajes enviados, evento al que fuiste."
+       )}`,p:20,ev:true},
+       {n:"Anotar qué resultados dieron tus acciones en 3 semanas",d:`${td(
+         "Al final de cada semana anota: cuántas personas nuevas te contactaron, cuántas mostraron interés y cuántas compraron. Al terminar las 3 semanas, revisa los números y escribe qué funcionó mejor.",
+         "Sin resultados medidos no puedes saber qué vale la pena repetir y qué debes cambiar.",
+         "Tener información real para invertir tu tiempo en lo que sí funciona.",
+         "Foto de tus anotaciones semanales con los números de las 3 semanas."
+       )}`,p:25,ev:true},
+       {n:"Hacer un cambio basado en los resultados",d:`${td(
+         "Con los números de las 3 semanas, elige UN cambio concreto. Ejemplo: 'antes publicaba los lunes a las 8am y no llegaba nadie — ahora lo haré los miércoles al mediodía.' Aplica el cambio y anota qué pasó.",
+         "El aprendizaje sin cambio no mejora nada. Este paso cierra el ciclo: ejecutas, mides, ajustas.",
+         "Desarrollar el hábito de mejorar con base en resultados reales, no en suposiciones.",
+         "Texto con el cambio que hiciste y el resultado que obtuviste después."
+       )}`,p:15,ev:true}
+     ],diploma:{icon:"🏆",title:"Clientes Constantes Activos",cond:"Proceso definido + acción semanal + resultados medidos"}}
   ],
+
   3: [
-    {num:"01",name:"Optimización y automatización",sub:"\"Trabaja menos, produce más\"",sem:"4 semanas",
+    {num:"01",name:"Hacer más con menos esfuerzo",sub:"Identificamos qué tareas te quitan tiempo y las hacemos más eficientes",sem:"4 semanas",
      tasks:[
-       {n:"Auditar tu tiempo: qué automatizar",d:"Registra en qué usas tu tiempo durante una semana. Identifica 3 tareas que podrías automatizar o delegar.",p:20,ev:true},
-       {n:"Implementar una automatización real",d:"Elige una tarea y automatízala: puede ser un mensaje automático, una plantilla o un proceso digital.",p:25,ev:true},
-       {n:"Optimizar tu proceso de venta principal",d:"Analiza tu proceso de venta actual y mejora el paso que más está fallando. Documenta el cambio y el resultado.",p:20,ev:true},
-       {n:"Crear tu dashboard de métricas",d:"Un tablero simple (puede ser en Sheets) con tus KPIs principales que actualices cada semana.",p:20,ev:true}
-     ],diploma:{icon:"⚡",title:"Negocio Optimizado",cond:"Automatización + dashboard + proceso mejorado"}},
-    {num:"02",name:"Escalamiento con estrategia",sub:"\"Crece de forma ordenada\"",sem:"4 semanas",
+       {n:"Anotar todo lo que haces en una semana de trabajo",d:`${td(
+         "Durante una semana completa, anota todo lo que haces para el negocio: responder mensajes, publicar, hacer entregas, cobrar, atender clientes, etc. Calcula cuánto tiempo dedica a cada cosa.",
+         "La mayoría de emprendedores no sabe exactamente en qué se va su tiempo. Sin saberlo, no puedes recuperarlo.",
+         "Tener claro dónde se va tu tiempo para decidir qué hacer tú, qué simplificar y qué eliminar.",
+         "Foto de tu lista de tareas con el tiempo aproximado dedicado a cada una durante la semana."
+       )}`,p:20,ev:true},
+       {n:"Hacer más rápido una tarea que repites siempre",d:`${td(
+         "Elige una tarea que haces repetidamente (responder 'cuánto vale', publicar en redes, enviar información) y crea una forma de hacerla más rápido. Puede ser: un mensaje guardado en WhatsApp, una plantilla de texto, una respuesta rápida.",
+         "Tu tiempo es el recurso más limitado. Cada minuto que ahorras en tareas repetitivas lo puedes usar en crecer.",
+         "Reducir el tiempo que gastas en tareas operativas para tener espacio para lo que realmente hace crecer el negocio.",
+         "Captura de la plantilla, mensaje guardado o proceso que creaste para hacerlo más rápido."
+       )}`,p:25,ev:true},
+       {n:"Mejorar el paso de tu proceso de venta que más falla",d:`${td(
+         "Revisa tu proceso de venta y encuentra el paso donde más se caen los clientes. Haz UN cambio específico en ese punto y aplícalo durante 2 semanas. Anota qué pasó.",
+         "Mejorar lo que ya tienes tiene más impacto que empezar algo nuevo. Un pequeño ajuste en el punto correcto puede cambiar los resultados.",
+         "Aumentar las ventas sin conseguir más clientes — solo mejorando lo que ya estás haciendo.",
+         "Texto con el paso que mejoró, el cambio que hiciste y el resultado después de 2 semanas."
+       )}`,p:20,ev:true},
+       {n:"Crear un lugar donde ver los números de tu negocio",d:`${td(
+         "Crea una tabla simple (puede ser en papel, en Excel o en Google Sheets) donde anotes semanalmente: ingresos, gastos, clientes nuevos y clientes que compraron. Actualízala esta semana.",
+         "Sin información no puedes tomar buenas decisiones. Los negocios que crecen toman decisiones basadas en números, no en intuición.",
+         "Tener visibilidad real de cómo va tu negocio para saber cuándo acelerar y cuándo frenar.",
+         "Foto o captura de pantalla de tu tabla con los primeros datos de la semana."
+       )}`,p:20,ev:true}
+     ],diploma:{icon:"⚡",title:"Negocio Más Eficiente",cond:"Tiempo analizado + tarea optimizada + tabla de seguimiento activa"}},
+
+    {num:"02",name:"Crecer con orden",sub:"Hacemos un plan claro para que tu negocio crezca sin volverse un caos",sem:"4 semanas",
      tasks:[
-       {n:"Definir estrategia de crecimiento 90 días",d:"Metas concretas, acciones específicas, fechas y métricas para los próximos 3 meses.",p:25,ev:true},
-       {n:"Identificar aliance o persona clave para crecer",d:"Un aliado, proveedor, colaborador o cliente estratégico que puede acelerar tu crecimiento. Define cómo trabajarán.",p:20,ev:true},
-       {n:"Escalar un canal de venta probado",d:"Toma el canal que mejor funcionó y ponle más energía o inversión. Documenta resultados.",p:20,ev:true},
-       {n:"Evaluar rentabilidad real del crecimiento",d:"¿Ganar más te está costando más? Analiza si tu crecimiento es rentable y qué ajustes necesitas.",p:20,ev:true}
-     ],diploma:{icon:"🚀",title:"Escalamiento en Marcha",cond:"Estrategia + alianzas + canal escalado"}}
+       {n:"Escribir qué quieres lograr en los próximos 3 meses",d:`${td(
+         "Define 3 metas concretas para los próximos 90 días. Deben ser específicas y medibles. Ejemplo: 'Conseguir 5 clientes nuevos', 'Llegar a $3.000.000 de ingresos al mes', 'Lanzar un nuevo servicio'. Para cada meta escribe qué vas a hacer para lograrla.",
+         "Sin metas claras trabajas sin dirección. Haces cosas pero no sabes si te están acercando a donde quieres llegar.",
+         "Tener un norte claro para los próximos meses que guíe tus decisiones y esfuerzo diario.",
+         "Foto o documento con tus 3 metas y las acciones para cada una."
+       )}`,p:25,ev:true},
+       {n:"Identificar a alguien que te ayude a crecer",d:`${td(
+         "Busca UNA persona, empresa o aliado que pueda ayudarte a llegar más lejos: un proveedor clave, alguien con quien hacer referidos mutuos, un colaborador o un cliente que te conecte con otros. Contáctalo y propone algo concreto.",
+         "Nadie crece solo. Los negocios que escalan siempre tienen alianzas o redes de apoyo que multiplican el alcance.",
+         "Ampliar tu capacidad de llegar a más clientes o de servir mejor sin tener que hacerlo todo tú.",
+         "Captura de la conversación o propuesta que le hiciste al aliado o colaborador."
+       )}`,p:20,ev:true},
+       {n:"Invertir más energía en lo que mejor te funciona",d:`${td(
+         "Mira tu historia de ventas y clientes. ¿Qué canal te trajo más clientes? ¿Qué oferta se vende más fácil? ¿Qué tipo de cliente paga mejor y recomienda? Esta semana dedica el doble de energía a eso.",
+         "Hacer más de lo que ya funciona es la forma más segura de crecer. Muchos emprendedores abandonan lo que funciona para probar cosas nuevas.",
+         "Acelerar el crecimiento concentrando el esfuerzo en lo que ya ha demostrado resultados.",
+         "Texto con lo que identificaste que funciona mejor y la acción concreta que tomaste para potenciarlo."
+       )}`,p:20,ev:true},
+       {n:"Verificar si tu crecimiento está siendo rentable",d:`${td(
+         "Compara tus ingresos y gastos de este mes con los de hace 2 meses. ¿Estás ganando más o también gastando más? Calcula cuánto te queda realmente de ganancia y si eso justifica el esfuerzo que estás poniendo.",
+         "Crecer sin rentabilidad es agotarse sin resultados. Muchos negocios venden más pero ganan igual o menos.",
+         "Asegurarte de que tu crecimiento te deja más ganancia real, no solo más trabajo.",
+         "Foto de tu comparación de números: ingresos y gastos de este mes vs hace 2 meses, con el resultado."
+       )}`,p:20,ev:true}
+     ],diploma:{icon:"🚀",title:"Crecimiento con Dirección",cond:"Plan de 90 días + alianza + canal potenciado + rentabilidad verificada"}}
   ]
 };
 
@@ -832,9 +1155,9 @@ function renderResult1(){
   };
   document.getElementById('r1-msg').textContent=msgs[S.nivelFinal];
   const cuellos={
-    0:["Idea sin validación de mercado","Sin propuesta de valor definida","Sin cliente objetivo identificado","Sin modelo de negocio claro"],
+    0:["Idea sin validación de mercado","Sin tu mensaje de venta definida","Sin cliente objetivo identificado","Sin cómo funciona tu negocio claro"],
     1:["Falta de oferta y precio definidos","Sin canal de venta activo","Sin proceso comercial","Sin primeras ventas reales"],
-    2:["Procesos no documentados","Operación sin métricas","Ventas inconsistentes","Finanzas sin control"],
+    2:["Procesos no documentados","Operación sin tus números clave","Ventas inconsistentes","Finanzas sin control"],
     3:["Alta dependencia operativa del fundador","Sin automatizaciones implementadas","Sin estrategia de crecimiento clara","Crecimiento sin estructura rentable"]
   };
   const cl=document.getElementById('r1-cuellos'); cl.innerHTML='';
@@ -844,10 +1167,10 @@ function renderResult1(){
     cl.appendChild(d);
   });
   const planes={
-    0:["Definir el problema real que resuelves","Hacer entrevistas con posibles clientes","Construir tu propuesta de valor","Crear tu primer producto mínimo viable","Conseguir tu primera validación pagada"],
-    1:["Construir tu modelo de negocio formal","Definir oferta con precio claro","Identificar y perfilar tu cliente ideal","Activar un canal de venta","Ejecutar 3 conversaciones comerciales reales"],
-    2:["Mapear tu proceso de ventas actual","Identificar tu principal cuello de botella","Establecer métricas semanales","Organizar tus finanzas básicas","Crear un flujo de captación de clientes"],
-    3:["Auditar qué puedes automatizar","Optimizar tu proceso de venta principal","Crear dashboard de métricas","Definir estrategia de crecimiento 90 días","Identificar alianzas o personas clave"]
+    0:["Definir el problema real que resuelves","Hacer entrevistas con posibles clientes","Construir tu tu mensaje de venta","Crear tu primer producto mínimo viable","Conseguir tu primera validación pagada"],
+    1:["Construir tu cómo funciona tu negocio formal","Definir oferta con precio claro","Identificar y perfilar tu cliente ideal","Activar un canal de venta","Ejecutar 3 conversaciones comerciales reales"],
+    2:["Mapear tu proceso de ventas actual","Identificar tu principal cuello de botella","Establecer tus números clave semanales","Organizar tus finanzas básicas","Crear un flujo de captación de clientes"],
+    3:["Auditar qué puedes automatizar","Optimizar tu proceso de venta principal","Crear dashboard de tus números clave","Definir estrategia de crecimiento 90 días","Identificar alianzas o personas clave"]
   };
   const pl=document.getElementById('r1-plan'); pl.innerHTML='';
   planes[S.nivelFinal].forEach((p,i)=>{
@@ -914,10 +1237,10 @@ function renderResult2(){
   };
   document.getElementById('r2-msg').textContent=msgs[S.nivelFinal];
   const focos={
-    0:["Validación de mercado con entrevistas reales","Construcción de propuesta de valor","Creación del producto mínimo viable","Primera venta de validación"],
-    1:["Definición clara de modelo de negocio","Oferta concreta con precio justificado","Activación de canal de venta principal","Primeras 3 conversaciones comerciales"],
-    2:["Mapeo y documentación de procesos","Establecimiento de métricas clave","Organización financiera básica","Sistema de captación de clientes"],
-    3:["Automatización de tareas repetitivas","Dashboard de métricas de crecimiento","Estrategia de escalamiento 90 días","Alianzas y modelo sin dependencia total"]
+    0:["Validación de mercado con entrevistas reales","Construcción de tu mensaje de venta","Creación del producto mínimo viable","Primera venta de validación"],
+    1:["Definición clara de cómo funciona tu negocio","Oferta concreta con precio justificado","Activación de canal de venta principal","Primeras 3 conversaciones comerciales"],
+    2:["Mapeo y documentación de procesos","Establecimiento de tus números clave clave","Organización financiera básica","Sistema de captación de clientes"],
+    3:["Automatización de tareas repetitivas","Dashboard de tus números clave de crecimiento","Estrategia de escalamiento 90 días","Alianzas y modelo sin dependencia total"]
   };
   const fl=document.getElementById('r2-focos'); fl.innerHTML='';
   focos[S.nivelFinal].forEach(f=>{
@@ -935,6 +1258,15 @@ function renderResult2(){
 }
 
 function irCiclos(){
+  // Check if user has been unlocked by asesora
+  const desbloqueado = localStorage.getItem('skalera_acceso_' + S.name.toLowerCase().replace(/\s/g,''));
+  if(!desbloqueado){
+    // Show payment screen
+    document.getElementById('pago-nivel').textContent = NIVELES_LABEL[S.nivelFinal] + ' · Puntuación: ' + S.score1 + '/100';
+    go('s-pago');
+    document.getElementById('bnav').style.display='flex';
+    return;
+  }
   document.getElementById('g-name').textContent='Hola, '+S.name;
   document.getElementById('g-biz').textContent=S.biz;
   const nb=document.getElementById('g-tag');
@@ -942,6 +1274,13 @@ function irCiclos(){
   document.getElementById('st-score').textContent=S.score1+'/100';
   renderCiclos();
   go('s-ciclos'); setNav(0);
+}
+
+// Admin unlock function — 5 taps on logo then type key
+function desbloquearAcceso(nombre){
+  const key = 'skalera_acceso_' + nombre.toLowerCase().replace(/\s/g,'');
+  localStorage.setItem(key, '1');
+  toast('✅ Acceso activado para: ' + nombre);
 }
 
 // CICLOS
@@ -1016,7 +1355,8 @@ function renderTareas(idx){
           <div style="font-size:12px;color:var(--text2)">${ev.nota}</div>
           ${ev.file?`<div style="font-size:10px;color:var(--accent);margin-top:4px">${ev.url?`<a href="${ev.url}" target="_blank" style="color:var(--accent);text-decoration:none">📎 Ver evidencia: ${ev.file}</a>`:`📎 ${ev.file}`}</div>`:''}
         </div>`:''}
-        ${!done?`<button class="btn btn-accent btn-sm mt8" onclick="event.stopPropagation();abrirModal(${idx},${i})">Subir evidencia y completar ↑</button>`:''}
+        <div style="font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:12px">${t.d}</div>
+      ${!done?`<button class="btn btn-accent btn-sm mt8" onclick="event.stopPropagation();abrirModal(${idx},${i})">Subir evidencia y completar ↑</button>`:''}
         <button class="btn btn-wa btn-sm mt8" onclick="abrirWA('tarea',${idx},${i});event.stopPropagation()">
           <svg class="wa-svg" style="width:16px;height:16px" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Consultar con asesora
@@ -1033,6 +1373,11 @@ function renderTareas(idx){
     body.appendChild(btn);
   }
   body.innerHTML+=`<div style="height:16px"></div>`;
+  // Set task descriptions as HTML after DOM insert
+  c.tasks.forEach((t,i)=>{
+    const descEl = body.querySelector('#tdesc-'+idx+'-'+i);
+    if(descEl) descEl.innerHTML = t.d || '';
+  });
 }
 
 function toggleTaskBody(e,head){
@@ -1123,13 +1468,76 @@ function claimDiploma(idx){
   if(!S.diplomas.includes(idx)){
     S.diplomas.push(idx);
     const c=CICLOS_POR_NIVEL[S.nivelFinal][idx];
+    const totalCiclos=CICLOS_POR_NIVEL[S.nivelFinal].length;
     notificarEmail('Diploma obtenido', {
       detalle: 'Ciclo ' + (idx+1) + ': ' + c.diploma.title
     });
+    guardarEnFirebase && guardarEnFirebase('Diploma obtenido: ' + c.diploma.title);
     renderDiplomas(); renderCiclos(); actualizarStats();
-    toast('¡Diploma obtenido! Ve a tu colección ✦');
-    setTimeout(()=>{go('s-diplomas');setNav(2);},1500);
+
+    // Verificar si completó TODOS los ciclos
+    if(S.diplomas.length >= totalCiclos){
+      mostrarMensajeFinal();
+      return;
+    }
+
+    // Mensaje de siguiente acción
+    const sigIdx = idx + 1;
+    const sigCiclo = CICLOS_POR_NIVEL[S.nivelFinal][sigIdx];
+    const msg = sigCiclo
+      ? `¡Felicitaciones! Completaste el ciclo ${idx+1}. Tu diploma está en proceso. Ahora continúa con el Ciclo ${sigIdx+1}: "${sigCiclo.name}"`
+      : `¡Diploma obtenido! Ve a tu colección.`;
+    
+    // Show diploma modal with next action
+    mostrarModalDiploma(idx, sigCiclo, sigIdx);
   }
+}
+
+function mostrarModalDiploma(idx, sigCiclo, sigIdx){
+  const c = CICLOS_POR_NIVEL[S.nivelFinal][idx];
+  // Create modal overlay
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(13,27,42,.7);z-index:200;display:flex;align-items:flex-end;justify-content:center';
+  const box = document.createElement('div');
+  box.style.cssText = 'background:var(--card);border-radius:20px 20px 0 0;padding:28px 24px 40px;width:100%;max-width:440px;text-align:center;border-top:3px solid var(--accent)';
+  box.innerHTML = `
+    <div style="font-size:48px;margin-bottom:12px">${c.diploma.icon}</div>
+    <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;color:var(--accent2);margin-bottom:6px">¡Ciclo completado!</div>
+    <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--accent2);margin-bottom:6px">${c.diploma.title}</div>
+    <div style="font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:20px">Tu diploma está en proceso. Lo encontrarás en la sección <strong style="color:var(--accent2)">Diplomas</strong> cuando esté listo.<br><br>Tu asesora recibirá una notificación para certificarlo.</div>
+    ${sigCiclo ? `
+    <div style="background:var(--accent-lt);border-radius:var(--r2);padding:12px 16px;margin-bottom:16px;border:1px solid rgba(16,185,129,.2)">
+      <div style="font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Siguiente paso</div>
+      <div style="font-size:14px;font-weight:600;color:var(--accent2)">Ciclo ${sigIdx+1}: ${sigCiclo.name}</div>
+      <div style="font-size:12px;color:var(--text2);margin-top:2px">${sigCiclo.sem}</div>
+    </div>
+    <button onclick="this.closest('[style*=fixed]').remove();openCiclo(${sigIdx});go('s-tasks')" style="background:var(--accent2);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px;border:none;border-radius:var(--r2);width:100%;cursor:pointer;margin-bottom:10px">Empezar ciclo ${sigIdx+1} →</button>
+    <button onclick="this.closest('[style*=fixed]').remove();go('s-diplomas');setNav(2)" style="background:transparent;color:var(--text2);font-size:13px;border:1px solid var(--border);border-radius:var(--r2);padding:12px;width:100%;cursor:pointer">Ver mis diplomas</button>
+    ` : `
+    <button onclick="this.closest('[style*=fixed]').remove();go('s-diplomas');setNav(2)" style="background:var(--accent2);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px;border:none;border-radius:var(--r2);width:100%;cursor:pointer">Ver mi diploma →</button>
+    `}`;
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+}
+
+function mostrarMensajeFinal(){
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(13,27,42,.85);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px';
+  const box = document.createElement('div');
+  box.style.cssText = 'background:var(--card);border-radius:20px;padding:32px 28px;width:100%;max-width:400px;text-align:center;border-top:4px solid var(--accent)';
+  box.innerHTML = `
+    <div style="font-size:56px;margin-bottom:16px">🏆</div>
+    <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:11px;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;margin-bottom:8px">Programa completado</div>
+    <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--accent2);margin-bottom:12px">¡Lo lograste, ${S.name}!</div>
+    <div style="font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:20px">Completaste todos los ciclos del programa SKALERA™. Eso no es fácil — requiere compromiso, ejecución y constancia.<br><br><strong style="color:var(--accent2)">Tu negocio hoy tiene más estructura, claridad y dirección</strong> que cuando empezaste. Ese es el resultado real.<br><br>¡Mucho éxito en tu escalamiento!</div>
+    <div style="background:var(--accent-lt);border-radius:var(--r2);padding:12px 16px;margin-bottom:20px;border:1px solid rgba(16,185,129,.2);font-size:13px;color:#065F46;line-height:1.7">Si en el camino del crecimiento necesitas una mentoría adicional o acompañamiento extra, tu asesora está disponible para apoyarte.</div>
+    <button onclick="abrirWA('soporte')" style="background:var(--wa);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:14px;border:none;border-radius:var(--r2);width:100%;cursor:pointer;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Contactar a mi asesora
+    </button>
+    <button onclick="this.closest('[style*=fixed]').remove();go('s-diplomas');setNav(2)" style="background:transparent;color:var(--text2);font-size:13px;border:1px solid var(--border);border-radius:var(--r2);padding:12px;width:100%;cursor:pointer">Ver mis diplomas</button>`;
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
 }
 function renderDiplomas(){
   const lista=CICLOS_POR_NIVEL[S.nivelFinal]||[];
@@ -1142,12 +1550,12 @@ function renderDiplomas(){
       div.innerHTML=`<div class="diploma-card">
         <div class="diploma-glow"></div>
         <div style="font-size:36px;margin-bottom:8px">${c.diploma.icon}</div>
-        <div style="font-size:9px;letter-spacing:.15em;color:var(--text2);text-transform:uppercase;margin-bottom:6px">Palacios &amp; Lourido · Método Negocio con Dirección</div>
-        <div style="font-family:'Syne',sans-serif;font-size:16px;font-weight:800;margin-bottom:4px;line-height:1.2">${c.diploma.title}</div>
+        <div style="font-size:9px;letter-spacing:.15em;color:var(--text2);text-transform:uppercase;margin-bottom:6px">Palacios &amp; Lourido · SKALERA™</div>
+        <div style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;margin-bottom:4px;line-height:1.2">${c.diploma.title}</div>
         <div style="font-size:14px;color:var(--accent);margin-bottom:8px">${S.name}</div>
         <div style="width:50px;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));margin:8px auto;border-radius:1px"></div>
         <div style="font-size:10px;color:var(--text2);line-height:1.8">Negocio: ${S.biz}<br>Ciclo ${i+1} · ${hoy}<br>Todas las tareas ejecutadas con evidencia</div>
-        <div style="display:inline-block;background:rgba(200,242,75,.1);border:1px solid rgba(200,242,75,.3);border-radius:var(--r2);padding:7px 14px;font-size:10px;color:var(--accent);font-weight:700;margin-top:10px;letter-spacing:.05em">Palacios &amp; Lourido · Certificado de Implementación</div>
+        <div style="display:inline-block;background:rgba(200,242,75,.1);border:1px solid rgba(200,242,75,.3);border-radius:var(--r2);padding:7px 14px;font-size:10px;color:var(--accent);font-weight:700;margin-top:10px;letter-spacing:.05em">Palacios &amp; Lourido · SKALERA™</div>
         <button class="btn btn-wa btn-sm mt8" onclick="abrirWA('diploma',${i})">
           <svg class="wa-svg" style="width:16px;height:16px" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Compartir diploma con asesora
@@ -1156,7 +1564,7 @@ function renderDiplomas(){
     } else {
       div.innerHTML=`<div class="diploma-locked">
         <div style="font-size:28px;margin-bottom:6px">🔒</div>
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--text2)">Ciclo ${i+1} — ${c.diploma.title}</div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--text2)">Ciclo ${i+1} — ${c.diploma.title}</div>
         <div style="font-size:11px;color:var(--text2);margin-top:4px">${c.diploma.cond}</div>
       </div>`;
     }
@@ -1181,7 +1589,7 @@ function abrirWA(origen, idx1, idx2){
   const nl=NIVELES_LABEL[S.nivelFinal]||'Pendiente';
   let msg='';
   if(origen==='result1'){
-    msg=`Hola, acabo de completar mi diagnóstico inicial en Método Negocio con Dirección.\n\n👤 Nombre: ${S.name}\n💼 Negocio: ${S.biz}\n📊 Resultado: ${nl} (${S.score1}/100)\n\n¿Cuándo podemos tener nuestra mentoría inicial para revisar mi diagnóstico?`;
+    msg=`Hola, acabo de completar mi diagnóstico inicial en Método SKALERA™.\n\n👤 Nombre: ${S.name}\n💼 Negocio: ${S.biz}\n📊 Resultado: ${nl} (${S.score1}/100)\n\n¿Cuándo podemos tener nuestra mentoría inicial para revisar mi diagnóstico?`;
   } else if(origen==='result2'){
     msg=`Hola, acabo de completar mi diagnóstico profundo en MND.\n\n👤 Nombre: ${S.name}\n💼 Negocio: ${S.biz}\n📊 Nivel: ${nl}\n🔍 Diagnóstico profundo: ${Q2[S.nivelFinal]?.titulo||''}\n\nQuiero agendar mi mentoría inicial para alinear mi ruta personalizada.`;
   } else if(origen==='ciclos'){
@@ -1202,6 +1610,8 @@ function abrirWA(origen, idx1, idx2){
     msg=`Hola, quiero agendar mi mentoría de ciclo.\n\n👤 Nombre: ${S.name}\n💼 Negocio: ${S.biz}\n📊 Nivel: ${nl}\n✅ Progreso: ${done}/${total} tareas completadas\n\n¿Cuándo podemos revisar mi avance?`;
   } else if(origen==='soporte'){
     msg=`Hola, necesito soporte puntual.\n\n👤 Nombre: ${S.name||'(usuario nuevo)'}\n💼 Negocio: ${S.biz||''}\n\nMi consulta es:`;
+  } else if(origen==='activar'){
+    msg=`Hola Angela! Acabo de terminar mi diagnóstico en SKALERA™ y quiero activar mi programa.\n\n👤 Nombre: ${S.name}\n💼 Negocio: ${S.biz}\n📊 Nivel: ${NIVELES_LABEL[S.nivelFinal]||'—'} (${S.score1}/100)\n\n¿Cómo activo mi acceso a los ciclos?`;
   } else if(origen==='diploma'&&idx1!==undefined){
     const c=CICLOS_POR_NIVEL[S.nivelFinal]?.[idx1];
     msg=`Hola! Acabo de completar el ${c?.name||'ciclo '+idx1} y obtuve mi diploma.\n\n👤 Nombre: ${S.name}\n💼 Negocio: ${S.biz}\n🏅 Diploma: ${c?.diploma?.title||''}\n\n¿Cuándo revisamos mi avance para el siguiente ciclo?`;
@@ -1227,6 +1637,48 @@ function toast(msg){
   setTimeout(()=>t.classList.remove('show'),2800);
 }
 
+
+// ==========================================
+// MALLA CURRICULAR
+// ==========================================
+function renderMalla(){
+  const el = document.getElementById('malla-content');
+  if(!el) return;
+  const escalonesNames = [
+    '💡 Escalón 0 — Solo tienes una idea',
+    '🧭 Escalón 1 — Empezaste pero estás perdido',
+    '🔧 Escalón 2 — Tienes negocio pero en desorden',
+    '🚀 Escalón 3 — Tu negocio está en marcha'
+  ];
+  const colores = ['#10B981','#E2C08D','#778DA9','#0D1B2A'];
+  let out = '';
+  Object.entries(CICLOS_POR_NIVEL).forEach(([nivel, ciclos]) => {
+    out += `<div style="margin-bottom:24px">
+      <div style="background:var(--accent2);color:#fff;border-radius:var(--r2);padding:12px 16px;margin-bottom:12px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px">${escalonesNames[nivel]}</div>`;
+    ciclos.forEach((c, ci) => {
+      out += `<div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r2);margin-bottom:10px;overflow:hidden">
+        <div style="background:var(--bg3);padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px">
+          <div style="background:var(--accent);color:#fff;border-radius:6px;padding:3px 10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px">Ciclo ${ci+1}</div>
+          <div style="font-weight:600;font-size:13px;color:var(--accent2)">${c.name}</div>
+          <div style="margin-left:auto;font-size:11px;color:var(--text2)">${c.sem}</div>
+        </div>
+        <div style="padding:10px 14px">
+          <div style="font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px">${c.tasks.length} actividades</div>
+          ${c.tasks.map((t,ti)=>`<div style="display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12px">
+            <div style="width:18px;height:18px;border-radius:50%;background:var(--accent-lt);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px">${ti+1}</div>
+            <div style="color:var(--text)">${t.n}</div>
+          </div>`).join('')}
+          <div style="margin-top:10px;background:var(--accent-lt);border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:8px;font-size:12px">
+            <span style="font-size:18px">${c.diploma.icon}</span>
+            <div><strong style="color:var(--accent2)">Diploma: </strong><span style="color:var(--text2)">${c.diploma.title}</span></div>
+          </div>
+        </div>
+      </div>`;
+    });
+    out += '</div>';
+  });
+  el.innerHTML = out;
+}
 
 // ==========================================
 // ADMIN BYPASS: 5 taps on logo resets lock
@@ -1379,7 +1831,7 @@ function renderUsuarios(lista){
       <div class="usuario-header">
         <div class="usuario-avatar" style="background:${colores[n]}20;color:${colores[n]}">${iniciales}</div>
         <div style="flex:1">
-          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px">${u.nombre||'Sin nombre'}</div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px">${u.nombre||'Sin nombre'}</div>
           <div style="font-size:11px;color:var(--text2)">${u.negocio||'Sin negocio'}</div>
         </div>
         <div class="tag" style="background:${colores[n]}15;color:${colores[n]};border:1px solid ${colores[n]}30;font-size:9px">${emojis[n]} ${u.nivelLabel||'N'+n}</div>
@@ -1435,7 +1887,7 @@ function verDetalleUsuario(u){
 }
 
 function abrirWAusuario(nombre, negocio, nivel){
-  const msg = `Hola ${nombre}! Soy Angela de Método Negocio con Dirección. Revisé tu perfil en la plataforma y quería hacer seguimiento de tu avance en ${negocio}. ¿Cómo vas con tu ruta?`;
+  const msg = `Hola ${nombre}! Soy Angela de Método SKALERA™. Revisé tu perfil en la plataforma y quería hacer seguimiento de tu avance en ${negocio}. ¿Cómo vas con tu ruta?`;
   window.open('https://wa.me/573113053231?text=' + encodeURIComponent(msg), '_blank');
 }
 
